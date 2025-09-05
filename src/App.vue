@@ -28,7 +28,10 @@ export default {
       textureURL: import.meta.env.VITE_TEXTURE_LOCATION,
       acupoints: import.meta.env.VITE_ACUPOINTS_API,
     }
-  }
+  },
+  created: function() {
+    if (document) document.title = "Tara Acupoints Viewer"
+  },
 }
 
 </script>

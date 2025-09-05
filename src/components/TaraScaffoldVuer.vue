@@ -29,6 +29,12 @@
             </el-button>
           </el-col>
         </el-row>
+        <el-row :gutter="20" justify="center" align="middle">
+          <el-switch
+            v-model="alignPoint"
+            active-text="Align Point"
+          />
+        </el-row>
       </template>
       <template v-else>
         <el-row :gutter="20" justify="center" align="middle">
@@ -250,6 +256,7 @@ export default {
     return {
       acupoints: undefined,
       acupointsLabelOn: false,
+      alignPoint: true,
       glyphs: markRaw([]),
       quickEditOn: false,
       displayUI: true,
@@ -416,7 +423,6 @@ export default {
           }
         }
       });
-      console.log(filtered)
       this.acupoints = filtered;
     },
     onReady: async function () {
@@ -429,7 +435,7 @@ export default {
         fetch(this.acupointsEndpoint)
           .then(response => {
             if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
+              throw new Error(`Cannot download acupoints from server: ${response.status}`);
             }
             return response.json();
           })
@@ -512,6 +518,37 @@ export default {
         });
       }
     },
+    viewZincObjectOfInterest: function (zincObject) {
+      if (zincObject?.isGlyphset) {
+        const scaffoldvuer = this.$refs.scaffold;
+        scaffoldvuer.fitWindow();
+        const control = scaffoldvuer.$module.scene.getZincCameraControls();
+        const viewport = control.getCurrentViewport();
+        v1.set(...viewport.targetPosition);
+        v2.set(...viewport.eyePosition);
+        v2.subVectors(v2, v1);
+        const mag = v2.length() / 1.5;
+        const bounds = zincObject.getBoundingBox();
+        //Calculate new eyePosition
+        bounds.getCenter(v2);
+        v1.set(...viewport.targetPosition);
+        v2.subVectors(v2, v1);
+        v2.normalize();
+        v1.addScaledVector(v2, mag);
+        viewport.eyePosition = [v1.x, v1.y, v1.z];
+        //Calculate new upVector
+        //First, the forward vector Fnew = normalize(target - cameraNew)
+        v2.set(...viewport.targetPosition);
+        v2.sub(v1).normalize();
+        //Second, the right vector Rnew = normalize(up x Fnew)
+        v1.set(...viewport.upVector);
+        v1.cross(v2).normalize();
+        //Finally, the new up vector Unew = Fnew x Rnew
+        v2.cross(v1);
+        viewport.upVector = [v2.x, v2.y, v2.z];
+        control.setCurrentCameraSettings(viewport);
+      }
+    },
     onSelected: function (data) {
       if (data && data.length > 0 && data[0].data.group) {
         if (this.consoleOn) {
@@ -542,6 +579,10 @@ export default {
             const label = convertFromPrimitivesName(data[0].data.group);
             if (label && label.trim() && this.$refs.sideBar) {
               this.$refs.sideBar.openAcupointsSearch(label);
+            }
+            if (this. alignPoint && data.length === 1) {
+              const zincObject = data[0].data?.zincObject;
+              this.viewZincObjectOfInterest(zincObject);
             }
           }
         }
