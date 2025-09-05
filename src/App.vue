@@ -20,13 +20,13 @@ export default {
   data: function () {
     return {
       /* Settings for standard viewer */
-      acupointsViewer: false,
-      url: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/texture/arm1/arm_metadata.json",
-      /* Settings for acupoint viewer */
       //acupointsViewer: true,
-      //url: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/whole_body-30-1-25/human_body_acupoints_metadata.json",
-      //textureURL: import.meta.env.VITE_TEXTURE_LOCATION,
-      //acupoints: import.meta.env.VITE_ACUPOINTS_API,
+      //url: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/texture/arm1/arm_metadata.json",
+      /* Settings for acupoint viewer */
+      acupointsViewer: true,
+      url: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/whole_body-30-1-25/human_body_acupoints_metadata.json",
+      textureURL: import.meta.env.VITE_TEXTURE_LOCATION,
+      acupoints: import.meta.env.VITE_ACUPOINTS_API,
     }
   }
 }

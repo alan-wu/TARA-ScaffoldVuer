@@ -137,7 +137,6 @@ import {
 import {
   ElButton as Button,
   ElCol as Col,
-  ElMessage as Message,
   ElIcon as Icon,
   ElInput as Input,
   ElInputNumber as InputNumber,
@@ -403,6 +402,23 @@ export default {
     screenCapture: function () {
       this.$refs.scaffold.captureScreenshot("capture.png");
     },
+    populateAcupoints: function(data) {
+      const filtered = {};
+      const keys = Object.keys(data);
+      this.glyphs.forEach((glyph) => { 
+        if (glyph.groupName) {
+          const converted = convertFromPrimitivesName(glyph.groupName);
+          for (let i = 0; i < keys.length; i++) {
+            if (converted.toLowerCase() === keys[i].toLowerCase()) {
+              filtered[keys[i]] = data[keys[i]];
+              break;
+            }
+          }
+        }
+      });
+      console.log(filtered)
+      this.acupoints = filtered;
+    },
     onReady: async function () {
       const viewer = this.$refs.scaffold;
       const bounds = viewer.$module.scene.getBoundingBox();
@@ -411,23 +427,23 @@ export default {
       if (this.consoleOn) console.log("Lines length", this._createLinesLength);
       if (this.acupointsEndpoint) {
         fetch(this.acupointsEndpoint)
-          .then(response => response.json())
-          .then((json) => {
-            const filtered = {};
-            const keys = Object.keys(json);
-            this.glyphs.forEach((glyph) => { 
-              if (glyph.groupName) {
-                const converted = convertFromPrimitivesName(glyph.groupName);
-                for (let i = 0; i < keys.length; i++) {
-                  if (converted.toLowerCase() === keys[i].toLowerCase()) {
-                    filtered[keys[i]] = json[keys[i]];
-                    break;
-                  }
-                }
-              }
-            });
-            this.acupoints = filtered;
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            this.populateAcupoints(data);
+          })
+          .catch((error) => {
+            console.log(error)
+            if (acupointEntries) {
+              this.populateAcupoints(acupointEntries);
+            }
           });
+      } else if (acupointEntries) {
+        this.populateAcupoints(acupointEntries);
       }
       const Zinc = this.$refs.scaffold.$module.Zinc;
       if (this.textureUrl) {
