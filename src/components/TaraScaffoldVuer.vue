@@ -203,6 +203,7 @@ const findNearbyPoints = (data, tolerance) => {
 
 const v1 = new THREE.Vector3();
 const v2 = new THREE.Vector3();
+const v3 = new THREE.Vector3();
 
 const convertToPrimitivesName = original => {
   const name = original.replace(" ", "");
@@ -257,6 +258,7 @@ export default {
       acupoints: undefined,
       acupointsLabelOn: false,
       alignPoint: true,
+      bodyScaffold: undefined,
       glyphs: markRaw([]),
       quickEditOn: false,
       displayUI: true,
@@ -392,6 +394,10 @@ export default {
     },
     objectAdded: function (zincObject) {
       if (!zincObject.isLines2) {
+        const regionName = zincObject.region?.getName()
+        if (regionName && regionName === "skin") {
+          this.bodyScaffold = markRaw(zincObject);
+        }
         this._pickableObjects.push(zincObject);
         if (zincObject.isGlyphset) {
           zincObject.setScaleAll(2);
@@ -518,6 +524,32 @@ export default {
         });
       }
     },
+    setViewWithPointAndNormalV3: function(point, normal) {
+      const scaffoldvuer = this.$refs.scaffold;
+      scaffoldvuer.fitWindow();
+      const control = scaffoldvuer.$module.scene.getZincCameraControls();
+      const viewport = control.getCurrentViewport();
+      v1.set(...viewport.targetPosition);
+      v2.set(...viewport.eyePosition);
+      v2.subVectors(v2, v1);
+      const mag = v2.length() / 1.5;
+      viewport.targetPosition = [...point.toArray()];
+      //Target
+      v2.copy(point);
+      //Eye
+      v1.copy(point).addScaledVector(normal, mag);
+      viewport.eyePosition = [v1.x, v1.y, v1.z];
+      //Calculate new upVector
+      //First, the forward vector Fnew = normalize(target - cameraNew)
+      v2.sub(v1).normalize();
+      //Second, the right vector Rnew = normalize(up x Fnew)
+      v1.set(...viewport.upVector);
+      v1.cross(v2).normalize();
+      //Finally, the new up vector Unew = Fnew x Rnew
+      v2.cross(v1);
+      viewport.upVector = [v2.x, v2.y, v2.z];
+      control.setCurrentCameraSettings(viewport);
+    },
     viewZincObjectOfInterest: function (zincObject) {
       if (zincObject?.isGlyphset) {
         const scaffoldvuer = this.$refs.scaffold;
@@ -549,6 +581,42 @@ export default {
         control.setCurrentCameraSettings(viewport);
       }
     },
+    findNearestPointAndNormalFromObject: function(zincObject) {
+      if (this.bodyScaffold) {
+        const worldPoint = new THREE.Vector3();
+        zincObject.getBoundingBox().getCenter(worldPoint);
+        const positionAttribute = this.bodyScaffold.geometry.getAttribute('position');
+        let minDistanceSq = Infinity;
+        const tempPoint = new THREE.Vector3();
+        const closestPoint = new THREE.Vector3();
+        const closestNormal = new THREE.Vector3();
+        const triangle = new THREE.Triangle();
+
+        if (this.bodyScaffold.geometry.index) {
+          const indexAttribute = this.bodyScaffold.geometry.index;
+          for (let i = 0; i < indexAttribute.count; i += 3) {
+            const i1 = indexAttribute.getX(i);
+            const i2 = indexAttribute.getX(i + 1);
+            const i3 = indexAttribute.getX(i + 2);
+            
+            v1.fromBufferAttribute(positionAttribute, i1);
+            v2.fromBufferAttribute(positionAttribute, i2);
+            v3.fromBufferAttribute(positionAttribute, i3);
+            triangle.set(v1, v2, v3);
+            triangle.closestPointToPoint(worldPoint, tempPoint);
+            
+            const distanceSq = worldPoint.distanceToSquared(tempPoint);
+            if (distanceSq < minDistanceSq) {
+              minDistanceSq = distanceSq;
+              closestPoint.copy(tempPoint);
+              triangle.getNormal(closestNormal);
+            }
+          }
+        }
+        return({ point: closestPoint, normal: closestNormal });
+      }
+      return undefined;
+    },
     onSelected: function (data) {
       if (data && data.length > 0 && data[0].data.group) {
         if (this.consoleOn) {
@@ -576,13 +644,18 @@ export default {
           }
         } else {
           if (data && data.length > 0 && data[0].data.group) {
-            const label = convertFromPrimitivesName(data[0].data.group);
-            if (label && label.trim() && this.$refs.sideBar) {
-              this.$refs.sideBar.openAcupointsSearch(label);
-            }
-            if (this. alignPoint && data.length === 1) {
-              const zincObject = data[0].data?.zincObject;
-              this.viewZincObjectOfInterest(zincObject);
+            const zincObject = data[0].data?.zincObject;
+            if (zincObject.isGlyphset) {
+              const label = convertFromPrimitivesName(data[0].data.group);
+              if (label && label.trim() && this.$refs.sideBar) {
+                this.$refs.sideBar.openAcupointsSearch(label);
+              }
+              if (this.alignPoint && data.length === 1) {
+                const {point, normal} = this.findNearestPointAndNormalFromObject(
+                  zincObject);
+                this.setViewWithPointAndNormalV3(point, normal);
+                //this.viewZincObjectOfInterest(zincObject);
+              }
             }
           }
         }
