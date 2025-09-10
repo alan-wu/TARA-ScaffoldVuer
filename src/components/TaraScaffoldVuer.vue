@@ -396,6 +396,7 @@ export default {
       if (!zincObject.isLines2) {
         const regionName = zincObject.region?.getName()
         if (regionName && regionName === "skin") {
+          zincObject.setIsPickable(false);
           this.bodyScaffold = markRaw(zincObject);
         }
         this._pickableObjects.push(zincObject);
