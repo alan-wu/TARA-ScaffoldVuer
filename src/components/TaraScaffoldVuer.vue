@@ -114,6 +114,7 @@
       :enableOpenMapUI="false"
       :enableLocalAnnotations="true"
       :marker-cluster="false"
+      :positionalRotation="positionalRotation"
       :show-colour-picker="false"
       :render="true"
       @on-ready="onReady"
@@ -266,6 +267,7 @@ export default {
       ElIconFolderOpened: shallowRef(ElIconFolderOpened),
       ElIconDataAnalysis: shallowRef(ElIconDataAnalysis),
       coordinatesClicked: [],
+      positionalRotation: true,
       needlesInfo: {},
       infoVisible: false,
       importing: false,
@@ -489,6 +491,7 @@ export default {
           original.close();
         }
       }
+      this.setRotationMode
     },
     addLinesWithNormal: function (data, coord, normal) {
       const myViewer = this.$refs.scaffold;
@@ -524,6 +527,11 @@ export default {
           myViewer.drawPoint(coord, data);
         });
       }
+    },
+    setRotationMode: function(mode) {
+      const scene = this.$refs.scaffold.$module.scene;
+      const camera = scene.getZincCameraControls();
+      camera.setRotationMode(mode);
     },
     setViewWithPointAndNormalV3: function(point, normal) {
       const scaffoldvuer = this.$refs.scaffold;
