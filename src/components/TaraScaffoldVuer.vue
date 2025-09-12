@@ -491,7 +491,6 @@ export default {
           original.close();
         }
       }
-      this.setRotationMode
     },
     addLinesWithNormal: function (data, coord, normal) {
       const myViewer = this.$refs.scaffold;
