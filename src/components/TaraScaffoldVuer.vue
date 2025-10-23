@@ -35,6 +35,18 @@
             active-text="Align Point"
           />
         </el-row>
+        <el-row :gutter="20" justify="center" align="middle">
+          <el-col :span="12">
+            Add acupoints
+          </el-col>
+          <el-col :span="6">
+            <el-switch
+              v-model="quickEditOn"
+              :active-action-icon="ElIconEditPen"
+              :inactive-action-icon="ElIconEditPen"
+            />
+          </el-col>
+        </el-row>
       </template>
       <template v-else>
         <el-row :gutter="20" justify="center" align="middle">
@@ -53,7 +65,7 @@
                 id="annotations-upload"
                 type="file"
                 accept="application/json"
-                @change="importLocalAnnotations" 
+                @change="importLocalAnnotations"
               />
             </el-button>
           </el-col>
@@ -133,7 +145,7 @@ import NeedlesTable from "./NeedlesTable.vue";
 import { readNIFTIFromURL } from "./niftiReader.js"
 import { SideBar } from "@abi-software/map-side-bar";
 import "@abi-software/map-side-bar/dist/style.css";
-//import { acupointEntries } from './acupoints.js'
+import { acupointEntries } from './acupoints.js'
 import { ScaffoldVuer } from "@abi-software/scaffoldvuer";
 import "@abi-software/scaffoldvuer/dist/style.css";
 import {
@@ -289,14 +301,14 @@ export default {
         duration: 0,
         message: "Downloading Texture"
       }
-      
+
     };
   },
   props: {
     consoleOn: {
       type: Boolean,
       default: false,
-    },    
+    },
     url: {
       type: String,
       default: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/whole_body-30-1-25/human_body_acupoints_metadata.json",
@@ -394,6 +406,23 @@ export default {
       reader.onload = this.onReaderLoad;
       reader.readAsText(selectedFile);
     },
+    addAcupointInfo: function(zincObject) {
+      if (!this.acupoints) {
+        this.acupoints = {};
+      }
+      const label = zincObject.groupName;
+      if (label) {
+        if (!(label in this.acupoints)) {
+          this.acupoints[label] = {Acupoint: label};
+        }
+        this.$nextTick(() => {
+          if (label && this.$refs.sideBar) {
+            this.$refs.sideBar.openAcupointsSearch(label);
+          }
+        });
+      }
+      console.log(this.acupoints)
+    },
     objectAdded: function (zincObject) {
       if (!zincObject.isLines2) {
         const regionName = zincObject.region?.getName()
@@ -405,6 +434,8 @@ export default {
         if (zincObject.isGlyphset) {
           zincObject.setScaleAll(2);
           this.glyphs.push(zincObject);
+        } else if (zincObject.isPointset) {
+          this.addAcupointInfo(zincObject);
         } else {
           if (zincObject.groupName === "undefined" &&
             zincObject._lod?._material?.side) {
@@ -421,7 +452,7 @@ export default {
     populateAcupoints: function(data) {
       const filtered = {};
       const keys = Object.keys(data);
-      this.glyphs.forEach((glyph) => { 
+      this.glyphs.forEach((glyph) => {
         if (glyph.groupName) {
           const converted = convertFromPrimitivesName(glyph.groupName);
           for (let i = 0; i < keys.length; i++) {
@@ -606,13 +637,13 @@ export default {
             const i1 = indexAttribute.getX(i);
             const i2 = indexAttribute.getX(i + 1);
             const i3 = indexAttribute.getX(i + 2);
-            
+
             v1.fromBufferAttribute(positionAttribute, i1);
             v2.fromBufferAttribute(positionAttribute, i2);
             v3.fromBufferAttribute(positionAttribute, i3);
             triangle.set(v1, v2, v3);
             triangle.closestPointToPoint(worldPoint, tempPoint);
-            
+
             const distanceSq = worldPoint.distanceToSquared(tempPoint);
             if (distanceSq < minDistanceSq) {
               minDistanceSq = distanceSq;
@@ -631,10 +662,31 @@ export default {
           console.log(data[0].extraData.intersects);
           console.log(data[0], data[0].extraData.intersected);
         }
-        if (this.quickEditOn && data[0].extraData.worldCoords) {
+        if (this.acupointsViewer) {
+          if (data && data.length > 0) {
+            const zincObject = data[0].data?.zincObject;
+            if (zincObject.isGlyphset || zincObject.isPointset) {
+              let label = zincObject.groupName;
+              if (data[0].data.group) {
+                label = convertFromPrimitivesName(data[0].data.group);
+              }
+              if (label && label.trim() && this.$refs.sideBar) {
+                this.$refs.sideBar.openAcupointsSearch(label);
+              }
+              if (this.alignPoint && data.length === 1) {
+                const {point, normal} = this.findNearestPointAndNormalFromObject(
+                  zincObject);
+                this.setViewWithPointAndNormalV3(point, normal);
+              }
+            } else if (this.quickEditOn && data[0].extraData.worldCoords &&
+                data[0].extraData.intersected?.face) {
+              this.addPoint(data, data[0].extraData.worldCoords);
+            }
+          }
+        } else if (this.quickEditOn && data[0].extraData.worldCoords) {
           //Try to look for point within tolerance
           const points = findNearbyPoints(data, this.pointTolerance);
-             //Look for the surface underneath a point
+            //Look for the surface underneath a point
           if (points && points?.isPointset) {
             const intersects = data[0].extraData.intersects;
             if (intersects) {
@@ -650,30 +702,14 @@ export default {
           } else if (data[0].extraData.intersected?.face) {
             this.addPoint(data, data[0].extraData.worldCoords);
           }
-        } else {
-          if (data && data.length > 0 && data[0].data.group) {
-            const zincObject = data[0].data?.zincObject;
-            if (zincObject.isGlyphset) {
-              const label = convertFromPrimitivesName(data[0].data.group);
-              if (label && label.trim() && this.$refs.sideBar) {
-                this.$refs.sideBar.openAcupointsSearch(label);
-              }
-              if (this.alignPoint && data.length === 1) {
-                const {point, normal} = this.findNearestPointAndNormalFromObject(
-                  zincObject);
-                this.setViewWithPointAndNormalV3(point, normal);
-                //this.viewZincObjectOfInterest(zincObject);
-              }
-            }
-          }
         }
       }
     },
     userPrimitivesUpdated: function (payload) {
       if (this.consoleOn) console.log("userPrimitivesUpdated", payload);
       const zincObject = payload.zincObject;
-      if ((zincObject.isEditable ||  this.importing) && zincObject.isLines2) {
-        //Call the following to set the camera       
+      if ((zincObject.isEditable || this.importing) && zincObject.isLines2) {
+        //Call the following to set the camera
         const scene = this.$refs.scaffold.$module.scene;
         const camera = scene.getZincCameraControls();
         if (this._rayCaster) {
@@ -729,7 +765,7 @@ input[type="file"] {
   background-color: rgba(255, 255, 255, 0.5);
 
   .el-row {
-    width:200px; 
+    width:200px;
     .el-col {
       &.is-guttered {
         padding-top: 5px;
