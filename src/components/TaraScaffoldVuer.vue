@@ -2,49 +2,74 @@
   <div class="scaffold-container" ref="taraContainer">
     <div class="settings-panels">
       <template v-if="acupointsViewer">
-        <el-row :gutter="20" justify="center" align="middle">
-          <el-col :span="auto">
-            <el-button
-              size="small"
-              @click="displayLabels()">
-              Display labels
-            </el-button>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20" justify="center" align="middle">
-          <el-col :span="auto">
-            <el-button
-              size="small"
-              @click="frontView()">
-              Front view
-            </el-button>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20" justify="center" align="middle">
-          <el-col :span="auto">
-            <el-button
-              size="small"
-              @click="backView()">
-              Back view
-            </el-button>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20" justify="center" align="middle">
-          <el-switch
-            v-model="alignPoint"
-            active-text="Align Point"
-          />
-        </el-row>
-        <el-row :gutter="20" justify="center" align="middle">
+        <el-row>
           <el-col :span="12">
-            Add acupoints
+            <el-row :gutter="20" justify="center" align="middle">
+              <el-col :span="auto">
+                <el-button
+                  size="small"
+                  @click="displayLabels()">
+                  Display labels
+                </el-button>
+              </el-col>
+            </el-row>
+            <el-row :gutter="20" justify="center" align="middle">
+              <el-col :span="auto">
+                <el-button
+                  size="small"
+                  @click="frontView()">
+                  Front view
+                </el-button>
+              </el-col>
+            </el-row>
+            <el-row :gutter="20" justify="center" align="middle">
+              <el-col :span="auto">
+                <el-button
+                  size="small"
+                  @click="backView()">
+                  Back view
+                </el-button>
+              </el-col>
+            </el-row>
+            <el-row :gutter="20" justify="center" align="middle">
+              <el-col :span="auto">
+              <el-switch
+                v-model="alignPoint"
+                active-text="Align Point"
+              />
+            </el-col>
+            </el-row>
           </el-col>
-          <el-col :span="6">
-            <el-switch
-              v-model="quickEditOn"
-              :active-action-icon="ElIconEditPen"
-              :inactive-action-icon="ElIconEditPen"
-            />
+          <el-col :span="12">
+            <el-row :gutter="20" justify="center" align="left">
+              <el-col :span="auto">
+                <el-button
+                  size="small"
+                  :icon="ElIconFolderOpened"
+                  @click="exportLocalAnnotations()">
+                  Export Annotations
+                </el-button>
+              </el-col>
+              <el-col :span="auto">
+                <el-button size="small" :icon="ElIconFolderOpened">
+                  <label for="annotations-upload">Import Annotations</label>
+                  <input
+                    id="annotations-upload"
+                    type="file"
+                    accept="application/json"
+                    @change="importLocalAnnotations"
+                  />
+                </el-button>
+              </el-col>
+              <el-col :span="auto">
+                <el-switch
+                  v-model="quickEditOn"
+                  :active-action-icon="ElIconEditPen"
+                  :inactive-action-icon="ElIconEditPen"
+                  active-text="Add acupoints"
+                />
+              </el-col>
+            </el-row>
           </el-col>
         </el-row>
       </template>
@@ -225,7 +250,11 @@ const convertToPrimitivesName = original => {
 
 const convertFromPrimitivesName = original => {
   let name = original.substring(0, original.indexOf(" "));
-  name = `${name.substring(0, 2)} ${name.substring(2, 4)}`
+  if (name) {
+    name = `${name.substring(0, 2)} ${name.substring(2, 4)}`
+  } else {
+    name = original;
+  }
   return name;
 }
 
@@ -391,13 +420,41 @@ export default {
     },
     exportLocalAnnotations: function() {
       const annotations = this.$refs.scaffold.getOfflineAnnotations();
-      const filename = 'scaffoldAnnotations' + JSON.stringify(new Date()) + '.json';
-      writeTextFile(filename, annotations);
+      const prefix = this.acupointsViewer ? 'acupointsAnnotations' : 'scaffoldAnnotations';
+      let data = annotations;
+      if (this.acupointsViewer) {
+        data = {
+          annotations: annotations,
+          acupoints: this.acupoints
+        }
+      }
+      const date = JSON.stringify(new Date());
+      writeTextFile(`${prefix}${date}.json`, data);
     },
     onReaderLoad: function(event) {
-      const annotationsList = JSON.parse(event.target.result);
+      const data = JSON.parse(event.target.result);
+      let annotations = undefined;
+      let acupoints = undefined;
+      if (Array.isArray(data)) {
+        annotation = data;
+      } else {
+        if ('annotations' in data) {
+          annotations = data['annotations'];
+        }
+        if ('acupoints' in data) {
+          acupoints = data['acupoints'];
+        }
+      }
       this.importing = true;
-      this.$refs.scaffold.importOfflineAnnotations(annotationsList);
+      if (annotations) {
+        this.$refs.scaffold.importOfflineAnnotations(annotations);
+      }
+      if (acupoints) {
+        if (!this.acupoints) {
+          this.acupoints = {};
+        }
+        Object.assign(this.acupoints, acupoints);
+      }
       this.importing = false;
     },
     importLocalAnnotations: function() {
@@ -407,9 +464,7 @@ export default {
       reader.readAsText(selectedFile);
     },
     addAcupointInfo: function(zincObject) {
-      if (!this.acupoints) {
-        this.acupoints = {};
-      }
+      if (!this.acupoints) this.acupoints = {};
       const label = zincObject.groupName;
       if (label) {
         if (!(label in this.acupoints)) {
@@ -422,6 +477,11 @@ export default {
         });
       }
       console.log(this.acupoints)
+    },
+    setBodyScaffoldPickable: function(flag) {
+      if (this.bodyScaffold) {
+        this.bodyScaffold.setIsPickable(flag);
+      }
     },
     objectAdded: function (zincObject) {
       if (!zincObject.isLines2) {
@@ -467,6 +527,7 @@ export default {
     },
     onReady: async function () {
       const viewer = this.$refs.scaffold;
+      viewer.offlineAnnotationEnabled = true;
       const bounds = viewer.$module.scene.getBoundingBox();
       const d = bounds.max.distanceTo( bounds.min );
       this._createLinesLength = d / 6.0;
@@ -670,7 +731,7 @@ export default {
               if (data[0].data.group) {
                 label = convertFromPrimitivesName(data[0].data.group);
               }
-              if (label && label.trim() && this.$refs.sideBar) {
+              if (label && label.trim() && this.$refs.sideBar && zincObject.isGlyphset) {
                 this.$refs.sideBar.openAcupointsSearch(label);
               }
               if (this.alignPoint && data.length === 1) {
@@ -761,8 +822,9 @@ input[type="file"] {
   z-index:10000;
   left:0px;
   position:absolute;
-  text-align: center;
+  text-align: left;
   background-color: rgba(255, 255, 255, 0.5);
+  width:400px;
 
   .el-row {
     width:200px;
