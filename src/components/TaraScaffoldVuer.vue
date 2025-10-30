@@ -7,6 +7,18 @@
             <el-row :gutter="20" justify="center" align="middle">
               <el-col :span="auto">
                 <el-button
+                  class="left-buttons"
+                  size="small"
+                  :icon="ElIconQuestionFilled"
+                  @click="openHelp()">
+                  Help
+                </el-button>
+              </el-col>
+            </el-row>
+            <el-row :gutter="20" justify="center" align="middle">
+              <el-col :span="auto">
+                <el-button
+                  class="left-buttons"
                   size="small"
                   @click="displayLabels()">
                   Display labels
@@ -16,6 +28,7 @@
             <el-row :gutter="20" justify="center" align="middle">
               <el-col :span="auto">
                 <el-button
+                  class="left-buttons"
                   size="small"
                   @click="frontView()">
                   Front view
@@ -25,6 +38,7 @@
             <el-row :gutter="20" justify="center" align="middle">
               <el-col :span="auto">
                 <el-button
+                  class="left-buttons"
                   size="small"
                   @click="backView()">
                   Back view
@@ -174,9 +188,10 @@ import "@abi-software/map-side-bar/dist/style.css";
 import { ScaffoldVuer } from "@abi-software/scaffoldvuer";
 import "@abi-software/scaffoldvuer/dist/style.css";
 import {
+  DataAnalysis as ElIconDataAnalysis,
   EditPen as ElIconEditPen,
   FolderOpened as ElIconFolderOpened,
-  DataAnalysis as ElIconDataAnalysis,
+  QuestionFilled as ElIconQuestionFilled,
 } from '@element-plus/icons-vue';
 import {
   ElButton as Button,
@@ -291,6 +306,7 @@ export default {
     Switch,
     ElIconEditPen,
     ElIconFolderOpened,
+    ElIconQuestionFilled,
     NeedlesTable,
     ScaffoldVuer,
     SideBar,
@@ -304,9 +320,10 @@ export default {
       glyphs: markRaw([]),
       quickEditOn: false,
       displayUI: true,
+      ElIconDataAnalysis: shallowRef(ElIconDataAnalysis),
       ElIconEditPen: shallowRef(ElIconEditPen),
       ElIconFolderOpened: shallowRef(ElIconFolderOpened),
-      ElIconDataAnalysis: shallowRef(ElIconDataAnalysis),
+      ElIconQuestionFilled: shallowRef(ElIconQuestionFilled),
       coordinatesClicked: [],
       positionalRotation: true,
       needlesInfo: {},
@@ -387,6 +404,9 @@ export default {
     );
   },
   methods: {
+    openHelp: function() {
+      window.open("https://github.com/ABI-Software/TARA-ScaffoldVuer/blob/acupoint/README.md#overview", "_blank")
+    },
     displayLabels: function() {
       if (this.acupointsLabelOn) {
         this.glyphs.forEach(glyph => glyph.hideLabel());
@@ -476,7 +496,6 @@ export default {
           }
         });
       }
-      console.log(this.acupoints)
     },
     setBodyScaffoldPickable: function(flag) {
       if (this.bodyScaffold) {
@@ -495,6 +514,8 @@ export default {
           zincObject.setScaleAll(2);
           this.glyphs.push(zincObject);
         } else if (zincObject.isPointset) {
+          zincObject.setSize(15);
+          zincObject.setColourHex(0xff5724);
           this.addAcupointInfo(zincObject);
         } else {
           if (zincObject.groupName === "undefined" &&
@@ -731,10 +752,10 @@ export default {
               if (data[0].data.group) {
                 label = convertFromPrimitivesName(data[0].data.group);
               }
-              if (label && label.trim() && this.$refs.sideBar && zincObject.isGlyphset) {
+              if (label && label.trim() && this.$refs.sideBar) {
                 this.$refs.sideBar.openAcupointsSearch(label);
               }
-              if (this.alignPoint && data.length === 1) {
+              if (this.alignPoint && data.length === 1 && zincObject.isGlyphset) {
                 const {point, normal} = this.findNearestPointAndNormalFromObject(
                   zincObject);
                 this.setViewWithPointAndNormalV3(point, normal);
@@ -816,6 +837,10 @@ export default {
 
 input[type="file"] {
   display: none;
+}
+
+:deep(.left-buttons) {
+  width: 97px;
 }
 
 .settings-panels {

@@ -3,6 +3,8 @@ import {
   THREE
 } from "zincjs";
 
+const hideWhitePixel = false;
+
 const textureData = {
   "id": "mesh-location-orientation",
   "locations": [
@@ -73,8 +75,12 @@ const createSources = (niftiHeader, niftiImage) => {
           fullArray[offset * 4] = value;
           fullArray[offset* 4 + 1] = value;
           fullArray[offset* 4 + 2] = value;
-          if (value === 255) {
-            fullArray[offset * 4 + 3] = 0;
+          if (hideWhitePixel) {
+            if (value === 255) {
+              fullArray[offset * 4 + 3] = 0;
+            } else {
+              fullArray[offset * 4 + 3] = 255;
+            }
           } else {
             fullArray[offset * 4 + 3] = 255;
           }
@@ -142,7 +148,7 @@ const readNIFTIFromURL = async (Zinc, url) => {
     const buffer = await response.arrayBuffer();
     const sources = readNIFTI(buffer);
     return createTexturePrimitives(Zinc, sources);
-//  } 
+//  }
   /*catch (err) {
     console.error(err)
     console.log("Not working")
