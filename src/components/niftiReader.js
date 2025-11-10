@@ -64,6 +64,9 @@ const createSources = (niftiHeader, niftiImage) => {
     let scale = 1;
     if (dataType === "float") {
       scale = 255;
+    } else if (dataType === "int") {
+      scale = 255;
+
     }
     for (let slice = 0; slice < depth; slice++) {
       const sliceOffset = sliceSize * slice;
