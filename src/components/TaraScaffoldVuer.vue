@@ -582,7 +582,7 @@ export default {
           duration: 0,
           appendTo: ele,
         });
-        const newTexture = await readNIFTIFromURL(Zinc, this.textureUrl);
+        const newTexture = await readNIFTIFromURL(Zinc, this.textureUrl, false);
         if (newTexture) {
           ElMessage({
             message: 'Texture loaded Successfully',
@@ -639,11 +639,6 @@ export default {
           myViewer.drawPoint(coord, data);
         });
       }
-    },
-    setRotationMode: function(mode) {
-      const scene = this.$refs.scaffold.$module.scene;
-      const camera = scene.getZincCameraControls();
-      camera.setRotationMode(mode);
     },
     setViewWithPointAndNormalV3: function(point, normal) {
       const scaffoldvuer = this.$refs.scaffold;
