@@ -4,6 +4,7 @@ import {
 } from "zincjs";
 
 const hideWhitePixel = false;
+const hideBlackPixel = false;
 
 const textureSettings = {
   v1: {
@@ -76,7 +77,6 @@ const readNIFTI = (data) => {
   let fullData = nifti.isCompressed(data) ? nifti.decompress(data) : data;
   if (nifti.isNIFTI(fullData)) {
     let niftiHeader = nifti.readHeader(fullData);
-    console.log("header", niftiHeader)
     let niftiImage = nifti.readImage(niftiHeader, fullData);
     const sources = createSources(niftiHeader, niftiImage);
     niftiImage = undefined;
@@ -98,9 +98,8 @@ const createSources = (niftiHeader, niftiImage) => {
     let scale = 1;
     if (dataType === "float") {
       scale = 255;
-    } else if (dataType === "int") {
+    } else if (dataType === "uint") {
       scale = 255;
-
     }
     for (let slice = 0; slice < depth; slice++) {
       const sliceOffset = sliceSize * slice;
@@ -112,14 +111,12 @@ const createSources = (niftiHeader, niftiImage) => {
           fullArray[offset * 4] = value;
           fullArray[offset * 4 + 1] = value;
           fullArray[offset * 4 + 2] = value;
-          if (hideWhitePixel) {
-            if (value === 255) {
-              fullArray[offset * 4 + 3] = 0;
-            } else {
-              fullArray[offset * 4 + 3] = 255;
-            }
-          } else {
-            fullArray[offset * 4 + 3] = 255;
+          fullArray[offset * 4 + 3] = 255;
+          if (hideWhitePixel && value === 255) {
+            fullArray[offset * 4 + 3] = 0;
+          }
+          if (hideBlackPixel && 0 >= value) {
+            fullArray[offset * 4 + 3] = 0;
           }
         }
       }
@@ -136,11 +133,11 @@ const createSources = (niftiHeader, niftiImage) => {
 
 const getTypedData = (niftiHeader, niftiImage) => {
   if (niftiHeader.datatypeCode === nifti.NIFTI1.TYPE_UINT8) {
-    return { typedData: new Uint8Array(niftiImage), dataType: "int" };
+    return { typedData: new Uint8Array(niftiImage), dataType: "uint" };
   } else if (niftiHeader.datatypeCode === nifti.NIFTI1.TYPE_INT16) {
-    return { typedData: new Int16Array(niftiImage), dataType: "int" };
+    return { typedData: new Int16Array(niftiImage), dataType: "int16" };
   } else if (niftiHeader.datatypeCode === nifti.NIFTI1.TYPE_INT32) {
-    return { typedData: new Int32Array(niftiImage), dataType: "int" };
+    return { typedData: new Int32Array(niftiImage), dataType: "int32" };
   } else if (niftiHeader.datatypeCode === nifti.NIFTI1.TYPE_FLOAT32) {
     return { typedData: new Float32Array(niftiImage), dataType: "float" };
   } else if (niftiHeader.datatypeCode === nifti.NIFTI1.TYPE_FLOAT64) {
