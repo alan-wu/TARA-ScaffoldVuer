@@ -73,7 +73,7 @@
       :enableLocalAnnotations="true"
       :marker-cluster="false"
       :positionalRotation="positionalRotation"
-      :show-colour-picker="false"
+      :show-colour-picker="true"
       :render="true"
       @on-ready="onReady"
       @scaffold-selected="onSelected"
@@ -164,6 +164,7 @@ export default {
       acupointsLabelOn: false,
       alignPoint: true,
       bodyScaffold: undefined,
+      displayAxis: false,
       glyphs: markRaw([]),
       quickEditOn: false,
       displayUI: true,
@@ -176,7 +177,7 @@ export default {
       needlesInfo: {},
       infoVisible: false,
       importing: false,
-      url: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/examples/cube/cube_metadata.json",
+      url: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/10-Nov-25/smaller_metadata.json",
       sidebarTabs: [
         {title: 'Acupoints', id: 1, type: 'acupoints' },
       ],
@@ -256,7 +257,6 @@ export default {
       const pointName = "point_";
       let order = 1;
       points.forEach((point) => {
-        console.log(point)
         scene.createPoints(
           "_annotations/premade",
           `${pointName}${order}`,
@@ -271,8 +271,10 @@ export default {
     onReady: async function () {
       this.addPremadePoints();
       await this.readTexture();
-      this.$refs.scaffold.createAxisDisplay(false);
-      this.$refs.scaffold.enableAxisDisplay(true, false);
+      if (this.displayAxis) {
+        this.$refs.scaffold.createAxisDisplay(false);
+        this.$refs.scaffold.enableAxisDisplay(true, false);
+      }
     },
     openHelp: function() {
       window.open("https://github.com/ABI-Software/TARA-ScaffoldVuer/blob/acupoint/README.md#overview", "_blank")
@@ -358,6 +360,14 @@ export default {
         if (regionName && regionName === "skin") {
           zincObject.setIsPickable(false);
           this.bodyScaffold = markRaw(zincObject);
+        }
+        if (zincObject.groupName === "iso_block") {
+          this.bodyScaffold = markRaw(zincObject);
+          this.bodyScaffold.setPosition(-240, -259, -445.6);
+          const group = this.bodyScaffold.getGroup();
+          group.scale.set(1.2, 1.2, 1.2);
+          group.updateMatrix();
+          this.bodyScaffold.boundingBoxUpdateRequired = true;
         }
         this._pickableObjects.push(zincObject);
         if (zincObject.isGlyphset) {
@@ -459,7 +469,7 @@ export default {
           const zincObject = data[0].data?.zincObject;
           if (zincObject.isGlyphset || zincObject.isPointset) {
             let label = zincObject.groupName;
-            if (data[0].data.group) {
+            if (data[0].data.group && zincObject.isGlyphset) {
               label = convertFromPrimitivesName(data[0].data.group);
             }
             if (label && label.trim() && this.$refs.sideBar) {

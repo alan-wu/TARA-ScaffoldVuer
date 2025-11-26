@@ -200,6 +200,7 @@ const createTexturePrimitives = (Zinc, niftiHeader, sources, useHeaderInfo) => {
     //set using the information from the header
     if (useHeaderInfo && niftiHeader) {
       const {position, scale} = getTransformationFromHeader(niftiHeader);
+      console.log(niftiHeader)
       if (position && scale) {
         settings.locations[0].scale = scale
         settings.locations[0].position = position;
@@ -234,12 +235,6 @@ const readNIFTIFromURL = async (Zinc, url, useHeaderInfo) => {
   const buffer = await response.arrayBuffer();
   const { sources, niftiHeader } = readNIFTI(buffer);
   return createTexturePrimitives(Zinc, niftiHeader, sources, useHeaderInfo);
-  //  }
-  /*catch (err) {
-    console.error(err)
-    console.log("Not working")
-    return undefined;
-  } */
 }
 
 export { readNIFTIFromURL }
