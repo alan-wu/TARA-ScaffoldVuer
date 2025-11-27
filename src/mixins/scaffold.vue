@@ -1,17 +1,19 @@
 <script>
 import { THREE } from "zincjs";
+import { watchEffect } from 'vue'
+
 
 const v1 = new THREE.Vector3();
 const v2 = new THREE.Vector3();
 const v3 = new THREE.Vector3();
 const viewportSettings = [
         {
-          "nearPlane": 55.774443039904924,
-          "farPlane": 2739.5078287421884,
+          "nearPlane": 0.027395078287421885,
+          "farPlane": 2683.7607807805707,
           "eyePosition": [
               -0.0000095367431640625,
               -20.000009536743164,
-              892.6888577463396
+              484.4976341266126
           ],
           "targetPosition": [
               -0.0000095367431640625,
@@ -25,41 +27,41 @@ const viewportSettings = [
           ]
         },
         {
-            "nearPlane": 55.774443039904924,
-            "farPlane": 2739.5078287421884,
-            "eyePosition": [
-                -0.0000095367431640625,
-                -1249.6590974232422,
-                -345.5568026759384
-            ],
-            "targetPosition": [
-                -0.0000095367431640625,
-                -20.000009536743164,
-                -337.00000178813934
-            ],
-            "upVector": [
-                0,
-                -0.00695850891178896,
-                0.9999757892838099
-            ]
-        },
-        {
-          "nearPlane": 55.774443039904924,
-          "farPlane": 2739.5078287421884,
+          "nearPlane": 0.027395078287421885,
+          "farPlane": 2683.7607807805707,
           "eyePosition": [
-              -1229.6884956056215,
-              -19.041652241257854,
-              -336.9933328889
+              1.9910875395733882,
+              -713.157608674361,
+              -349.13651530364507
           ],
           "targetPosition": [
-              -0.0000095367431640625,
-              -20.000009536743164,
-              -337.00000178813934
+              1.9910875395733882,
+              -6.3130423424072495,
+              -323.8243323649339
           ],
           "upVector": [
-              1.9520111431338925e-18,
-              -0.006958508911789514,
-              0.9999757892838921
+              0,
+              -0.03578717304880148,
+              0.9993594339601859
+          ]
+        },
+        {
+          "nearPlane": 0.027395078287421885,
+          "farPlane": 2683.7607807805707,
+          "eyePosition": [
+              708.4639055284002,
+              -20.057694130887516,
+              -355.08436352885076
+          ],
+          "targetPosition": [
+              1.9910875395733882,
+              -6.3130423424072495,
+              -323.8243323649339
+          ],
+          "upVector": [
+              0.04429318816331025,
+              0.0045770111274922535,
+              0.9990080902833776
           ]
         }
       ];
@@ -83,10 +85,17 @@ const writeTextFile = (filename, data) => {
 
 export default {
   name: "scaffoldMixin",
+  props: {
+    url: {
+      type: String,
+      default: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/whole_body-30-1-25/human_body_acupoints_metadata.json",
+    },
+  },
   data: function () {
     return {
       acupointsInfo: false,
       currentViewport: 0,
+      isDrawerOpen: false,
       tCentre: [0, 0, 0],
       viewport: undefined,
     }
@@ -200,6 +209,14 @@ export default {
       const reader = new FileReader();
       reader.onload = this.onReaderLoad;
       reader.readAsText(selectedFile);
+    },
+    onSidebarMount: function() {
+      const sideBar = this.$refs.sideBar;
+      if (sideBar) {
+        watchEffect(() => {
+          this.isDrawerOpen = sideBar.drawerOpen
+        })
+      }
     },
     setViewWithPointAndNormalV3: function(point, normal) {
       const scaffoldvuer = this.$refs.scaffold;

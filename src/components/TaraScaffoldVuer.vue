@@ -140,23 +140,10 @@
         </el-row>
       </template>
     </div>
-    <SideBar
-      v-if="acupoints"
-      ref="sideBar"
-      class="side-bar"
-      :envVars="envVars"
-      :visible="true"
-      :activeTabId="1"
-      :tabs="sidebarTabs"
-      :open-at-start="true"
-      :acupointsInfoList="acupoints"
-      @acupoints-clicked="onAcupointsClicked"
-      @acupoints-hovered="onAcupointsHovered"
-    />
     <ScaffoldVuer
       v-if="url"
       ref="scaffold"
-      class="vuer"
+      :class="['vuer', isDrawerOpen ? 'collapsed' : '']"
       :display-u-i="displayUI"
       :url="url"
       :display-latest-changes="false"
@@ -172,6 +159,20 @@
       @scaffold-selected="onSelected"
       @user-primitives-updated="userPrimitivesUpdated"
       @zinc-object-added="objectAdded"
+    />
+    <SideBar
+      v-if="acupoints"
+      ref="sideBar"
+      class="side-bar"
+      :envVars="envVars"
+      :visible="true"
+      :activeTabId="1"
+      :tabs="sidebarTabs"
+      :open-at-start="true"
+      :acupointsInfoList="acupoints"
+      @acupoints-clicked="onAcupointsClicked"
+      @acupoints-hovered="onAcupointsHovered"
+      @vue:mounted="onSidebarMount"
     />
   </div>
 </template>
@@ -337,10 +338,6 @@ export default {
     consoleOn: {
       type: Boolean,
       default: false,
-    },
-    url: {
-      type: String,
-      default: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/whole_body-30-1-25/human_body_acupoints_metadata.json",
     },
     pointTolerance: {
       type: Number,

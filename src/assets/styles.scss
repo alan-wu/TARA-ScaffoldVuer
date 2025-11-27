@@ -53,9 +53,17 @@ input[type="file"] {
   margin-top: 5px;
 }
 
+.side-bar {
+  display: block;
+}
+
 .vuer {
   :deep(svg.map-icon) {
     color: #8300BF;
   }
+  &.collapsed {
+    width: calc(100% - 560px);
+  }
 }
+
 /* Component Styles */

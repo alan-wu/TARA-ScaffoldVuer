@@ -6,6 +6,7 @@ import TaraScaffoldVuer from './components/TaraScaffoldVuer.vue';
   <div id="app">
     <SimpleTexture
       v-if="mode === 'simple'"
+      :url="url"
       :texture-url="textureURL"
       :console-on="false"
     />
@@ -34,7 +35,8 @@ export default {
        */
       mode: "simple",
       acupointsViewer: true,
-      url: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/whole_body-30-1-25/human_body_acupoints_metadata.json",
+      //url: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/whole_body-30-1-25/human_body_acupoints_metadata.json",
+      url: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/10-Nov-25/smaller_metadata.json",
       textureURL: import.meta.env.VITE_TEXTURE_LOCATION,
       acupoints: import.meta.env.VITE_ACUPOINTS_API,
     }

@@ -58,22 +58,10 @@
         </el-col>
       </el-row>
     </div>
-    <SideBar
-      v-if="acupoints"
-      ref="sideBar"
-      class="side-bar"
-      :envVars="envVars"
-      :visible="true"
-      :activeTabId="1"
-      :tabs="sidebarTabs"
-      :open-at-start="true"
-      :acupointsInfoList="acupoints"
-      @acupoints-clicked="onAcupointsClicked"
-      @acupoints-hovered="onAcupointsHovered"
-    />
     <ScaffoldVuer
       ref="scaffold"
-      class="vuer"
+      class="vuer main-column"
+      :class="['vuer', isDrawerOpen ? 'collapsed' : '']"
       :display-u-i="displayUI"
       :url="url"
       :display-latest-changes="false"
@@ -89,6 +77,20 @@
       @scaffold-selected="onSelected"
       @user-primitives-updated="userPrimitivesUpdated"
       @zinc-object-added="objectAdded"
+    />
+    <SideBar
+      v-if="acupoints"
+      ref="sideBar"
+      class="side-bar main-column"
+      :envVars="envVars"
+      :visible="true"
+      :activeTabId="1"
+      :tabs="sidebarTabs"
+      :open-at-start="true"
+      :acupointsInfoList="acupoints"
+      @acupoints-clicked="onAcupointsClicked"
+      @acupoints-hovered="onAcupointsHovered"
+      @vue:mounted="onSidebarMount"
     />
   </div>
 </template>
@@ -169,7 +171,6 @@ export default {
       needlesInfo: {},
       infoVisible: false,
       importing: false,
-      url: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/10-Nov-25/smaller_metadata.json",
       sidebarTabs: [
         {title: 'Acupoints', id: 1, type: 'acupoints' },
       ],
@@ -188,7 +189,6 @@ export default {
         duration: 0,
         message: "Downloading Texture"
       }
-
     };
   },
   props: {
