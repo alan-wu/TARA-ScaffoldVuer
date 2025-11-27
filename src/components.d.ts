@@ -19,6 +19,7 @@ declare module 'vue' {
     NeedlesTable: typeof import('./components/NeedlesTable.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Scaffold: typeof import('./components/mixins/scaffold.vue')['default']
     SimpleTexture: typeof import('./components/SimpleTexture.vue')['default']
     TaraScaffoldVuer: typeof import('./components/TaraScaffoldVuer.vue')['default']
   }

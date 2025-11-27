@@ -186,6 +186,7 @@ import { SideBar } from "@abi-software/map-side-bar";
 import "@abi-software/map-side-bar/dist/style.css";
 //import { acupointEntries } from './acupoints.js'
 import { ScaffoldVuer } from "@abi-software/scaffoldvuer";
+import scaffoldMixin from "../mixins/scaffold.vue";
 import "@abi-software/scaffoldvuer/dist/style.css";
 import {
   DataAnalysis as ElIconDataAnalysis,
@@ -203,9 +204,6 @@ import {
   ElRow as Row,
   ElSwitch as Switch,
 } from "element-plus";
-import {
-  THREE
-} from "zincjs";
 import 'element-plus/es/components/message/style/css'; // this is only needed if the page also used ElMessage
 
 const writeTextFile = (filename, data) => {
@@ -253,10 +251,6 @@ const findNearbyPoints = (data, tolerance) => {
     }
   }
 }
-
-const v1 = new THREE.Vector3();
-const v2 = new THREE.Vector3();
-const v3 = new THREE.Vector3();
 
 const convertToPrimitivesName = original => {
   const name = original.replace(" ", "");
@@ -311,6 +305,7 @@ export default {
     ScaffoldVuer,
     SideBar,
   },
+  mixins: [scaffoldMixin],
   data: function () {
     return {
       acupoints: undefined,
@@ -423,79 +418,6 @@ export default {
     backView: function() {
       const control  = this.$refs.scaffold.$module.scene.getZincCameraControls();
       control.setCurrentCameraSettings(backViewport);
-    },
-    onAcupointsClicked: function (data) {
-      let names = undefined;
-      if (data?.Acupoint) {
-        names = convertToPrimitivesName(data.Acupoint);
-      }
-      this.$refs.scaffold.changeActiveByName(names, "", false);
-    },
-    onAcupointsHovered: function (data) {
-      let names = undefined;
-      if (data?.Acupoint) {
-        names = convertToPrimitivesName(data.Acupoint);
-      }
-      this.$refs.scaffold.changeHighlightedByName(names, "", false);
-    },
-    exportLocalAnnotations: function() {
-      const annotations = this.$refs.scaffold.getOfflineAnnotations();
-      const prefix = this.acupointsViewer ? 'acupointsAnnotations' : 'scaffoldAnnotations';
-      let data = annotations;
-      if (this.acupointsViewer) {
-        data = {
-          annotations: annotations,
-          acupoints: this.acupoints
-        }
-      }
-      const date = JSON.stringify(new Date());
-      writeTextFile(`${prefix}${date}.json`, data);
-    },
-    onReaderLoad: function(event) {
-      const data = JSON.parse(event.target.result);
-      let annotations = undefined;
-      let acupoints = undefined;
-      if (Array.isArray(data)) {
-        annotation = data;
-      } else {
-        if ('annotations' in data) {
-          annotations = data['annotations'];
-        }
-        if ('acupoints' in data) {
-          acupoints = data['acupoints'];
-        }
-      }
-      this.importing = true;
-      if (annotations) {
-        this.$refs.scaffold.importOfflineAnnotations(annotations);
-      }
-      if (acupoints) {
-        if (!this.acupoints) {
-          this.acupoints = {};
-        }
-        Object.assign(this.acupoints, acupoints);
-      }
-      this.importing = false;
-    },
-    importLocalAnnotations: function() {
-      const selectedFile = document.getElementById("annotations-upload").files[0];
-      const reader = new FileReader();
-      reader.onload = this.onReaderLoad;
-      reader.readAsText(selectedFile);
-    },
-    addAcupointInfo: function(zincObject) {
-      if (!this.acupoints) this.acupoints = {};
-      const label = zincObject.groupName;
-      if (label) {
-        if (!(label in this.acupoints)) {
-          this.acupoints[label] = {Acupoint: label};
-        }
-        this.$nextTick(() => {
-          if (label && this.$refs.sideBar) {
-            this.$refs.sideBar.openAcupointsSearch(label);
-          }
-        });
-      }
     },
     setBodyScaffoldPickable: function(flag) {
       if (this.bodyScaffold) {
@@ -818,65 +740,9 @@ export default {
 };
 </script>
 
+
 <style scoped lang="scss">
 
-:deep(.warning-icon) {
-  display:none;
-}
-.scaffold-container {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  position: absolute;
-}
+@import "../assets/styles.scss";
 
-input[type="file"] {
-  display: none;
-}
-
-:deep(.left-buttons) {
-  width: 97px;
-}
-
-.settings-panels {
-  z-index:10000;
-  left:0px;
-  position:absolute;
-  text-align: left;
-  background-color: rgba(255, 255, 255, 0.5);
-  width:400px;
-
-  .el-row {
-    width:200px;
-    .el-col {
-      &.is-guttered {
-        padding-top: 5px;
-        padding-bottom: 5px;
-      }
-
-      > p {
-        font-size: 12px;
-        margin: 0;
-      }
-
-      .el-input__inner,
-      .el-switch {
-        font-size: 12px;
-        height: 20px;
-      }
-    }
-  }
-}
-
-.needles-button {
-  z-index:10000;
-  margin-top: 5px;
-}
-
-.vuer {
-  :deep(svg.map-icon) {
-    color: #8300BF;
-  }
-}
-/* Component Styles */
 </style>

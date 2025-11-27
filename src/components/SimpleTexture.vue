@@ -14,6 +14,16 @@
               </el-button>
             </el-col>
           </el-row>
+          <el-row :gutter="20" justify="center" align="middle">
+              <el-col :span="auto">
+                <el-button
+                  class="left-buttons"
+                  size="small"
+                  @click="rotate()">
+                  Rotate
+                </el-button>
+              </el-col>
+            </el-row>
         </el-col>
         <el-col :span="12">
           <el-row :gutter="20" justify="center" align="left">
@@ -99,6 +109,7 @@ import {
   FolderOpened as ElIconFolderOpened,
   QuestionFilled as ElIconQuestionFilled,
 } from '@element-plus/icons-vue';
+import scaffoldMixin from "../mixins/scaffold.vue";
 import {
   ElButton as Button,
   ElCol as Col,
@@ -109,9 +120,6 @@ import {
   ElRow as Row,
   ElSwitch as Switch,
 } from "element-plus";
-import {
-  THREE
-} from "zincjs";
 import 'element-plus/es/components/message/style/css'; // this is only needed if the page also used ElMessage
 
 const writeTextFile = (filename, data) => {
@@ -158,6 +166,7 @@ export default {
     ScaffoldVuer,
     SideBar,
   },
+  mixins: [scaffoldMixin],
   data: function () {
     return {
       acupoints: undefined,
@@ -213,21 +222,6 @@ export default {
       default: "",
     },
   },
-  watch: {
-    helpMode: function (newVal) {
-      if (!newVal) {
-        this.helpModeActiveItem = 0;
-      }
-    },
-    quickEditOn: function(value) {
-      if (value) {
-        this.$refs.scaffold.$module.ignorePreviousSelected = true;
-        this.$refs.scaffold.viewingMode = "Exploration";
-      } else {
-        this.$refs.scaffold.$module.ignorePreviousSelected = false;
-      }
-    },
-  },
   mounted: function () {
     this._createLinesLength = 100;
     const Zinc = this.$refs.scaffold.$module.Zinc;
@@ -279,76 +273,6 @@ export default {
     openHelp: function() {
       window.open("https://github.com/ABI-Software/TARA-ScaffoldVuer/blob/acupoint/README.md#overview", "_blank")
     },
-    onAcupointsClicked: function (data) {
-      let names = undefined;
-      if (data?.Acupoint) {
-        names = convertToPrimitivesName(data.Acupoint);
-      }
-      this.$refs.scaffold.changeActiveByName(names, "", false);
-    },
-    onAcupointsHovered: function (data) {
-      let names = undefined;
-      if (data?.Acupoint) {
-        names = convertToPrimitivesName(data.Acupoint);
-      }
-      this.$refs.scaffold.changeHighlightedByName(names, "", false);
-    },
-    exportLocalAnnotations: function() {
-      const annotations = this.$refs.scaffold.getOfflineAnnotations();
-      const prefix = 'acupointsAnnotations';
-      const data = {
-        annotations: annotations,
-        acupoints: this.acupoints
-      }
-      const date = JSON.stringify(new Date());
-      writeTextFile(`${prefix}${date}.json`, data);
-    },
-    onReaderLoad: function(event) {
-      const data = JSON.parse(event.target.result);
-      let annotations = undefined;
-      let acupoints = undefined;
-      if (Array.isArray(data)) {
-        annotation = data;
-      } else {
-        if ('annotations' in data) {
-          annotations = data['annotations'];
-        }
-        if ('acupoints' in data) {
-          acupoints = data['acupoints'];
-        }
-      }
-      this.importing = true;
-      if (annotations) {
-        this.$refs.scaffold.importOfflineAnnotations(annotations);
-      }
-      if (acupoints) {
-        if (!this.acupoints) {
-          this.acupoints = {};
-        }
-        Object.assign(this.acupoints, acupoints);
-      }
-      this.importing = false;
-    },
-    importLocalAnnotations: function() {
-      const selectedFile = document.getElementById("annotations-upload").files[0];
-      const reader = new FileReader();
-      reader.onload = this.onReaderLoad;
-      reader.readAsText(selectedFile);
-    },
-    addAcupointInfo: function(zincObject) {
-      if (!this.acupoints) this.acupoints = {};
-      const label = zincObject.groupName;
-      if (label) {
-        if (!(label in this.acupoints)) {
-          this.acupoints[label] = {Acupoint: label};
-        }
-        this.$nextTick(() => {
-          if (label && this.$refs.sideBar) {
-            this.$refs.sideBar.openAcupointsSearch(label);
-          }
-        });
-      }
-    },
     setBodyScaffoldPickable: function(flag) {
       if (this.bodyScaffold) {
         this.bodyScaffold.setIsPickable(flag);
@@ -390,22 +314,6 @@ export default {
     screenCapture: function () {
       this.$refs.scaffold.captureScreenshot("capture.png");
     },
-    populateAcupoints: function(data) {
-      const filtered = {};
-      const keys = Object.keys(data);
-      this.glyphs.forEach((glyph) => {
-        if (glyph.groupName) {
-          const converted = convertFromPrimitivesName(glyph.groupName);
-          for (let i = 0; i < keys.length; i++) {
-            if (converted.toLowerCase() === keys[i].toLowerCase()) {
-              filtered[keys[i]] = data[keys[i]];
-              break;
-            }
-          }
-        }
-      });
-      this.acupoints = filtered;
-    },
     readTexture: async function () {
       const viewer = this.$refs.scaffold;
       viewer.offlineAnnotationEnabled = true;
@@ -430,8 +338,8 @@ export default {
           });
           original.close();
           viewer.$module.scene.addZincObject(newTexture);
-          console.log(newTexture.getBoundingBox())
           viewer.$module.scene.viewAll();
+          this.calculateTextureCentre(newTexture);
         } else {
           ElMessage({
             message: 'Unable to load texture',
@@ -493,63 +401,6 @@ export default {
 
 <style scoped lang="scss">
 
-:deep(.warning-icon) {
-  display:none;
-}
-.scaffold-container {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  position: absolute;
-}
+@import "../assets/styles.scss";
 
-input[type="file"] {
-  display: none;
-}
-
-:deep(.left-buttons) {
-  width: 97px;
-}
-
-.settings-panels {
-  z-index:10000;
-  left:0px;
-  position:absolute;
-  text-align: left;
-  background-color: rgba(255, 255, 255, 0.5);
-  width:400px;
-
-  .el-row {
-    width:200px;
-    .el-col {
-      &.is-guttered {
-        padding-top: 5px;
-        padding-bottom: 5px;
-      }
-
-      > p {
-        font-size: 12px;
-        margin: 0;
-      }
-
-      .el-input__inner,
-      .el-switch {
-        font-size: 12px;
-        height: 20px;
-      }
-    }
-  }
-}
-
-.needles-button {
-  z-index:10000;
-  margin-top: 5px;
-}
-
-.vuer {
-  :deep(svg.map-icon) {
-    color: #8300BF;
-  }
-}
-/* Component Styles */
 </style>
