@@ -64,12 +64,30 @@ const viewportSettings = [
         }
       ];
 
+const convertToPrimitivesName = original => {
+  const name = original.replace(" ", "");
+  return [`${name} left`, `${name} right`];
+}
+
+const writeTextFile = (filename, data) => {
+  let dataStr =
+    "data:text/json;charset=utf-8," +
+    encodeURIComponent(JSON.stringify(data));
+  let hrefElement = document.createElement("a");
+  document.body.append(hrefElement);
+  hrefElement.download = filename;
+  hrefElement.href = dataStr;
+  hrefElement.click();
+  hrefElement.remove();
+}
+
 export default {
   name: "scaffoldMixin",
   data: function () {
     return {
-      tCentre: [0, 0, 0],
+      acupointsInfo: false,
       currentViewport: 0,
+      tCentre: [0, 0, 0],
       viewport: undefined,
     }
   },
@@ -121,7 +139,7 @@ export default {
       }
       this.$refs.scaffold.changeHighlightedByName(names, "", false);
     },
-    addAcupointInfo: function(zincObject) {
+    addAcupointsInfo: function(zincObject) {
       if (!this.acupoints) this.acupoints = {};
       const label = zincObject.groupName;
       if (label) {
@@ -142,7 +160,7 @@ export default {
       const annotations = this.$refs.scaffold.getOfflineAnnotations();
       const prefix = this.acupointsViewer ? 'acupointsAnnotations' : 'scaffoldAnnotations';
       let data = annotations;
-      if (this.acupointsViewer) {
+      if (this.acupointsInfo) {
         data = {
           annotations: annotations,
           acupoints: this.acupoints
@@ -156,7 +174,7 @@ export default {
       let annotations = undefined;
       let acupoints = undefined;
       if (Array.isArray(data)) {
-        annotation = data;
+        annotations = data;
       } else {
         if ('annotations' in data) {
           annotations = data['annotations'];

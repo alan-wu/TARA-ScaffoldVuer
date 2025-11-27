@@ -206,18 +206,6 @@ import {
 } from "element-plus";
 import 'element-plus/es/components/message/style/css'; // this is only needed if the page also used ElMessage
 
-const writeTextFile = (filename, data) => {
-  let dataStr =
-    "data:text/json;charset=utf-8," +
-    encodeURIComponent(JSON.stringify(data));
-  let hrefElement = document.createElement("a");
-  document.body.append(hrefElement);
-  hrefElement.download = filename;
-  hrefElement.href = dataStr;
-  hrefElement.click();
-  hrefElement.remove();
-}
-
 const getIntersectedObjects = (intersects) => {
   const primitiveInfos = [];
   intersects.forEach((intersect) => {
@@ -397,6 +385,7 @@ export default {
       undefined,
       undefined,
     );
+    this.acupointsInfo = this.acupointsViewer;
   },
   methods: {
     openHelp: function() {
@@ -438,7 +427,7 @@ export default {
         } else if (zincObject.isPointset) {
           zincObject.setSize(15);
           zincObject.setColourHex(0xff5724);
-          this.addAcupointInfo(zincObject);
+          this.addAcupointsInfo(zincObject);
         } else {
           if (zincObject.groupName === "undefined" &&
             zincObject._lod?._material?.side) {
@@ -561,32 +550,6 @@ export default {
           myViewer.drawPoint(coord, data);
         });
       }
-    },
-    setViewWithPointAndNormalV3: function(point, normal) {
-      const scaffoldvuer = this.$refs.scaffold;
-      scaffoldvuer.fitWindow();
-      const control = scaffoldvuer.$module.scene.getZincCameraControls();
-      const viewport = control.getCurrentViewport();
-      v1.set(...viewport.targetPosition);
-      v2.set(...viewport.eyePosition);
-      v2.subVectors(v2, v1);
-      const mag = v2.length() / 1.5;
-      viewport.targetPosition = [...point.toArray()];
-      //Target
-      v2.copy(point);
-      //Eye
-      v1.copy(point).addScaledVector(normal, mag);
-      viewport.eyePosition = [v1.x, v1.y, v1.z];
-      //Calculate new upVector
-      //First, the forward vector Fnew = normalize(target - cameraNew)
-      v2.sub(v1).normalize();
-      //Second, the right vector Rnew = normalize(up x Fnew)
-      v1.set(...viewport.upVector);
-      v1.cross(v2).normalize();
-      //Finally, the new up vector Unew = Fnew x Rnew
-      v2.cross(v1);
-      viewport.upVector = [v2.x, v2.y, v2.z];
-      control.setCurrentCameraSettings(viewport);
     },
     viewZincObjectOfInterest: function (zincObject) {
       if (zincObject?.isGlyphset) {

@@ -122,23 +122,6 @@ import {
 } from "element-plus";
 import 'element-plus/es/components/message/style/css'; // this is only needed if the page also used ElMessage
 
-const writeTextFile = (filename, data) => {
-  let dataStr =
-    "data:text/json;charset=utf-8," +
-    encodeURIComponent(JSON.stringify(data));
-  let hrefElement = document.createElement("a");
-  document.body.append(hrefElement);
-  hrefElement.download = filename;
-  hrefElement.href = dataStr;
-  hrefElement.click();
-  hrefElement.remove();
-}
-
-const convertToPrimitivesName = original => {
-  const name = original.replace(" ", "");
-  return [`${name} left`, `${name} right`];
-}
-
 const convertFromPrimitivesName = original => {
   let name = original.substring(0, original.indexOf(" "));
   if (name) {
@@ -233,6 +216,7 @@ export default {
       undefined,
       undefined,
     );
+    this.acupointsInfo = true;
   },
   methods: {
     addPremadePoints: function() {
@@ -300,7 +284,7 @@ export default {
         } else if (zincObject.isPointset) {
           zincObject.setSize(15);
           zincObject.setColourHex(0xff5724);
-          this.addAcupointInfo(zincObject);
+          this.addAcupointsInfo(zincObject);
         } else {
           if (zincObject.groupName === "undefined" &&
             zincObject._lod?._material?.side) {
