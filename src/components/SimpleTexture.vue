@@ -46,15 +46,19 @@
                 />
               </el-button>
             </el-col>
-            <el-col :span="auto">
-              <el-switch
-                v-model="quickEditOn"
-                :active-action-icon="ElIconEditPen"
-                :inactive-action-icon="ElIconEditPen"
-                active-text="Add acupoints"
-              />
-            </el-col>
           </el-row>
+        </el-col>
+      </el-row>
+      <el-row>
+        Interactive Mode:
+      </el-row>
+      <el-row>
+        <el-col :span="auto" class="extra-wide">
+          <el-radio-group v-model="intMode" size="small">
+            <el-radio value="view" border>Viewing</el-radio>
+            <el-radio value="create" border>Create</el-radio>
+            <el-radio value="edit" border>Edit</el-radio>
+          </el-radio-group>
         </el-col>
       </el-row>
     </div>
@@ -74,6 +78,7 @@
       :show-colour-picker="true"
       :render="true"
       @on-ready="onReady"
+      @scaffold-highlighted="onHighlighted"
       @scaffold-selected="onSelected"
       @user-primitives-updated="userPrimitivesUpdated"
       @zinc-object-added="objectAdded"
@@ -119,6 +124,8 @@ import {
   ElInput as Input,
   ElInputNumber as InputNumber,
   ElPopover as Popover,
+  ElRadioGroup as RadioGroup,
+  ElRadio as Radio,
   ElRow as Row,
   ElSwitch as Switch,
 } from "element-plus";
@@ -156,16 +163,16 @@ export default {
     return {
       acupoints: undefined,
       acupointsLabelOn: false,
-      alignPoint: true,
+      alignPoint: false,
       bodyScaffold: undefined,
       displayAxis: false,
       glyphs: markRaw([]),
-      quickEditOn: false,
       displayUI: true,
       ElIconDataAnalysis: shallowRef(ElIconDataAnalysis),
       ElIconEditPen: shallowRef(ElIconEditPen),
       ElIconFolderOpened: shallowRef(ElIconFolderOpened),
       ElIconQuestionFilled: shallowRef(ElIconQuestionFilled),
+      intMode: "view",
       coordinatesClicked: [],
       positionalRotation: true,
       needlesInfo: {},
@@ -336,20 +343,8 @@ export default {
         }
       }
     },
-    addPoint: function (data, coord) {
-      const myViewer = this.$refs.scaffold;
-      if (this.consoleOn) {
-        console.log(myViewer.createData);
-        console.log("addPoints", data, coord);
-      }
-      if (coord) {
-        myViewer.createData.shape = "Point";
-        this.$nextTick(() => {
-          myViewer.createData.toBeConfirmed = false;
-          myViewer.createData.points.length = 0;
-          myViewer.drawPoint(coord, data);
-        });
-      }
+    onHighlighted: function (data) {
+
     },
     onSelected: function (data) {
       if (data && data.length > 0 && data[0].data.group) {
@@ -367,12 +362,15 @@ export default {
             if (label && label.trim() && this.$refs.sideBar) {
               this.$refs.sideBar.openAcupointsSearch(label);
             }
+            if (this.intMode === "edit") {
+
+            }
             if (this.alignPoint && data.length === 1 && zincObject.isGlyphset) {
               const {point, normal} = this.findNearestPointAndNormalFromObject(
                 zincObject);
               this.setViewWithPointAndNormalV3(point, normal);
             }
-          } else if (this.quickEditOn && data[0].extraData.worldCoords &&
+          } else if (this.intMode === "create" && data[0].extraData.worldCoords &&
               data[0].extraData.intersected?.face) {
             this.addPoint(data, data[0].extraData.worldCoords);
           }

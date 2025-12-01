@@ -185,6 +185,7 @@ const createTexturePrimitives = (Zinc, niftiHeader, sources, useHeaderInfo) => {
     const tArray = new Zinc.TextureArray();
     tArray.impl = new THREE.DataTexture2DArray(
       sources.data, sources.width, sources.height, sources.depth);
+    tArray.impl.anisotropy = 4;
     tArray.size = {
       width: sources.width,
       height: sources.height,

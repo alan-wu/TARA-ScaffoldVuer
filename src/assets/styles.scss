@@ -26,9 +26,22 @@ input[type="file"] {
   background-color: rgba(255, 255, 255, 0.5);
   width:400px;
 
+  .el-radio-group {
+    width:300px;
+    .el-radio{
+      margin-right: 15px;
+
+    }
+  }
+
   .el-row {
     width:200px;
+
     .el-col {
+      &.extra-wide {
+        width: 300px;
+      }
+
       &.is-guttered {
         padding-top: 5px;
         padding-bottom: 5px;

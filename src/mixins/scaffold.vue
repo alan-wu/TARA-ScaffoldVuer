@@ -218,6 +218,19 @@ export default {
         })
       }
     },
+    addPoint: function (data, coord) {
+      const myViewer = this.$refs.scaffold;
+      myViewer.createData.shape = "Point";
+      if (this.consoleOn) {
+        console.log(myViewer.createData);
+        console.log("addPoints", data, coord);
+      }
+      if (coord) {
+        this.$nextTick(() => {
+          myViewer.drawPoint(coord, data);
+        });
+      }
+    },
     setViewWithPointAndNormalV3: function(point, normal) {
       const scaffoldvuer = this.$refs.scaffold;
       scaffoldvuer.fitWindow();
@@ -243,6 +256,38 @@ export default {
       v2.cross(v1);
       viewport.upVector = [v2.x, v2.y, v2.z];
       control.setCurrentCameraSettings(viewport);
+    },
+    userPrimitivesUpdated: function (payload) {
+      if (this.consoleOn) console.log("userPrimitivesUpdated", payload);
+      const zincObject = payload.zincObject;
+      if ((zincObject.isEditable || this.importing) && zincObject.isLines2) {
+        //Call the following to set the camera
+        const scene = this.$refs.scaffold.$module.scene;
+        const camera = scene.getZincCameraControls();
+        if (this._rayCaster) {
+          this._rayCaster.getIntersectsObjectWithCamera(camera, 0, 0);
+          for (let i = 0; i * 2 < zincObject.drawRange; i++) {
+            const v = zincObject.getVerticesByFaceIndex(i);
+            let d = [v[1][0] - v[0][0], v[1][1] - v[0][1], v[1][2] - v[0][2]];
+            const mag = Math.sqrt(d[0] * d[0] + d[1] * d[1] + d[2] * d[2]);
+            for (let l = 0; l < 3; l++) {
+              v1.setComponent(l, v[0][l]);
+              d[l] = d[l] / mag;
+              v2.setComponent(l, d[l]);
+            }
+            this._rayCaster.setPickableObjects(this._pickableObjects);
+            const objects = this._rayCaster.getIntersectsObjectWithOrigin(
+              camera, v1, v2);
+            const intersects = objects.filter((object) => object.distance < mag);
+            const primitivesInfo = getIntersectedObjects(intersects);
+            let needlesName = `Needle ${i + 1}`;
+            if (zincObject.groupName) {
+              needlesName = needlesName + ` of ${zincObject.groupName}`;
+            }
+            this.needlesInfo[needlesName] = primitivesInfo;
+          }
+        }
+      }
     },
   },
 
