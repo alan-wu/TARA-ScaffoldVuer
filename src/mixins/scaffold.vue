@@ -83,6 +83,22 @@ const writeTextFile = (filename, data) => {
   hrefElement.remove();
 }
 
+const getIntersectedObjects = (intersects) => {
+  const primitiveInfos = [];
+  intersects.forEach((intersect) => {
+    const zincObject = intersect.object.userData;
+    if (zincObject) {
+      const groupName = zincObject?.groupName;
+      const distance = intersect.distance.toFixed(2);
+      const x = intersect.point.x.toFixed(2);
+      const y = intersect.point.y.toFixed(2);
+      const z = intersect.point.z.toFixed(2);
+      primitiveInfos.push({groupName, distance, x, y, z});
+    }
+  });
+  return primitiveInfos;
+}
+
 export default {
   name: "scaffoldMixin",
   props: {

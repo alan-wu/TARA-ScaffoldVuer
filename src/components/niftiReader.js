@@ -71,7 +71,6 @@ const textureSettings = {
   }
 }
 
-
 const readNIFTI = (data) => {
   // parse nifti
   let fullData = nifti.isCompressed(data) ? nifti.decompress(data) : data;
@@ -115,8 +114,11 @@ const createSources = (niftiHeader, niftiImage) => {
           if (hideWhitePixel && value === 255) {
             fullArray[offset * 4 + 3] = 0;
           }
-          if (hideBlackPixel && 0 >= value) {
-            fullArray[offset * 4 + 3] = 0;
+          if (hideBlackPixel && 2 >= value) {
+            fullArray[offset * 4] = 240;
+            fullArray[offset * 4 + 1] = 240;
+            fullArray[offset * 4 + 2] = 240;
+            fullArray[offset * 4 + 3] = 1.0;
           }
         }
       }
@@ -224,17 +226,26 @@ const createTexturePrimitives = (Zinc, niftiHeader, sources, useHeaderInfo) => {
       */
     }
     newTexture.initialise(settings, undefined);
-    newTexture.showEdges(0x000000);
+    newTexture.showEdges(0x999999);
     return newTexture;
   }
   return undefined;
 }
 
-const readNIFTIFromURL = async (Zinc, url, useHeaderInfo) => {
+const readNIFTIFromURL = async (Zinc, url, useHeaderInfo, maskURL) => {
   //  try {
   const response = await fetch(url);
   const buffer = await response.arrayBuffer();
   const { sources, niftiHeader } = readNIFTI(buffer);
+  /*
+  let maskInfo = undefined;
+  if (maskURL) {
+    const mask = await fetch(maskURL);
+    const maskBuffer = await mask.arrayBuffer();
+    maskInfo = readNIFTI(buffer);
+  }
+  */
+
   return createTexturePrimitives(Zinc, niftiHeader, sources, useHeaderInfo);
 }
 

@@ -46,6 +46,13 @@
                 />
               </el-button>
             </el-col>
+            <el-col :span="auto">
+              <el-button
+                size="small"
+                @click="addPremadePoints()">
+                Load predefined points
+              </el-button>
+            </el-col>
           </el-row>
         </el-col>
       </el-row>
@@ -203,6 +210,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    maskUrl: {
+      type: String,
+      default: "",
+    },
     pointTolerance: {
       type: Number,
       default: 20,
@@ -211,6 +222,16 @@ export default {
       type: String,
       default: "",
     },
+  },
+  watch: {
+    intMode: {
+      handler: function (value) {
+        if (this.$refs.scaffold) {
+          this.$refs.scaffold.cancelCreate();
+          this.$refs.scaffold.createData.shape = "";
+        }
+      },
+    }
   },
   mounted: function () {
     this._createLinesLength = 100;
@@ -242,24 +263,27 @@ export default {
       const pointName = "point_";
       let order = 1;
       points.forEach((point) => {
-        scene.createPoints(
+        const object = scene.createPoints(
           "_annotations/premade",
           `${pointName}${order}`,
           [point],
           `point_${order}`,
           0x0022ee,
         );
+        object.zincObject.isEditable = true;
         order++;
       });
 
     },
     onReady: async function () {
-      this.addPremadePoints();
+      //this.addPremadePoints();
+      sessionStorage.setItem('anonymous-annotation', JSON.stringify([]));
       await this.readTexture();
       if (this.displayAxis) {
         this.$refs.scaffold.createAxisDisplay(false);
         this.$refs.scaffold.enableAxisDisplay(true, false);
       }
+      this.$refs.scaffold.backgroundChangeCallback('black');
     },
     openHelp: function() {
       window.open("https://github.com/ABI-Software/TARA-ScaffoldVuer/blob/acupoint/README.md#overview", "_blank")
@@ -283,6 +307,14 @@ export default {
           group.scale.set(1.2, 1.2, 1.2);
           group.updateMatrix();
           this.bodyScaffold.boundingBoxUpdateRequired = true;
+          const morph = zincObject.getGroup();
+          if (morph && morph.position) {
+            zincObject.userData.originalPos = [
+              morph.position.x,
+              morph.position.y,
+              morph.position.z
+            ];
+          }
         }
         this._pickableObjects.push(zincObject);
         if (zincObject.isGlyphset) {
@@ -301,6 +333,8 @@ export default {
       } else {
         this.userPrimitivesUpdated({zincObject});
       }
+      this.$refs.scaffold.cancelCreate();
+      this.$refs.scaffold.createData.shape = "";
     },
     screenCapture: function () {
       this.$refs.scaffold.captureScreenshot("capture.png");
@@ -343,9 +377,6 @@ export default {
         }
       }
     },
-    onHighlighted: function (data) {
-
-    },
     onSelected: function (data) {
       if (data && data.length > 0 && data[0].data.group) {
         if (this.consoleOn) {
@@ -362,8 +393,8 @@ export default {
             if (label && label.trim() && this.$refs.sideBar) {
               this.$refs.sideBar.openAcupointsSearch(label);
             }
-            if (this.intMode === "edit") {
-
+            if (this.intMode === "edit" && zincObject.isPointset && zincObject.isEditable) {
+              this.$refs.scaffold.activateEditingMode(data);
             }
             if (this.alignPoint && data.length === 1 && zincObject.isGlyphset) {
               const {point, normal} = this.findNearestPointAndNormalFromObject(
@@ -373,6 +404,11 @@ export default {
           } else if (this.intMode === "create" && data[0].extraData.worldCoords &&
               data[0].extraData.intersected?.face) {
             this.addPoint(data, data[0].extraData.worldCoords);
+          } else if (this.intMode === "edit") {
+            //if (this.$refs.scaffold.createData)
+            if (this.$refs.scaffold.createData.editingIndex > -1) {
+              this.$refs.scaffold.draw(data);
+            }
           }
         }
       }

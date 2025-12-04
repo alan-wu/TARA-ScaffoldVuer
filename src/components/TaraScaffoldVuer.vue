@@ -207,22 +207,6 @@ import {
 } from "element-plus";
 import 'element-plus/es/components/message/style/css'; // this is only needed if the page also used ElMessage
 
-const getIntersectedObjects = (intersects) => {
-  const primitiveInfos = [];
-  intersects.forEach((intersect) => {
-    const zincObject = intersect.object.userData;
-    if (zincObject) {
-      const groupName = zincObject?.groupName;
-      const distance = intersect.distance.toFixed(2);
-      const x = intersect.point.x.toFixed(2);
-      const y = intersect.point.y.toFixed(2);
-      const z = intersect.point.z.toFixed(2);
-      primitiveInfos.push({groupName, distance, x, y, z});
-    }
-  });
-  return primitiveInfos;
-}
-
 const findNearbyPoints = (data, tolerance) => {
   if (data[0].data.zincObject?.isPointset) {
     return data[0].data.zincObject;
