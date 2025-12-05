@@ -185,6 +185,7 @@ export default {
       needlesInfo: {},
       infoVisible: false,
       importing: false,
+      loadingPredefined: false,
       sidebarTabs: [
         {title: 'Acupoints', id: 1, type: 'acupoints' },
       ],
@@ -228,7 +229,11 @@ export default {
       handler: function (value) {
         if (this.$refs.scaffold) {
           this.$refs.scaffold.cancelCreate();
-          this.$refs.scaffold.createData.shape = "";
+          if (value === "create") {
+            this.$refs.scaffold.createData.shape = "Point"
+          } else {
+            this.$refs.scaffold.createData.shape = "";
+          }
         }
       },
     }
@@ -262,6 +267,7 @@ export default {
       ];
       const pointName = "point_";
       let order = 1;
+      this.loadingPredefined = true;
       points.forEach((point) => {
         const object = scene.createPoints(
           "_annotations/premade",
@@ -273,7 +279,7 @@ export default {
         object.zincObject.isEditable = true;
         order++;
       });
-
+      this.loadingPredefined = false;
     },
     onReady: async function () {
       //this.addPremadePoints();
@@ -322,7 +328,9 @@ export default {
           this.glyphs.push(zincObject);
         } else if (zincObject.isPointset) {
           zincObject.setSize(15);
-          zincObject.setColourHex(0xff5724);
+          if (!this.loadingPredefined) {
+            zincObject.setColourHex(0xff5724);
+          }
           this.addAcupointsInfo(zincObject);
         } else {
           if (zincObject.groupName === "undefined" &&
@@ -334,7 +342,7 @@ export default {
         this.userPrimitivesUpdated({zincObject});
       }
       this.$refs.scaffold.cancelCreate();
-      this.$refs.scaffold.createData.shape = "";
+      //this.$refs.scaffold.createData.shape = "";
     },
     screenCapture: function () {
       this.$refs.scaffold.captureScreenshot("capture.png");
