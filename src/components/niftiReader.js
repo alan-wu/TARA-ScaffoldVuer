@@ -4,7 +4,7 @@ import {
 } from "zincjs";
 
 const hideWhitePixel = false;
-const hideBlackPixel = false;
+const hideBlackPixel = true;
 
 const textureSettings = {
   v1: {
@@ -77,15 +77,13 @@ const readNIFTI = (data) => {
   if (nifti.isNIFTI(fullData)) {
     let niftiHeader = nifti.readHeader(fullData);
     let niftiImage = nifti.readImage(niftiHeader, fullData);
-    const sources = createSources(niftiHeader, niftiImage);
-    niftiImage = undefined;
-    return { sources, niftiHeader };
+    return {niftiHeader, niftiImage};
   }
   fullData = undefined;
-  return undefined;
+  return {niftiHeader: undefined, niftiImage: undefined};
 }
 
-const createSources = (niftiHeader, niftiImage) => {
+const createSources = (niftiHeader, niftiImage, maskHeader, maskImage) => {
   if (niftiHeader?.dims && niftiHeader.dims[0] === 3) {
     const width = niftiHeader.dims[1];
     const height = niftiHeader.dims[2];
@@ -94,6 +92,16 @@ const createSources = (niftiHeader, niftiImage) => {
     const sliceSize = width * height;
     const length = sliceSize * depth * 4;
     const fullArray = new Uint8Array(length);
+    let maskData = undefined;
+    if (maskHeader && maskImage) {
+      const maskWidth = maskHeader.dims[1];
+      const maskHeight = maskHeader.dims[2];
+      const maskDepth = maskHeader.dims[3];
+      if (maskWidth === width && maskHeight === height && maskDepth === depth) {
+        const maskedTypedData = getTypedData(maskHeader, maskImage);
+        maskData = maskedTypedData.typedData;
+      }
+    }
     let scale = 1;
     if (dataType === "float") {
       scale = 255;
@@ -111,14 +119,23 @@ const createSources = (niftiHeader, niftiImage) => {
           fullArray[offset * 4 + 1] = value;
           fullArray[offset * 4 + 2] = value;
           fullArray[offset * 4 + 3] = 255;
-          if (hideWhitePixel && value === 255) {
-            fullArray[offset * 4 + 3] = 0;
-          }
-          if (hideBlackPixel && 2 >= value) {
-            fullArray[offset * 4] = 240;
-            fullArray[offset * 4 + 1] = 240;
-            fullArray[offset * 4 + 2] = 240;
-            fullArray[offset * 4 + 3] = 1.0;
+          if (maskData) {
+            const maskedValue = maskData[offset];
+            if (hideBlackPixel) {
+              if (maskedValue === 0 && 20 > value) {
+                fullArray[offset * 4 + 3] = 0;
+              }
+            }
+          } else {
+            if (hideWhitePixel && value === 255) {
+              fullArray[offset * 4 + 3] = 0;
+            }
+            if (hideBlackPixel && 2 >= value) {
+              fullArray[offset * 4] = 240;
+              fullArray[offset * 4 + 1] = 240;
+              fullArray[offset * 4 + 2] = 240;
+              fullArray[offset * 4 + 3] = 1.0;
+            }
           }
         }
       }
@@ -203,7 +220,6 @@ const createTexturePrimitives = (Zinc, niftiHeader, sources, useHeaderInfo) => {
     //set using the information from the header
     if (useHeaderInfo && niftiHeader) {
       const {position, scale} = getTransformationFromHeader(niftiHeader);
-      console.log(niftiHeader)
       if (position && scale) {
         settings.locations[0].scale = scale
         settings.locations[0].position = position;
@@ -234,18 +250,18 @@ const createTexturePrimitives = (Zinc, niftiHeader, sources, useHeaderInfo) => {
 
 const readNIFTIFromURL = async (Zinc, url, useHeaderInfo, maskURL) => {
   //  try {
-  const response = await fetch(url);
-  const buffer = await response.arrayBuffer();
-  const { sources, niftiHeader } = readNIFTI(buffer);
-  /*
-  let maskInfo = undefined;
+  let maskHeader = undefined, maskImage = undefined;
   if (maskURL) {
     const mask = await fetch(maskURL);
     const maskBuffer = await mask.arrayBuffer();
-    maskInfo = readNIFTI(buffer);
+    const maskedNIFTI = readNIFTI(maskBuffer);
+    maskHeader = maskedNIFTI.niftiHeader;
+    maskImage = maskedNIFTI.niftiImage;
   }
-  */
-
+  const response = await fetch(url);
+  const buffer = await response.arrayBuffer();
+  const {niftiHeader, niftiImage} = readNIFTI(buffer);
+  const sources = createSources(niftiHeader, niftiImage, maskHeader, maskImage);
   return createTexturePrimitives(Zinc, niftiHeader, sources, useHeaderInfo);
 }
 

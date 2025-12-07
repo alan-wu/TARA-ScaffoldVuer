@@ -360,7 +360,7 @@ export default {
           duration: 0,
           appendTo: ele,
         });
-        const newTexture = await readNIFTIFromURL(Zinc, this.textureUrl, true);
+        const newTexture = await readNIFTIFromURL(Zinc, this.textureUrl, true, this.maskUrl);
         if (newTexture) {
           ElMessage({
             message: 'Texture loaded Successfully',
@@ -370,6 +370,7 @@ export default {
             appendTo: ele,
           });
           original.close();
+          newTexture.setIsPickable(false);
           viewer.$module.scene.addZincObject(newTexture);
           viewer.$module.scene.viewAll();
           this.calculateTextureCentre(newTexture);
