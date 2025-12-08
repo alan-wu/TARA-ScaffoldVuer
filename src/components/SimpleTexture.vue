@@ -270,11 +270,11 @@ export default {
       this.loadingPredefined = true;
       points.forEach((point) => {
         const object = scene.createPoints(
-          "_annotations/premade",
+          "Predefined",
           `${pointName}${order}`,
           [point],
           `point_${order}`,
-          0x0022ee,
+          0xffff00,
         );
         object.zincObject.isEditable = true;
         order++;
