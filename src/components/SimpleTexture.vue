@@ -185,7 +185,6 @@ export default {
       needlesInfo: {},
       infoVisible: false,
       importing: false,
-      loadingPredefined: false,
       sidebarTabs: [
         {title: 'Acupoints', id: 1, type: 'acupoints' },
       ],
@@ -392,31 +391,34 @@ export default {
           console.log(data[0].extraData.intersects);
           console.log(data[0], data[0].extraData.intersected);
         }
-        if (data && data.length > 0) {
-          const zincObject = data[0].data?.zincObject;
-          if (zincObject.isGlyphset || zincObject.isPointset) {
-            let label = zincObject.groupName;
-            if (data[0].data.group && zincObject.isGlyphset) {
-              label = convertFromPrimitivesName(data[0].data.group);
-            }
-            if (label && label.trim() && this.$refs.sideBar) {
-              this.$refs.sideBar.openAcupointsSearch(label);
-            }
-            if (this.intMode === "edit" && zincObject.isPointset && zincObject.isEditable) {
-              this.$refs.scaffold.activateEditingMode(data);
-            }
-            if (this.alignPoint && data.length === 1 && zincObject.isGlyphset) {
-              const {point, normal} = this.findNearestPointAndNormalFromObject(
-                zincObject);
-              this.setViewWithPointAndNormalV3(point, normal);
-            }
-          } else if (this.intMode === "create" && data[0].extraData.worldCoords &&
-              data[0].extraData.intersected?.face) {
-            this.addPoint(data, data[0].extraData.worldCoords);
-          } else if (this.intMode === "edit") {
-            //if (this.$refs.scaffold.createData)
-            if (this.$refs.scaffold.createData.editingIndex > -1) {
-              this.$refs.scaffold.draw(data);
+        if (!this.loadingPredefined) {
+          if (data && data.length > 0) {
+            const zincObject = data[0].data?.zincObject;
+            if (zincObject.isGlyphset || zincObject.isPointset) {
+              let label = zincObject.groupName;
+              if (data[0].data.group && zincObject.isGlyphset) {
+                label = convertFromPrimitivesName(data[0].data.group);
+              }
+              if (label && label.trim() && this.$refs.sideBar) {
+                console.log("here")
+                this.$refs.sideBar.openAcupointsSearch(label);
+              }
+              if (this.intMode === "edit" && zincObject.isPointset && zincObject.isEditable) {
+                this.$refs.scaffold.activateEditingMode(data);
+              }
+              if (this.alignPoint && data.length === 1 && zincObject.isGlyphset) {
+                const {point, normal} = this.findNearestPointAndNormalFromObject(
+                  zincObject);
+                this.setViewWithPointAndNormalV3(point, normal);
+              }
+            } else if (this.intMode === "create" && data[0].extraData.worldCoords &&
+                data[0].extraData.intersected?.face) {
+              this.addPoint(data, data[0].extraData.worldCoords);
+            } else if (this.intMode === "edit") {
+              //if (this.$refs.scaffold.createData)
+              if (this.$refs.scaffold.createData.editingIndex > -1) {
+                this.$refs.scaffold.draw(data);
+              }
             }
           }
         }

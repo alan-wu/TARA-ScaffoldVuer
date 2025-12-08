@@ -111,6 +111,7 @@ export default {
     return {
       acupointsInfo: false,
       currentViewport: 0,
+      loadingPredefined: false,
       isDrawerOpen: false,
       tCentre: [0, 0, 0],
       viewport: undefined,
@@ -171,11 +172,13 @@ export default {
         if (!(label in this.acupoints)) {
           this.acupoints[label] = {Acupoint: label};
         }
-        this.$nextTick(() => {
-          if (label && this.$refs.sideBar) {
-            this.$refs.sideBar.openAcupointsSearch(label);
-          }
-        });
+        if (!this.loadingPredefined) {
+          this.$nextTick(() => {
+            if (label && this.$refs.sideBar) {
+              this.$refs.sideBar.openAcupointsSearch(label);
+            }
+          });
+        }
       }
     },
     screenCapture: function () {
