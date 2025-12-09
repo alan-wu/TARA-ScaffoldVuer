@@ -51,7 +51,7 @@ TARA Acupoint viewer is a Vue component/framework that enables you to load, disp
 3. Manage image slices: Click the "Images" entry in the Regions tree to open the slice control panel. Use these controls to add new image slices or change the position (using the X, Y, Z sliders) of existing ones. Using left and right arrow key after clicking on the slider for finer control on the slide position.
 <img width="324" height="318" alt="image" src="https://github.com/user-attachments/assets/ba86dc62-f569-427f-8802-08ad83deb76e" />
 
-4. 3D rendering control: Left mouse click to rotate, middle mouse click and scrolling to zoom in and out, and right mouse click to pan.
+4. 3D renderer control: Left mouse click to rotate, middle mouse click and scrolling to zoom in and out, and right mouse click to pan.
 
 
 ### Adding acupoints 
