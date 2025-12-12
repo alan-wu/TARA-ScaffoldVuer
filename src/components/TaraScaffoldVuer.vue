@@ -185,7 +185,6 @@ import NeedlesTable from "./NeedlesTable.vue";
 import { readNIFTIFromURL } from "./niftiReader.js"
 import { SideBar } from "@abi-software/map-side-bar";
 import "@abi-software/map-side-bar/dist/style.css";
-//import { acupointEntries } from './acupoints.js'
 import { ScaffoldVuer } from "@abi-software/scaffoldvuer";
 import scaffoldMixin from "../mixins/scaffold.vue";
 import "@abi-software/scaffoldvuer/dist/style.css";
@@ -327,10 +326,6 @@ export default {
       type: Number,
       default: 20,
     },
-    acupointsEndpoint: {
-      type: String,
-      default: "",
-    },
     acupointsViewer: {
       type: Boolean,
       default: false,
@@ -422,22 +417,6 @@ export default {
     screenCapture: function () {
       this.$refs.scaffold.captureScreenshot("capture.png");
     },
-    populateAcupoints: function(data) {
-      const filtered = {};
-      const keys = Object.keys(data);
-      this.glyphs.forEach((glyph) => {
-        if (glyph.groupName) {
-          const converted = convertFromPrimitivesName(glyph.groupName);
-          for (let i = 0; i < keys.length; i++) {
-            if (converted.toLowerCase() === keys[i].toLowerCase()) {
-              filtered[keys[i]] = data[keys[i]];
-              break;
-            }
-          }
-        }
-      });
-      this.acupoints = filtered;
-    },
     onReady: async function () {
       const viewer = this.$refs.scaffold;
       viewer.offlineAnnotationEnabled = true;
@@ -445,26 +424,7 @@ export default {
       const d = bounds.max.distanceTo( bounds.min );
       this._createLinesLength = d / 6.0;
       if (this.consoleOn) console.log("Lines length", this._createLinesLength);
-      if (this.acupointsEndpoint) {
-        fetch(this.acupointsEndpoint)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`Cannot download acupoints from server: ${response.status}`);
-            }
-            return response.json();
-          })
-          .then((data) => {
-            this.populateAcupoints(data);
-          })
-          .catch((error) => {
-            console.log(error)
-            if (acupointEntries) {
-              this.populateAcupoints(acupointEntries);
-            }
-          });
-      } else if (acupointEntries) {
-        this.populateAcupoints(acupointEntries);
-      }
+      this.readAcupoints();
       const Zinc = this.$refs.scaffold.$module.Zinc;
       if (this.textureUrl) {
         const ele = this.$refs.taraContainer;

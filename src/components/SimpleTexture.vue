@@ -114,7 +114,6 @@ import { ElMessage } from 'element-plus'
 import { readNIFTIFromURL } from "./niftiReader.js"
 import { SideBar } from "@abi-software/map-side-bar";
 import "@abi-software/map-side-bar/dist/style.css";
-//import { acupointEntries } from './acupoints.js'
 import { ScaffoldVuer } from "@abi-software/scaffoldvuer";
 import "@abi-software/scaffoldvuer/dist/style.css";
 import {
@@ -283,6 +282,7 @@ export default {
     onReady: async function () {
       //this.addPremadePoints();
       sessionStorage.setItem('anonymous-annotation', JSON.stringify([]));
+      this.readAcupoints();
       await this.readTexture();
       if (this.displayAxis) {
         this.$refs.scaffold.createAxisDisplay(false);
@@ -373,6 +373,7 @@ export default {
           viewer.$module.scene.addZincObject(newTexture);
           viewer.$module.scene.viewAll();
           this.calculateTextureCentre(newTexture);
+          newTexture.setVisibility(false);
         } else {
           ElMessage({
             message: 'Unable to load texture',
@@ -399,9 +400,10 @@ export default {
               if (data[0].data.group && zincObject.isGlyphset) {
                 label = convertFromPrimitivesName(data[0].data.group);
               }
-              if (label && label.trim() && this.$refs.sideBar) {
-                console.log("here")
-                this.$refs.sideBar.openAcupointsSearch(label);
+              if (this.intMode === "view") {
+                if (label && label.trim() && this.$refs.sideBar) {
+                  this.$refs.sideBar.openAcupointsSearch(label);
+                }
               }
               if (this.intMode === "edit" && zincObject.isPointset && zincObject.isEditable) {
                 this.$refs.scaffold.activateEditingMode(data);

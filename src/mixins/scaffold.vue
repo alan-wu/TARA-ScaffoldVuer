@@ -1,7 +1,8 @@
 <script>
 import { THREE } from "zincjs";
-import { watchEffect } from 'vue'
-
+import { watchEffect } from 'vue';
+import { acupointEntries } from '../acupoints.js';
+import { markRaw } from 'vue';
 
 const v1 = new THREE.Vector3();
 const v2 = new THREE.Vector3();
@@ -106,11 +107,16 @@ export default {
       type: String,
       default: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/whole_body-30-1-25/human_body_acupoints_metadata.json",
     },
+    acupointsEndpoint: {
+      type: String,
+      default: "",
+    },
   },
   data: function () {
     return {
       acupointsInfo: false,
       currentViewport: 0,
+      glyphs: markRaw([]),
       loadingPredefined: false,
       isDrawerOpen: false,
       tCentre: [0, 0, 0],
@@ -172,13 +178,35 @@ export default {
         if (!(label in this.acupoints)) {
           this.acupoints[label] = {Acupoint: label};
         }
-        if (!this.loadingPredefined) {
+        if (!this.loadingPredefined && this.intMode === "view") {
           this.$nextTick(() => {
             if (label && this.$refs.sideBar) {
               this.$refs.sideBar.openAcupointsSearch(label);
             }
           });
         }
+      }
+    },
+    readAcupoints: function() {
+      if (this.acupointsEndpoint) {
+        fetch(this.acupointsEndpoint)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`Cannot download acupoints from server: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            this.populateAcupoints(data);
+          })
+          .catch((error) => {
+            console.log(error)
+            if (acupointEntries) {
+              this.populateAcupoints(acupointEntries);
+            }
+          });
+      } else if (acupointEntries) {
+        this.populateAcupoints(acupointEntries);
       }
     },
     screenCapture: function () {
@@ -222,6 +250,26 @@ export default {
         Object.assign(this.acupoints, acupoints);
       }
       this.importing = false;
+    },
+    populateAcupoints: function(data) {
+      let filtered = {};
+      const keys = Object.keys(data);
+      if (this.glyphs && this.glyphs.length) {
+        this.glyphs.forEach((glyph) => {
+          if (glyph.groupName) {
+            const converted = convertFromPrimitivesName(glyph.groupName);
+            for (let i = 0; i < keys.length; i++) {
+              if (converted.toLowerCase() === keys[i].toLowerCase()) {
+                filtered[keys[i]] = data[keys[i]];
+                break;
+              }
+            }
+          }
+        });
+      } else {
+        filtered = data;
+      }
+      this.acupoints = data;
     },
     importLocalAnnotations: function() {
       const selectedFile = document.getElementById("annotations-upload").files[0];
