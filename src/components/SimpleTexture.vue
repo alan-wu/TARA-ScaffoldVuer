@@ -1,109 +1,115 @@
 <template>
   <div class="scaffold-container" ref="taraContainer">
-    <div class="settings-panels">
-      <el-row>
-        <el-col :span="12">
-          <el-row :gutter="20" justify="center" align="middle">
-            <el-col :span="auto">
-              <el-button
-                class="left-buttons"
-                size="small"
-                :icon="ElIconQuestionFilled"
-                @click="openHelp()">
-                Help
-              </el-button>
-            </el-col>
-          </el-row>
-          <el-row :gutter="20" justify="center" align="middle">
+    <div v-if="readyForDisplay" class="scaffold-container">
+      <div class="settings-panels">
+        <el-row>
+          <el-col :span="12">
+            <el-row :gutter="20" justify="center" align="middle">
               <el-col :span="auto">
                 <el-button
                   class="left-buttons"
                   size="small"
-                  @click="rotate()">
-                  Rotate
+                  :icon="ElIconQuestionFilled"
+                  @click="openHelp()">
+                  Help
                 </el-button>
               </el-col>
             </el-row>
-        </el-col>
-        <el-col :span="12">
-          <el-row :gutter="20" justify="center" align="left">
-            <el-col :span="auto">
-              <el-button
-                size="small"
-                :icon="ElIconFolderOpened"
-                @click="exportLocalAnnotations()">
-                Export Annotations
-              </el-button>
-            </el-col>
-            <el-col :span="auto">
-              <el-button size="small" :icon="ElIconFolderOpened">
-                <label for="annotations-upload">Import Annotations</label>
-                <input
-                  id="annotations-upload"
-                  type="file"
-                  accept="application/json"
-                  @change="importLocalAnnotations"
-                />
-              </el-button>
-            </el-col>
-            <el-col :span="auto">
-              <el-button
-                size="small"
-                @click="addPremadePoints()">
-                Load predefined points
-              </el-button>
-            </el-col>
-          </el-row>
-        </el-col>
-      </el-row>
-      <el-row>
-        Interactive Mode:
-      </el-row>
-      <el-row>
-        <el-col :span="auto" class="extra-wide">
-          <el-radio-group v-model="intMode" size="small">
-            <el-radio value="view" border>Viewing</el-radio>
-            <el-radio value="create" border>Create</el-radio>
-            <el-radio value="edit" border>Edit</el-radio>
-          </el-radio-group>
-        </el-col>
-      </el-row>
+            <el-row :gutter="20" justify="center" align="middle">
+                <el-col :span="auto">
+                  <el-button
+                    class="left-buttons"
+                    size="small"
+                    @click="rotate()">
+                    Rotate
+                  </el-button>
+                </el-col>
+              </el-row>
+          </el-col>
+          <el-col :span="12">
+            <el-row :gutter="20" justify="center" align="left">
+              <el-col :span="auto">
+                <el-button
+                  size="small"
+                  :icon="ElIconFolderOpened"
+                  @click="exportLocalAnnotations()">
+                  Export AnnotationsintMode
+                </el-button>
+              </el-col>
+              <el-col :span="auto">
+                <el-button size="small" :icon="ElIconFolderOpened">
+                  <label for="annotations-upload">Import Annotations</label>
+                  <input
+                    id="annotations-upload"
+                    type="file"
+                    accept="application/json"
+                    @change="importLocalAnnotations"
+                  />
+                </el-button>
+              </el-col>
+              <el-col :span="auto">
+                <el-button
+                  size="small"
+                  @click="addPremadePoints()">
+                  Load predefined points
+                </el-button>
+              </el-col>
+            </el-row>
+          </el-col>
+        </el-row>
+        <el-row>
+          Interactive Mode:
+        </el-row>
+        <el-row>
+          <el-col :span="auto" class="extra-wide">
+            <el-radio-group v-model="intMode" size="small">
+              <el-radio value="view" border>Viewing</el-radio>
+              <el-radio value="create" border>Create</el-radio>
+              <el-radio value="edit" border>Edit</el-radio>
+            </el-radio-group>
+          </el-col>
+        </el-row>
+      </div>
+      <ScaffoldVuer
+        ref="scaffold"
+        class="vuer main-column"
+        :class="['vuer', isDrawerOpen ? 'collapsed' : '']"
+        :display-u-i="displayUI"
+        :url="url"
+        :display-latest-changes="false"
+        :display-minimap="false"
+        :display-markers="false"
+        :enableOpenMapUI="false"
+        :enableLocalAnnotations="true"
+        :marker-cluster="false"
+        :positionalRotation="positionalRotation"
+        :show-colour-picker="true"
+        :render="true"
+        @on-ready="onReady"
+        @scaffold-highlighted="onHighlighted"
+        @scaffold-selected="onSelected"
+        @user-primitives-updated="userPrimitivesUpdated"
+        @zinc-object-added="objectAdded"
+      />
+      <SideBar
+        v-if="acupoints && (Object.keys(acupoints)).length > 0"
+        ref="sideBar"
+        class="side-bar main-column"
+        :envVars="envVars"
+        :visible="true"
+        :activeTabId="1"
+        :tabs="sidebarTabs"
+        :open-at-start="false"
+        :acupointsInfoList="acupoints"
+        @acupoints-clicked="onAcupointsClicked"
+        @acupoints-hovered="onAcupointsHovered"
+        @vue:mounted="onSidebarMount"
+      />
     </div>
-    <ScaffoldVuer
-      ref="scaffold"
-      class="vuer main-column"
-      :class="['vuer', isDrawerOpen ? 'collapsed' : '']"
-      :display-u-i="displayUI"
-      :url="url"
-      :display-latest-changes="false"
-      :display-minimap="false"
-      :display-markers="false"
-      :enableOpenMapUI="false"
-      :enableLocalAnnotations="true"
-      :marker-cluster="false"
-      :positionalRotation="positionalRotation"
-      :show-colour-picker="true"
-      :render="true"
-      @on-ready="onReady"
-      @scaffold-highlighted="onHighlighted"
-      @scaffold-selected="onSelected"
-      @user-primitives-updated="userPrimitivesUpdated"
-      @zinc-object-added="objectAdded"
-    />
-    <SideBar
-      v-if="acupoints"
-      ref="sideBar"
-      class="side-bar main-column"
-      :envVars="envVars"
-      :visible="true"
-      :activeTabId="1"
-      :tabs="sidebarTabs"
-      :open-at-start="true"
-      :acupointsInfoList="acupoints"
-      @acupoints-clicked="onAcupointsClicked"
-      @acupoints-hovered="onAcupointsHovered"
-      @vue:mounted="onSidebarMount"
-    />
+    <div v-else class="scaffold-container">
+
+
+    </div>
   </div>
 </template>
 
@@ -111,6 +117,7 @@
 /* eslint-disable no-alert, no-console */
 import { markRaw, shallowRef } from 'vue';
 import { ElMessage } from 'element-plus'
+import { LoopSubdivision } from 'three-subdivide';
 import { readNIFTIFromURL } from "./niftiReader.js"
 import { SideBar } from "@abi-software/map-side-bar";
 import "@abi-software/map-side-bar/dist/style.css";
@@ -136,6 +143,29 @@ import {
   ElSwitch as Switch,
 } from "element-plus";
 import 'element-plus/es/components/message/style/css'; // this is only needed if the page also used ElMessage
+import FileInput from './FileInput.vue';
+
+const scaffoldSmoothing = zincObject => {
+
+  const mesh = zincObject.getMorph();
+  if (mesh) {
+    // Configure subdivision
+    const params = {
+      split: true,       // maintains UVs
+      uvSmooth: true,    // smooths UVs
+      preserveEdges: false,
+      flatOnly: false,
+      maxTriangles: Infinity // limit to prevent crashing
+    };
+    console.log("here")
+    const smoothedGeometry = LoopSubdivision.modify(mesh.geometry, 2, params);
+    console.log("here")
+    console.log(smoothedGeometry);
+    mesh.geometry.dispose();
+    mesh.geometry = smoothedGeometry;
+  }
+}
+
 
 const convertFromPrimitivesName = original => {
   let name = original.substring(0, original.indexOf(" "));
@@ -167,7 +197,6 @@ export default {
   mixins: [scaffoldMixin],
   data: function () {
     return {
-      acupoints: undefined,
       acupointsLabelOn: false,
       alignPoint: false,
       bodyScaffold: undefined,
@@ -209,18 +238,12 @@ export default {
       type: Boolean,
       default: false,
     },
-    maskUrl: {
-      type: String,
-      default: "",
-    },
     pointTolerance: {
       type: Number,
       default: 20,
     },
-    textureUrl: {
-      type: String,
-      default: "",
-    },
+
+
   },
   watch: {
     intMode: {
@@ -307,6 +330,7 @@ export default {
         }
         if (zincObject.groupName === "iso_block") {
           this.bodyScaffold = markRaw(zincObject);
+          //scaffoldSmoothing(this.bodyScaffold);
           this.bodyScaffold.setPosition(-240, -259, -445.6);
           const group = this.bodyScaffold.getGroup();
           group.scale.set(1.2, 1.2, 1.2);

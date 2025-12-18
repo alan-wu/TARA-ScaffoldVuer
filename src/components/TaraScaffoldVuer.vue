@@ -280,11 +280,9 @@ export default {
   mixins: [scaffoldMixin],
   data: function () {
     return {
-      acupoints: undefined,
       acupointsLabelOn: false,
       alignPoint: true,
       bodyScaffold: undefined,
-      glyphs: markRaw([]),
       quickEditOn: false,
       displayUI: true,
       ElIconDataAnalysis: shallowRef(ElIconDataAnalysis),
@@ -318,10 +316,6 @@ export default {
     };
   },
   props: {
-    consoleOn: {
-      type: Boolean,
-      default: false,
-    },
     pointTolerance: {
       type: Number,
       default: 20,
@@ -329,10 +323,6 @@ export default {
     acupointsViewer: {
       type: Boolean,
       default: false,
-    },
-    textureUrl: {
-      type: String,
-      default: "",
     },
   },
   watch: {

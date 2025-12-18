@@ -18,6 +18,8 @@ declare module 'vue' {
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
+    FileInput: typeof import('./components/FileInput.vue')['default']
+    InputDialog: typeof import('./components/inputDialog.vue')['default']
     NeedlesTable: typeof import('./components/NeedlesTable.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

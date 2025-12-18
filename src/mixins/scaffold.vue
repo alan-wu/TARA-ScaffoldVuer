@@ -103,25 +103,51 @@ const getIntersectedObjects = (intersects) => {
 export default {
   name: "scaffoldMixin",
   props: {
-    url: {
-      type: String,
-      default: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/whole_body-30-1-25/human_body_acupoints_metadata.json",
-    },
     acupointsEndpoint: {
       type: String,
       default: "",
     },
+    consoleOn: {
+      type: Boolean,
+      default: false,
+    },
+    maskUrl: {
+      type: String,
+      default: "",
+    },
+    requireTexture: {
+      type: Boolean,
+      default: true,
+    },
+    textureUrl: {
+      type: String,
+      default: "",
+    },
+    url: {
+      type: String,
+      default: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/whole_body-30-1-25/human_body_acupoints_metadata.json",
+    },
   },
   data: function () {
     return {
+      acupoints: {},
       acupointsInfo: false,
       currentViewport: 0,
       glyphs: markRaw([]),
       loadingPredefined: false,
+      importing: false,
       isDrawerOpen: false,
       tCentre: [0, 0, 0],
       viewport: undefined,
     }
+  },
+  computed: {
+    readyForDisplay: function() {
+      if (this.url) {
+        return (!this.requireTexture || (this.url && this.textureUrl));
+      }
+      return false;
+    },
   },
   watch: {
     helpMode: function (newVal) {
@@ -178,7 +204,8 @@ export default {
         if (!(label in this.acupoints)) {
           this.acupoints[label] = {Acupoint: label};
         }
-        if (!this.loadingPredefined && this.intMode === "view") {
+        this.acupoints[label].Curated = true;
+        if ((!this.importing && !this.loadingPredefined) && this.intMode === "view") {
           this.$nextTick(() => {
             if (label && this.$refs.sideBar) {
               this.$refs.sideBar.openAcupointsSearch(label);
