@@ -7,6 +7,7 @@ import TaraScaffoldVuer from './components/TaraScaffoldVuer.vue';
     <SimpleTexture
       v-if="mode === 'simple'"
       :url="url"
+      :acupoints-endpoint="acupoints"
       :mask-url="maskURL"
       :texture-url="textureURL"
       :console-on="false"
