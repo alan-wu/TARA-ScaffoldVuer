@@ -117,7 +117,7 @@
 /* eslint-disable no-alert, no-console */
 import { markRaw, shallowRef } from 'vue';
 import { ElMessage } from 'element-plus'
-import { LoopSubdivision } from 'three-subdivide';
+//import { LoopSubdivision } from 'three-subdivide';
 import { readNIFTIFromURL } from "./niftiReader.js"
 import { SideBar } from "@abi-software/map-side-bar";
 import "@abi-software/map-side-bar/dist/style.css";
@@ -212,7 +212,6 @@ export default {
       positionalRotation: true,
       needlesInfo: {},
       infoVisible: false,
-      importing: false,
       sidebarTabs: [
         {title: 'Acupoints', id: 1, type: 'acupoints' },
       ],
