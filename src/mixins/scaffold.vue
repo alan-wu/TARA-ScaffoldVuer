@@ -72,6 +72,16 @@ const convertToPrimitivesName = original => {
   return [`${name} left`, `${name} right`];
 }
 
+const convertFromPrimitivesName = original => {
+  let name = original.substring(0, original.indexOf(" "));
+  if (name) {
+    name = `${name.substring(0, 2)} ${name.substring(2, 4)}`
+  } else {
+    name = original;
+  }
+  return name;
+}
+
 const writeTextFile = (filename, data) => {
   let dataStr =
     "data:text/json;charset=utf-8," +

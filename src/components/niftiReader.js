@@ -4,7 +4,7 @@ import {
 } from "zincjs";
 
 const hideWhitePixel = false;
-const hideBlackPixel = true;
+const hideBlackPixel = false;
 
 const textureSettings = {
   v1: {

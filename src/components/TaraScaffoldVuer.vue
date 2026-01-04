@@ -180,6 +180,7 @@
 <script>
 /* eslint-disable no-alert, no-console */
 import { markRaw, shallowRef } from 'vue';
+import { THREE } from "zincjs";
 import { ElMessage } from 'element-plus'
 import NeedlesTable from "./NeedlesTable.vue";
 import { readNIFTIFromURL } from "./niftiReader.js"
@@ -229,15 +230,6 @@ const convertToPrimitivesName = original => {
   return [`${name} left`, `${name} right`];
 }
 
-const convertFromPrimitivesName = original => {
-  let name = original.substring(0, original.indexOf(" "));
-  if (name) {
-    name = `${name.substring(0, 2)} ${name.substring(2, 4)}`
-  } else {
-    name = original;
-  }
-  return name;
-}
 
 const backViewport = {
     "nearPlane": 1.5013817389693542,
