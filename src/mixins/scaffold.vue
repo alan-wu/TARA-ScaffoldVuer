@@ -1,7 +1,7 @@
 <script>
 import { THREE } from "zincjs";
 import { watchEffect } from 'vue';
-//import { acupointEntries } from '../acupoints.js';
+import { acupointEntries } from '../acupoints.js';
 import { markRaw } from 'vue';
 
 const v1 = new THREE.Vector3();

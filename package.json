@@ -43,6 +43,7 @@
     "element-plus": "2.8.4",
     "nifti-reader-js": "^0.7.1",
     "pinia": "^2.1.7",
+    "three-mesh-halfedge": "^1.0.3",
     "vite-plugin-node-polyfills": "^0.22.0",
     "vue": "^3.4.21"
   },

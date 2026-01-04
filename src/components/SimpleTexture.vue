@@ -115,9 +115,9 @@
 
 <script>
 /* eslint-disable no-alert, no-console */
+import { getMergedGeometry, scaffoldSmoothing } from "../scripts/Utilities.js";
 import { markRaw, shallowRef } from 'vue';
 import { ElMessage } from 'element-plus'
-//import { LoopSubdivision } from 'three-subdivide';
 import { readNIFTIFromURL } from "./niftiReader.js"
 import { SideBar } from "@abi-software/map-side-bar";
 import "@abi-software/map-side-bar/dist/style.css";
@@ -144,28 +144,6 @@ import {
 } from "element-plus";
 import 'element-plus/es/components/message/style/css'; // this is only needed if the page also used ElMessage
 import FileInput from './FileInput.vue';
-
-const scaffoldSmoothing = zincObject => {
-
-  const mesh = zincObject.getMorph();
-  if (mesh) {
-    // Configure subdivision
-    const params = {
-      split: true,       // maintains UVs
-      uvSmooth: true,    // smooths UVs
-      preserveEdges: false,
-      flatOnly: false,
-      maxTriangles: Infinity // limit to prevent crashing
-    };
-    console.log("here")
-    const smoothedGeometry = LoopSubdivision.modify(mesh.geometry, 2, params);
-    console.log("here")
-    console.log(smoothedGeometry);
-    mesh.geometry.dispose();
-    mesh.geometry = smoothedGeometry;
-  }
-}
-
 
 const convertFromPrimitivesName = original => {
   let name = original.substring(0, original.indexOf(" "));
@@ -241,8 +219,6 @@ export default {
       type: Number,
       default: 20,
     },
-
-
   },
   watch: {
     intMode: {
@@ -329,7 +305,17 @@ export default {
         }
         if (zincObject.groupName === "iso_block") {
           this.bodyScaffold = markRaw(zincObject);
-          //scaffoldSmoothing(this.bodyScaffold);
+          const mesh = zincObject.getMorph();
+          if (mesh) {
+            scaffoldSmoothing(mesh.geometry, 3, 0.5);
+            /*
+            const newGeometry = getMergedGeometry(mesh.geometry);
+            if (newGeometry) {
+              mesh.geometry.dispose();
+              mesh.geometry = newGeometry;
+            }*/
+          }
+          //scaffoldSmoothing(this.bodyScaffold, 3, 0.5);
           this.bodyScaffold.setPosition(-240, -259, -445.6);
           const group = this.bodyScaffold.getGroup();
           group.scale.set(1.2, 1.2, 1.2);
