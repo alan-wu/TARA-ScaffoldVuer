@@ -197,9 +197,8 @@ export default {
       }
       this.$refs.scaffold.changeHighlightedByName(names, "", false);
     },
-    addAndCuratedAcupointsInfo: function(zincObject) {
+    addAndCuratedAcupointsLabel: function(label) {
       if (!this.acupoints) this.acupoints = {};
-      const label = zincObject.groupName;
       if (label) {
         if (!(label in this.acupoints)) {
           this.acupoints[label] = {Acupoint: label};
@@ -208,7 +207,7 @@ export default {
       }
     },
     addAcupointsInfo: function(zincObject) {
-      this.addAndCuratedAcupointsInfo(zincObject);
+      this.addAndCuratedAcupointsLabel(label);
       const label = zincObject.groupName;
       if (label) {
         if ((!this.importing && !this.loadingPredefined) && this.intMode === "view") {
@@ -293,6 +292,7 @@ export default {
             const converted = convertFromPrimitivesName(glyph.groupName);
             for (let i = 0; i < keys.length; i++) {
               if (converted.toLowerCase() === keys[i].toLowerCase()) {
+                this.addAndCuratedAcupointsLabel(keys[i]);
                 filtered[keys[i]] = data[keys[i]];
                 break;
               }
