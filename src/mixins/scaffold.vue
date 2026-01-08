@@ -197,7 +197,7 @@ export default {
       }
       this.$refs.scaffold.changeHighlightedByName(names, "", false);
     },
-    addAcupointsInfo: function(zincObject) {
+    addAndCuratedAcupointsInfo: function(zincObject) {
       if (!this.acupoints) this.acupoints = {};
       const label = zincObject.groupName;
       if (label) {
@@ -205,6 +205,12 @@ export default {
           this.acupoints[label] = {Acupoint: label};
         }
         this.acupoints[label].Curated = true;
+      }
+    },
+    addAcupointsInfo: function(zincObject) {
+      this.addAndCuratedAcupointsInfo(zincObject);
+      const label = zincObject.groupName;
+      if (label) {
         if ((!this.importing && !this.loadingPredefined) && this.intMode === "view") {
           this.$nextTick(() => {
             if (label && this.$refs.sideBar) {
