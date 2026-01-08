@@ -94,7 +94,6 @@
         v-if="acupoints && (Object.keys(acupoints)).length > 0"
         ref="sideBar"
         class="side-bar main-column"
-        :envVars="envVars"
         :visible="true"
         :activeTabId="1"
         :tabs="sidebarTabs"
@@ -197,17 +196,6 @@ export default {
       sidebarTabs: [
         {title: 'Acupoints', id: 1, type: 'acupoints' },
       ],
-      envVars: {
-        API_LOCATION: import.meta.env.VITE_APP_API_LOCATION,
-        ALGOLIA_KEY: import.meta.env.VITE_APP_ALGOLIA_KEY,
-        ALGOLIA_ID: import.meta.env.VITE_APP_ALGOLIA_ID,
-        ALGOLIA_INDEX: import.meta.env.VITE_APP_ALGOLIA_INDEX,
-        PENNSIEVE_API_LOCATION: import.meta.env.VITE_APP_PENNSIEVE_API_LOCATION,
-        BL_SERVER_URL: import.meta.env.VITE_APP_BL_SERVER_URL,
-        NL_LINK_PREFIX: import.meta.env.VITE_APP_NL_LINK_PREFIX,
-        ROOT_URL: import.meta.env.VITE_APP_ROOT_URL,
-        FLATMAPAPI_LOCATION: import.meta.env.VITE_FLATMAPAPI_LOCATION,
-      },
       messageSettings: {
         duration: 0,
         message: "Downloading Texture"
