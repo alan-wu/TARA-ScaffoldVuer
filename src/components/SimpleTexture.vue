@@ -5,7 +5,7 @@
         <el-row>
           <el-col :span="12">
             <el-row :gutter="20" justify="center" align="middle">
-              <el-col :span="auto">
+              <el-col>
                 <el-button
                   class="left-buttons"
                   size="small"
@@ -16,7 +16,7 @@
               </el-col>
             </el-row>
             <el-row :gutter="20" justify="center" align="middle">
-                <el-col :span="auto">
+                <el-col>
                   <el-button
                     class="left-buttons"
                     size="small"
@@ -27,8 +27,8 @@
               </el-row>
           </el-col>
           <el-col :span="12">
-            <el-row :gutter="20" justify="center" align="left">
-              <el-col :span="auto">
+            <el-row :gutter="20" justify="center" align="middle">
+              <el-col>
                 <el-button
                   size="small"
                   :icon="ElIconFolderOpened"
@@ -36,7 +36,7 @@
                   Export AnnotationsintMode
                 </el-button>
               </el-col>
-              <el-col :span="auto">
+              <el-col>
                 <el-button size="small" :icon="ElIconFolderOpened">
                   <label for="annotations-upload">Import Annotations</label>
                   <input
@@ -47,7 +47,7 @@
                   />
                 </el-button>
               </el-col>
-              <el-col :span="auto">
+              <el-col>
                 <el-button
                   size="small"
                   @click="addPremadePoints()">
@@ -61,7 +61,7 @@
           Interactive Mode:
         </el-row>
         <el-row>
-          <el-col :span="auto" class="extra-wide">
+          <el-col class="extra-wide">
             <el-radio-group v-model="intMode" size="small">
               <el-radio value="view" border>Viewing</el-radio>
               <el-radio value="create" border>Create</el-radio>
@@ -86,7 +86,6 @@
         :show-colour-picker="true"
         :render="true"
         @on-ready="onReady"
-        @scaffold-highlighted="onHighlighted"
         @scaffold-selected="onSelected"
         @user-primitives-updated="userPrimitivesUpdated"
         @zinc-object-added="objectAdded"
@@ -107,8 +106,11 @@
       />
     </div>
     <div v-else class="scaffold-container">
-
-
+      <FileInput
+        v-model:maskURL="mURL"
+        v-model:scaffoldURL="sURL"
+        v-model:textureURL="tURL"
+      />
     </div>
   </div>
 </template>
@@ -137,8 +139,8 @@ import {
   ElInput as Input,
   ElInputNumber as InputNumber,
   ElPopover as Popover,
-  ElRadioGroup as RadioGroup,
   ElRadio as Radio,
+  ElRadioGroup as RadioGroup,
   ElRow as Row,
   ElSwitch as Switch,
 } from "element-plus";
@@ -164,6 +166,8 @@ export default {
     Input,
     InputNumber,
     Popover,
+    Radio,
+    RadioGroup,
     Row,
     Switch,
     ElIconEditPen,
@@ -207,7 +211,10 @@ export default {
       messageSettings: {
         duration: 0,
         message: "Downloading Texture"
-      }
+      },
+      mURL: undefined,
+      sURL: undefined,
+      tURL: undefined,
     };
   },
   props: {
@@ -218,6 +225,14 @@ export default {
     pointTolerance: {
       type: Number,
       default: 20,
+    },
+  },
+  computed: {
+    readyForDisplay: function() {
+      if (this.url) {
+        return (!this.requireTexture || (this.url && this.textureUrl));
+      }
+      return false;
     },
   },
   watch: {
@@ -233,6 +248,11 @@ export default {
         }
       },
     }
+  },
+  created: function() {
+    this.mURL = this.maskUrl;
+    this.sURL = this.url;
+    this.tURL = this.textureUrl;
   },
   mounted: function () {
     this._createLinesLength = 100;
@@ -306,15 +326,17 @@ export default {
         if (zincObject.groupName === "iso_block") {
           this.bodyScaffold = markRaw(zincObject);
           const mesh = zincObject.getMorph();
+          /*
           if (mesh) {
-            scaffoldSmoothing(mesh.geometry, 3, 0.5);
-            /*
+            //scaffoldSmoothing(mesh.geometry, 3, 0.5);
+            //console.log("Done")
             const newGeometry = getMergedGeometry(mesh.geometry);
             if (newGeometry) {
               mesh.geometry.dispose();
               mesh.geometry = newGeometry;
-            }*/
+            }
           }
+          */
           //scaffoldSmoothing(this.bodyScaffold, 3, 0.5);
           this.bodyScaffold.setPosition(-240, -259, -445.6);
           const group = this.bodyScaffold.getGroup();
