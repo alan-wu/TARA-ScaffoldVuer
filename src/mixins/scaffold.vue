@@ -217,8 +217,8 @@ export default {
       }
     },
     addAcupointsInfo: function(zincObject) {
-      this.addAndCuratedAcupointsLabel(label);
       const label = zincObject.groupName;
+      this.addAndCuratedAcupointsLabel(label);
       if (label) {
         if ((!this.importing && !this.loadingPredefined) && this.intMode === "view") {
           this.$nextTick(() => {
@@ -294,7 +294,8 @@ export default {
       this.importing = false;
     },
     populateAcupoints: function(data) {
-      let filtered = {};
+      //Dont filtered
+      this.acupoints = data;
       const keys = Object.keys(data);
       if (this.glyphs && this.glyphs.length) {
         this.glyphs.forEach((glyph) => {
@@ -303,16 +304,12 @@ export default {
             for (let i = 0; i < keys.length; i++) {
               if (converted.toLowerCase() === keys[i].toLowerCase()) {
                 this.addAndCuratedAcupointsLabel(keys[i]);
-                filtered[keys[i]] = data[keys[i]];
                 break;
               }
             }
           }
         });
-      } else {
-        filtered = data;
       }
-      this.acupoints = data;
     },
     importLocalAnnotations: function() {
       const selectedFile = document.getElementById("annotations-upload").files[0];
