@@ -223,11 +223,6 @@ const findNearbyPoints = (data, tolerance) => {
   }
 }
 
-const convertToPrimitivesName = original => {
-  const name = original.replace(" ", "");
-  return [`${name} left`, `${name} right`];
-}
-
 const convertFromPrimitivesName = original => {
   let name = original.substring(0, original.indexOf(" "));
   if (name) {
