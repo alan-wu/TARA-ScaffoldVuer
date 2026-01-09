@@ -1,7 +1,7 @@
 <script>
 import { THREE } from "zincjs";
 import { watchEffect } from 'vue';
-import { acupointEntries } from '../acupoints.js';
+//import { acupointEntries } from '../acupoints.js';
 import { markRaw } from 'vue';
 
 const v1 = new THREE.Vector3();
@@ -81,6 +81,39 @@ const convertFromPrimitivesName = original => {
   }
   return name;
 }
+
+const parseAcupointsData = data => {
+  const list = data['results']['bindings'];
+  const parsed = {};
+  const keyMap = {
+    Acupoint: "Acupoint",
+    "Acupuncture Method": "Acupuncture_Method",
+    Synonym: "Synonym",
+    Meridian: "Meridian",
+    "Chinese Name": "Chinese_Name",
+    Location: "Location",
+    "Locational Anatomy": "Locational_Anatomy",
+    Reference: "Reference",
+    Innervation: "Innervation",
+    Vasculature: "Vasculature",
+    "Special Point Role": "Special_Point_Role",
+  };
+
+
+  list.forEach(item => {
+    const name = item['Acupoint']['value'];
+    const obj = {};
+    for (const [key, value] of Object.entries(keyMap)) {
+      if (item[value]) {
+        obj[key] = item[value]['value'];
+      }
+    }
+    parsed[name] = obj;
+  });
+
+  return parsed;
+}
+
 
 const writeTextFile = (filename, data) => {
   let dataStr =
@@ -293,10 +326,11 @@ export default {
       }
       this.importing = false;
     },
-    populateAcupoints: function(data) {
+    populateAcupoints: function(rawData) {
+      const parsedData = parseAcupointsData(rawData);
       //Dont filtered
-      this.acupoints = data;
-      const keys = Object.keys(data);
+      this.acupoints = parsedData;
+      const keys = Object.keys(parsedData);
       if (this.glyphs && this.glyphs.length) {
         this.glyphs.forEach((glyph) => {
           if (glyph.groupName) {
