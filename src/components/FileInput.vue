@@ -1,49 +1,100 @@
 <template>
-  <div class="input-container">
-    This will be fine
+  <div class="input-parent">
+    <div class="input-container">
+      <UrlFileReader
+        name="Scaffold"
+        v-model:resource="scaffold"
+      />
+      <UrlFileReader
+        name="Texture"
+        v-model:resource="texture"
+      />
+      <UrlFileReader
+        name="Texture Mask"
+        v-model:resource="mask"
+      />
+      <el-row :gutter="20">
+        <el-button
+          size="default"
+          :disabled="!readyToConfirm"
+          @click="confirm()">
+          Confirm
+        </el-button>
+      </el-row>
+    </div>
   </div>
 </template>
 
 <script>
 /* eslint-disable no-alert, no-console */
-
+import UrlFileReader from './UrlFileReader.vue';
 import {
   ElButton as Button,
-  ElSelect as Select,
-  ElOption as Option,
-  ElInput as Input,
-  ElTable as Table,
-  ElTableColumn as TableColumn
+  ElCol as Col,
+  ElRow as Row,
 } from "element-plus";
 
 export default {
-  name: "FileInput",
-  components: [
+  name: "UrlFileReader",
+  components: {
     Button,
-    Input,
-    Table,
-    TableColumn,
-    Select,
-    Option
-  ],
+    Col,
+    Row,
+    UrlFileReader,
+  },
   data() {
     return {
+      mask: "",
+      scaffold: "",
+      texture: "",
     }
   },
+  props: {
+    maskURL: {
+      type: String,
+      default: "",
+    },
+    scaffoldURL: {
+      type: String,
+      default: "",
+    },
+    textureURL: {
+      type: String,
+      default: "",
+    },
+  },
+  computed: {
+    readyToConfirm: function() {
+      return this.scaffold && this.texture;
+    },
+  },
+  created: function() {
+    this.mask = this.maskURL;
+    this.scaffold = this.scaffoldURL;
+    this.texture = this.textureURL;
+  },
+  methods: {
+    confirm: function() {
+      this.$emit('update:scaffoldURL', scaffold);
+      this.$emit('update.textureURL', texture);
+      this.$emit('update.maskURL', mask);
+    },
+  }
 };
 </script>
 
 <style scoped lang="scss">
-:deep(.el-table__body-wrapper) {
-  text-align:justify;
+
+.input-parent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically */
 }
 
-.info-container {
-  width:500px;
-}
-
-.option-container {
-  z-index:10005;
+.input-container {
+  width: 800px;
 }
 
 </style>
