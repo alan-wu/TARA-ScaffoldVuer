@@ -3,6 +3,7 @@ import { THREE } from "zincjs";
 import { watchEffect } from 'vue';
 //import { acupointEntries } from '../acupoints.js';
 import { markRaw } from 'vue';
+import { impliedData } from '../implied.js';
 
 const v1 = new THREE.Vector3();
 const v2 = new THREE.Vector3();
@@ -99,17 +100,29 @@ const parseAcupointsData = data => {
     "Special Point Role": "Special_Point_Role",
   };
 
-
+  let match = 0;
   list.forEach(item => {
     const name = item['Acupoint']['value'];
+    let onMRI = false;
+    const nameToMatch = name.split('(')[0].replaceAll(" ", "");
+
+    if (nameToMatch in impliedData ) {
+      match = match + 1
+      onMRI = impliedData[nameToMatch];
+    }
     const obj = {};
     for (const [key, value] of Object.entries(keyMap)) {
       if (item[value]) {
         obj[key] = item[value]['value'];
       }
     }
+    obj['onMRI'] = onMRI;
     parsed[name] = obj;
   });
+
+  //console.log("total matched", match)
+  //console.log("list total:", list.length)
+  console.log(parsed)
 
   return parsed;
 }

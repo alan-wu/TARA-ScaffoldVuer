@@ -118,7 +118,7 @@
 /* eslint-disable no-alert, no-console */
 //import { getMergedGeometry, scaffoldSmoothing } from "../scripts/Utilities.js";
 import { markRaw, shallowRef } from 'vue';
-import { ElMessage } from 'element-plus'
+import { ElMessage } from 'element-plus';
 import { readNIFTIFromURL } from "./niftiReader.js"
 import { SideBar } from "@abi-software/map-side-bar";
 import "@abi-software/map-side-bar/dist/style.css";
