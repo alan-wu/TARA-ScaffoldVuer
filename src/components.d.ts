@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCol: typeof import('element-plus/es')['ElCol']
+    ElInput: typeof import('element-plus/es')['ElInput']
     ElOption: typeof import('element-plus/es')['ElOption']
     ElPopover: typeof import('element-plus/es')['ElPopover']
     ElRadio: typeof import('element-plus/es')['ElRadio']
@@ -26,5 +27,7 @@ declare module 'vue' {
     Scaffold: typeof import('./components/mixins/scaffold.vue')['default']
     SimpleTexture: typeof import('./components/SimpleTexture.vue')['default']
     TaraScaffoldVuer: typeof import('./components/TaraScaffoldVuer.vue')['default']
+    URLFIleHandler: typeof import('./components/URLFIleHandler.vue')['default']
+    UrlFileReader: typeof import('./components/UrlFileReader.vue')['default']
   }
 }

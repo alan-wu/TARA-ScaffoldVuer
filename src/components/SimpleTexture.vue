@@ -118,7 +118,7 @@
 /* eslint-disable no-alert, no-console */
 //import { getMergedGeometry, scaffoldSmoothing } from "../scripts/Utilities.js";
 import { markRaw, shallowRef } from 'vue';
-import { ElMessage } from 'element-plus'
+import { ElMessage } from 'element-plus';
 import { readNIFTIFromURL } from "./niftiReader.js"
 import { SideBar } from "@abi-software/map-side-bar";
 import "@abi-software/map-side-bar/dist/style.css";
@@ -217,6 +217,7 @@ export default {
   },
   computed: {
     readyForDisplay: function() {
+      //return false;
       if (this.url) {
         return (!this.requireTexture || (this.url && this.textureUrl));
       }
@@ -229,7 +230,7 @@ export default {
         if (this.$refs.scaffold) {
           this.$refs.scaffold.cancelCreate();
           if (value === "create") {
-            this.$refs.scaffold.createData.shape = "Point"
+            this.$refs.scaffold.createData.shape = "Point";
           } else {
             this.$refs.scaffold.createData.shape = "";
           }
@@ -244,15 +245,18 @@ export default {
   },
   mounted: function () {
     this._createLinesLength = 100;
-    const Zinc = this.$refs.scaffold.$module.Zinc;
     this._pickableObjects = [];
-    const scene  = this.$refs.scaffold.$module.scene;
-    this._rayCaster = new Zinc.RayCaster(
-      scene,
-      scene,
-      undefined,
-      undefined,
-    );
+    if (this.$refs.scaffold) {
+      const Zinc = this.$refs.scaffold.$module.Zinc;
+
+      const scene  = this.$refs.scaffold.$module.scene;
+      this._rayCaster = new Zinc.RayCaster(
+        scene,
+        scene,
+        undefined,
+        undefined,
+      );
+    }
     this.acupointsInfo = true;
   },
   methods: {
