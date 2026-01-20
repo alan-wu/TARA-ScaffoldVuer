@@ -85,6 +85,8 @@
         :positionalRotation="positionalRotation"
         :show-colour-picker="true"
         :render="true"
+        @create-group-suggestions="createGroupSuggestions"
+        @create-region-suggestions="createRegionSuggestions"
         @on-ready="onReady"
         @scaffold-selected="onSelected"
         @user-primitives-updated="userPrimitivesUpdated"
@@ -298,6 +300,16 @@ export default {
       });
       this.loadingPredefined = false;
     },
+    createGroupSuggestions: function(data) {
+      if (data) {
+        data.cb(this.suggestAcupoints(data.term));
+      }
+    },
+    createRegionSuggestions: function(data) {
+      if (data) {
+        data.cb(this.suggestAcupoints(data.term));
+      }
+    },
     onReady: async function () {
       //this.addPremadePoints();
       this.$refs.scaffold.backgroundChangeCallback('black');
@@ -326,10 +338,8 @@ export default {
         }
         if (zincObject.groupName === "Body") {
           this.bodyScaffold = markRaw(zincObject);
-          console.log(this.bodyScaffold.getBoundingBox());
         }
         if (zincObject.groupName === "iso_block") {
-
           this.bodyScaffold = markRaw(zincObject);
           const mesh = zincObject.getMorph();
           /*

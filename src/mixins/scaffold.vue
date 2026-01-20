@@ -4,6 +4,7 @@ import { watchEffect } from 'vue';
 //import { acupointEntries } from '../acupoints.js';
 import { markRaw } from 'vue';
 import { impliedData } from '../implied.js';
+import EventBus from '@abi-software/map-utilities/src/components/EventBus.js';
 
 const v1 = new THREE.Vector3();
 const v2 = new THREE.Vector3();
@@ -275,6 +276,17 @@ export default {
         }
       }
     },
+    suggestAcupoints: function(term) {
+      const suggestedTerms = [];
+      if (this.acupoints) {
+        Object.keys(this.acupoints).forEach(key => {
+          if (!this.acupoints[key].Curated && key.startsWith(term)) {
+            suggestedTerms.push({value: key, value: key});
+          }
+        });
+      }
+      return suggestedTerms;
+    },
     readAcupoints: function() {
       if (this.acupointsEndpoint) {
         fetch(this.acupointsEndpoint)
@@ -375,6 +387,7 @@ export default {
     addPoint: function (data, coord) {
       const myViewer = this.$refs.scaffold;
       myViewer.createData.shape = "Point";
+      myViewer.createData.regionPrefix = "";
       if (this.consoleOn) {
         console.log(myViewer.createData);
         console.log("addPoints", data, coord);
@@ -444,7 +457,6 @@ export default {
       }
     },
   },
-
 };
 </script>
 
