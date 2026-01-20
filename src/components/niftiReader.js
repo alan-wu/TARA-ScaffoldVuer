@@ -5,6 +5,7 @@ import {
 
 const hideWhitePixel = false;
 const hideBlackPixel = true;
+const keepScalePosition = true;
 
 const textureSettings = {
   v1: {
@@ -103,8 +104,17 @@ const createSources = (niftiHeader, niftiImage, maskHeader, maskImage) => {
       }
     }
     let scale = 1;
+    let valueOffset = 0.0;
     if (dataType === "float") {
-      scale = 255;
+      //It should be like
+      // scl_slope = 0, intensity will be stored in value between 0, 1
+      // Otherwise the following
+      //y = scl_slope * x + scl_inter
+      if (niftiHeader.scl_slope === 0) {
+        scale = 255;
+      } else {
+        valueOffset = niftiHeader.scl_inter;
+      }
     } else if (dataType === "uint") {
       scale = 255;
     }
@@ -114,7 +124,7 @@ const createSources = (niftiHeader, niftiImage, maskHeader, maskImage) => {
         const rowOffset = row * width;
         for (let col = 0; col < width; col++) {
           const offset = sliceOffset + rowOffset + col;
-          const value = typedData[offset] * scale;
+          const value = typedData[offset] * scale + valueOffset;
           fullArray[offset * 4] = value;
           fullArray[offset * 4 + 1] = value;
           fullArray[offset * 4 + 2] = value;
@@ -183,6 +193,11 @@ const getSFormTransformation = (header) => {
     scale[0] = affine[0][0] * header.dims[1];
     scale[1] = affine[1][1] * header.dims[2];
     scale[2] = affine[2][2] * header.dims[3];
+    if (keepScalePosition) {
+      scale[0] = Math.abs(scale[0]);
+      scale[1] = Math.abs(scale[1]);
+      scale[2] = Math.abs(scale[2]);
+    }
     return {position, scale}
   }
   return {position: undefined, scale: undefined}
@@ -221,7 +236,7 @@ const createTexturePrimitives = (Zinc, niftiHeader, sources, useHeaderInfo) => {
     if (useHeaderInfo && niftiHeader) {
       const {position, scale} = getTransformationFromHeader(niftiHeader);
       if (position && scale) {
-        settings.locations[0].scale = scale
+        settings.locations[0].scale = scale;
         settings.locations[0].position = position;
       }
 /*

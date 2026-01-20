@@ -263,15 +263,24 @@ export default {
     addPremadePoints: function() {
       const viewer = this.$refs.scaffold;
       const scene = viewer.$module.scene;
+      //for torso
+      //const points = [
+      //  [211.58, 22.313, -407.20],
+      //  [61.66, 99.09, -353.20],
+      //  [91.28, 105.74, -332.80],
+      //  [44.73, 99.09, -301.60],
+      //  [82.21, 97.88, -264.40],
+      //  [217.63, 21.10, -254.80],
+      //  [-65.90, 48.31, -257.20],
+      //  [189.22, 63.42, -246.40],
+      //];
+      //for whole body
       const points = [
-        [211.58, 22.313, -407.20],
-        [61.66, 99.09, -353.20],
-        [91.28, 105.74, -332.80],
-        [44.73, 99.09, -301.60],
-        [82.21, 97.88, -264.40],
-        [217.63, 21.10, -254.80],
-        [-65.90, 48.31, -257.20],
-        [189.22, 63.42, -246.40],
+        [80.066, 226.318, 940.800],
+        [541.301, 263.315, 1164],
+        [361.863, 267.015, 112.800],
+        [360.630, 335.460, 108],
+        [363.097, 301.546, 190.800]
       ];
       const pointName = "point_";
       let order = 1;
@@ -291,6 +300,7 @@ export default {
     },
     onReady: async function () {
       //this.addPremadePoints();
+      this.$refs.scaffold.backgroundChangeCallback('black');
       sessionStorage.setItem('anonymous-annotation', JSON.stringify([]));
       this.readAcupoints();
       await this.readTexture();
@@ -298,7 +308,6 @@ export default {
         this.$refs.scaffold.createAxisDisplay(false);
         this.$refs.scaffold.enableAxisDisplay(true, false);
       }
-      this.$refs.scaffold.backgroundChangeCallback('black');
     },
     openHelp: function() {
       window.open("https://github.com/ABI-Software/TARA-ScaffoldVuer/blob/acupoint/README.md#overview", "_blank")
@@ -315,7 +324,12 @@ export default {
           zincObject.setIsPickable(false);
           this.bodyScaffold = markRaw(zincObject);
         }
+        if (zincObject.groupName === "Body") {
+          this.bodyScaffold = markRaw(zincObject);
+          console.log(this.bodyScaffold.getBoundingBox());
+        }
         if (zincObject.groupName === "iso_block") {
+
           this.bodyScaffold = markRaw(zincObject);
           const mesh = zincObject.getMorph();
           /*
