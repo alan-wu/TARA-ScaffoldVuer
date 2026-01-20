@@ -117,6 +117,8 @@ const createSources = (niftiHeader, niftiImage, maskHeader, maskImage) => {
       }
     } else if (dataType === "uint") {
       scale = 255;
+    } else if (dataType === "int16") {
+      scale = 1 / 255;
     }
     for (let slice = 0; slice < depth; slice++) {
       const sliceOffset = sliceSize * slice;
@@ -124,7 +126,8 @@ const createSources = (niftiHeader, niftiImage, maskHeader, maskImage) => {
         const rowOffset = row * width;
         for (let col = 0; col < width; col++) {
           const offset = sliceOffset + rowOffset + col;
-          const value = typedData[offset] * scale + valueOffset;
+          let value = typedData[offset] * scale + valueOffset;
+          if (value < 0) value = 0;
           fullArray[offset * 4] = value;
           fullArray[offset * 4 + 1] = value;
           fullArray[offset * 4 + 2] = value;
@@ -132,7 +135,8 @@ const createSources = (niftiHeader, niftiImage, maskHeader, maskImage) => {
           if (maskData) {
             const maskedValue = maskData[offset];
             if (hideBlackPixel) {
-              if (maskedValue === 0 && 20 > value) {
+              //if (maskedValue === 0 && 20 > value) {
+              if (maskedValue === 0) {
                 fullArray[offset * 4 + 3] = 0;
               }
             }
