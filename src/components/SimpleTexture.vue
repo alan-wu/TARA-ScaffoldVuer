@@ -290,12 +290,14 @@ export default {
       this.loadingPredefined = true;
       points.forEach((point) => {
         const object = scene.createPoints(
-          "Predefined",
+          "acupoints",
           `${pointName}${order}`,
           [point],
           `point_${order}`,
           0xffff00,
         );
+        this.$refs.scaffold.addAndEditAnnotations("acupoints", `point_${order}`,
+          object.zincObject, "Create");
         object.zincObject.isEditable = true;
         order++;
       });
@@ -375,10 +377,10 @@ export default {
           this.glyphs.push(zincObject);
         } else if (zincObject.isPointset) {
           zincObject.setSize(15);
-          if (!this.loadingPredefined) {
+          //if (!this.loadingPredefined) {
             zincObject.setColourHex(0xff5724);
-          }
-          this.addAcupointsInfo(zincObject);
+          //}
+          this.addAcupointsInfo(zincObject, false);
         } else {
           if (zincObject.groupName === "undefined" &&
             zincObject._lod?._material?.side) {

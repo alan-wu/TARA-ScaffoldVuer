@@ -254,18 +254,20 @@ export default {
       }
       this.$refs.scaffold.changeHighlightedByName(names, "", false);
     },
-    addAndCuratedAcupointsLabel: function(label) {
+    addAndCuratedAcupointsLabel: function(label, addInfo) {
       if (!this.acupoints) this.acupoints = {};
       if (label) {
-        if (!(label in this.acupoints)) {
+        if (addInfo && !(label in this.acupoints)) {
           this.acupoints[label] = {Acupoint: label};
         }
-        this.acupoints[label].Curated = true;
+        if (label in this.acupoints) {
+          this.acupoints[label].Curated = true;
+        }
       }
     },
-    addAcupointsInfo: function(zincObject) {
+    addAcupointsInfo: function(zincObject, addInfo) {
       const label = zincObject.groupName;
-      this.addAndCuratedAcupointsLabel(label);
+      this.addAndCuratedAcupointsLabel(label, addInfo);
       if (label) {
         if ((!this.importing && !this.loadingPredefined) && this.intMode === "view") {
           this.$nextTick(() => {
@@ -387,7 +389,7 @@ export default {
     addPoint: function (data, coord) {
       const myViewer = this.$refs.scaffold;
       myViewer.createData.shape = "Point";
-      myViewer.createData.regionPrefix = "";
+      myViewer.createData.regionPrefix = "acupoints";
       if (this.consoleOn) {
         console.log(myViewer.createData);
         console.log("addPoints", data, coord);
@@ -424,9 +426,26 @@ export default {
       viewport.upVector = [v2.x, v2.y, v2.z];
       control.setCurrentCameraSettings(viewport);
     },
+    updateCuratedStatus: function(name) {
+      if (name in this.acupoints) {
+        const scene = this.$refs.scaffold.$module.scene;
+        if (scene) {
+          const objects = scene.findObjectsWithGroupName(name);
+          if (objects.length > 0) {
+            this.acupoints[name].Curated = true;
+          } else{
+            this.acupoints[name].Curated = false;
+          }
+        }
+      }
+    },
     userPrimitivesUpdated: function (payload) {
       if (this.consoleOn) console.log("userPrimitivesUpdated", payload);
       const zincObject = payload.zincObject;
+      if (payload.renamedFrom) {
+        this.updateCuratedStatus(payload.renamedFrom);
+        this.updateCuratedStatus(zincObject.groupName);
+      }
       if ((zincObject.isEditable || this.importing) && zincObject.isLines2
         && !zincObject.renamedFrom) {
         //Call the following to set the camera

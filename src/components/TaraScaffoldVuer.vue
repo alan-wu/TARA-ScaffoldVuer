@@ -376,7 +376,7 @@ export default {
         } else if (zincObject.isPointset) {
           zincObject.setSize(15);
           zincObject.setColourHex(0xff5724);
-          this.addAcupointsInfo(zincObject);
+          this.addAcupointsInfo(zincObject, false);
         } else {
           if (zincObject.groupName === "undefined" &&
             zincObject._lod?._material?.side) {
