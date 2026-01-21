@@ -427,7 +427,8 @@ export default {
     userPrimitivesUpdated: function (payload) {
       if (this.consoleOn) console.log("userPrimitivesUpdated", payload);
       const zincObject = payload.zincObject;
-      if ((zincObject.isEditable || this.importing) && zincObject.isLines2) {
+      if ((zincObject.isEditable || this.importing) && zincObject.isLines2
+        && !zincObject.renamedFrom) {
         //Call the following to set the camera
         const scene = this.$refs.scaffold.$module.scene;
         const camera = scene.getZincCameraControls();

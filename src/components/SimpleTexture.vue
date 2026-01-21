@@ -66,6 +66,7 @@
               <el-radio value="view" border>Viewing</el-radio>
               <el-radio value="create" border>Create</el-radio>
               <el-radio value="edit" border>Edit</el-radio>
+              <el-radio value="rename" border>Rename</el-radio>
             </el-radio-group>
           </el-col>
         </el-row>
@@ -452,8 +453,12 @@ export default {
                   this.$refs.sideBar.openAcupointsSearch(label);
                 }
               }
-              if (this.intMode === "edit" && zincObject.isPointset && zincObject.isEditable) {
-                this.$refs.scaffold.activateEditingMode(data);
+              if (zincObject.isPointset && zincObject.isEditable) {
+                if (this.intMode === "edit") {
+                  this.$refs.scaffold.activateEditingMode(data);
+                } else if (this.intMode === "rename") {
+                  this.$refs.scaffold.activateRenamingMode(data);
+                }
               }
               if (this.alignPoint && data.length === 1 && zincObject.isGlyphset) {
                 const {point, normal} = this.findNearestPointAndNormalFromObject(
