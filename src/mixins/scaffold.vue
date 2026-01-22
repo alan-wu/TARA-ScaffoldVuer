@@ -434,7 +434,7 @@ export default {
       if (name in this.acupoints) {
         const scene = this.$refs.scaffold.$module.scene;
         if (scene) {
-          const objects = this.$module.scene.findObjectsWithGroupName(name);
+          const objects = scene.findObjectsWithGroupName(name);
           if (objects.length > 0) {
             this.acupoints[name].Curated = true;
           } else{
