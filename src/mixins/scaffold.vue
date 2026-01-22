@@ -321,7 +321,8 @@ export default {
       if (this.acupointsInfo) {
         data = {
           annotations: annotations,
-          acupoints: this.acupoints
+          //Disable acupoints import for now.
+          //acupoints: this.acupoints
         }
       }
       const date = JSON.stringify(new Date());
@@ -345,12 +346,15 @@ export default {
       if (annotations) {
         this.$refs.scaffold.importOfflineAnnotations(annotations);
       }
+      //Disable importing acupoint information.
+      /*
       if (acupoints) {
         if (!this.acupoints) {
           this.acupoints = {};
         }
         Object.assign(this.acupoints, acupoints);
       }
+      */
       this.importing = false;
     },
     populateAcupoints: function(rawData) {
@@ -430,7 +434,7 @@ export default {
       if (name in this.acupoints) {
         const scene = this.$refs.scaffold.$module.scene;
         if (scene) {
-          const objects = scene.findObjectsWithGroupName(name);
+          const objects = this.$module.scene.findObjectsWithGroupName(name);
           if (objects.length > 0) {
             this.acupoints[name].Curated = true;
           } else{
