@@ -231,6 +231,9 @@ export default {
       const control = this.$refs.scaffold.$module.scene.getZincCameraControls();
       this.viewport = control.getCurrentViewport();
     },
+    resetView: function() {
+      this.$refs.scaffold.$module.scene.resetView();
+    },
     rotate: function() {
       const num = viewportSettings.length;
       let index = this.currentViewport + 1;

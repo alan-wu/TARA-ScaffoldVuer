@@ -16,15 +16,25 @@
               </el-col>
             </el-row>
             <el-row :gutter="20" justify="center" align="middle">
-                <el-col>
-                  <el-button
-                    class="left-buttons"
-                    size="small"
-                    @click="rotate()">
-                    Rotate
-                  </el-button>
-                </el-col>
-              </el-row>
+              <el-col>
+                <el-button
+                  class="left-buttons"
+                  size="small"
+                  @click="rotate()">
+                  Rotate
+                </el-button>
+              </el-col>
+            </el-row>
+            <el-row :gutter="20" justify="center" align="middle">
+              <el-col>
+                <el-button
+                  class="left-buttons"
+                  size="small"
+                  @click="resetView()">
+                  Reset View
+                </el-button>
+              </el-col>
+            </el-row>
           </el-col>
           <el-col :span="12">
             <el-row :gutter="20" justify="center" align="middle">
