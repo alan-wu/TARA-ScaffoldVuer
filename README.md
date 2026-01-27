@@ -99,7 +99,9 @@ TARA Acupoint viewer is a Vue component/framework that enables you to load, disp
 
 ### Usage
 
-In your Vue component, import the component and its CSS:
+## How to integrate With Your Vue App
+Install the package in your vue app project with the following command "npm i @abi-software/tara-scaffoldvuer".
+Import the package in your script as followed:
 ```javascript
 <script setup>
 
