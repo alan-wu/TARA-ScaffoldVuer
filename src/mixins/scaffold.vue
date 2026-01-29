@@ -117,6 +117,16 @@ const parseAcupointsData = data => {
         obj[key] = item[value]['value'];
       }
     }
+    if (item['Acupoint_Category']['value'] === "Meridian Acupoint") {
+      obj["Meridian Point"] = true;
+    } else {
+      obj["Meridian Point"] = false;
+    }
+    if (item['Acupoint_Curie']['value'].includes('TARA:')) {
+      let curie = item['Acupoint_Curie']['value'];
+      curie = curie.replace(":", "_");
+      obj['Link'] = "https://tara-repository.mgb.org/term_resolution/tara.html#" + curie;
+    }
     obj['onMRI'] = onMRI;
     parsed[name] = obj;
   });
