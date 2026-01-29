@@ -43,7 +43,7 @@
                   size="small"
                   :icon="ElIconFolderOpened"
                   @click="exportLocalAnnotations()">
-                  Export AnnotationsintMode
+                  Export Annotations
                 </el-button>
               </el-col>
               <el-col>
