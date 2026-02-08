@@ -149,6 +149,7 @@ import { SideBar } from "@abi-software/map-side-bar";
 import "@abi-software/map-side-bar/dist/style.css";
 import { ScaffoldVuer } from "@abi-software/scaffoldvuer";
 import "@abi-software/scaffoldvuer/dist/style.css";
+import { dataPoints } from '../data/points.js';
 import {
   DataAnalysis as ElIconDataAnalysis,
   EditPen as ElIconEditPen,
@@ -300,6 +301,25 @@ export default {
       //  [189.22, 63.42, -246.40],
       //];
       //for whole body
+
+      this.loadingPredefined = true;
+      const points = dataPoints.markups[0].controlPoints;
+      points.forEach((point) => {
+        const pointName = point.label;
+        const object = scene.createPoints(
+          "acupoints",
+          pointName,
+          [point.position],
+          pointName,
+          0xffff00,
+        );
+        this.$refs.scaffold.addAndEditAnnotations("acupoints", pointName,
+          object.zincObject, "Create");
+        object.zincObject.isEditable = true;
+      });
+
+      /*
+
       const points = [
         [80.066, 226.318, 940.800],
         [541.301, 263.315, 1164],
@@ -323,6 +343,7 @@ export default {
         object.zincObject.isEditable = true;
         order++;
       });
+      */
       this.loadingPredefined = false;
     },
     createGroupSuggestions: function(data) {
