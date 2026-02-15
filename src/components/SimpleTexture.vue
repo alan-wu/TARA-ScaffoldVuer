@@ -383,7 +383,13 @@ export default {
           this.bodyScaffold = markRaw(zincObject);
         }
         if (zincObject.groupName === "Body") {
+          zincObject.userData.highlightColour = [0.1, 0, 0];
+          zincObject.userData.selectedColour = [0, 0.1, 0];
           this.bodyScaffold = markRaw(zincObject);
+        }
+        if (zincObject.groupName === "Scaffold") {
+          zincObject.userData.selectedColour = [0, 0.1, 0];
+          zincObject.userData.highlightColour = [0.1, 0, 0];
         }
         if (zincObject.groupName === "iso_block") {
           this.bodyScaffold = markRaw(zincObject);
