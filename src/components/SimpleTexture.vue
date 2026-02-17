@@ -60,7 +60,7 @@
               <el-col>
                 <el-button
                   size="small"
-                  @click="addPremadePoints()">
+                  @click="readPremadeAnnotations()">
                   Load predefined points
                 </el-button>
               </el-col>
@@ -114,7 +114,15 @@
         @scaffold-selected="onSelected"
         @user-primitives-updated="userPrimitivesUpdated"
         @zinc-object-added="objectAdded"
-      />
+      >
+        <template v-if="filtersList.length" v-slot:treeSlot>
+          <GraphicsFilter
+            @toggleMeridian="toggleMeridian"
+            :filtersList="filtersList"
+            :includeOthers="includeOthers"
+          />
+        </template>
+      </ScaffoldVuer>
       <SideBar
         v-if="acupoints && (Object.keys(acupoints)).length > 0"
         ref="sideBar"
@@ -149,7 +157,8 @@ import { SideBar } from "@abi-software/map-side-bar";
 import "@abi-software/map-side-bar/dist/style.css";
 import { ScaffoldVuer } from "@abi-software/scaffoldvuer";
 import "@abi-software/scaffoldvuer/dist/style.css";
-import { dataPoints } from '../data/points.js';
+//import { dataPoints } from '../data/points.js';
+import { new_annotations } from '../data/annotations.js'
 import {
   DataAnalysis as ElIconDataAnalysis,
   EditPen as ElIconEditPen,
@@ -171,6 +180,7 @@ import {
 } from "element-plus";
 import 'element-plus/es/components/message/style/css'; // this is only needed if the page also used ElMessage
 import FileInput from './FileInput.vue';
+import GraphicsFilter from './GraphicsFilter.vue';
 
 const convertFromPrimitivesName = original => {
   let name = original.substring(0, original.indexOf(" "));
@@ -187,6 +197,7 @@ export default {
   components: {
     Button,
     Col,
+    GraphicsFilter,
     Icon,
     Input,
     InputNumber,
@@ -345,6 +356,9 @@ export default {
       });
       */
       this.loadingPredefined = false;
+    },
+    readPremadeAnnotations: function() {
+      this.readAnnotations(new_annotations)
     },
     createGroupSuggestions: function(data) {
       if (data) {
@@ -529,6 +543,13 @@ export default {
         }
       }
     },
+    toggleMeridian: function(payload) {
+      if (payload.meridian) {
+        this.filtersMapping[payload.meridian].forEach(zincObject => {
+          zincObject.setVisibility(payload.flag);
+        });
+      }
+    }
   },
 };
 </script>

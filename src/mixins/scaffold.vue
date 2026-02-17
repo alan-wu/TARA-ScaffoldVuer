@@ -84,6 +84,14 @@ const convertFromPrimitivesName = original => {
   return name;
 }
 
+const getMeridian = original => {
+  let name = original.substring(0, original.indexOf(" "));
+  if (name.length === 2) {
+    return name;
+  }
+  return undefined;
+}
+
 const parseAcupointsData = data => {
   const list = data['results']['bindings'];
   const parsed = {};
@@ -137,7 +145,6 @@ const parseAcupointsData = data => {
 
   return parsed;
 }
-
 
 const writeTextFile = (filename, data) => {
   let dataStr =
@@ -200,7 +207,10 @@ export default {
       acupoints: {},
       acupointsInfo: false,
       currentViewport: 0,
+      filtersList: [],
+      filtersMapping: markRaw({}),
       glyphs: markRaw([]),
+      includeOthers: false,
       loadingPredefined: false,
       importing: false,
       isDrawerOpen: false,
@@ -278,6 +288,26 @@ export default {
         }
       }
     },
+    addAcupointsFilter: function(zincObject) {
+      const label = zincObject.groupName;
+      let meridian = getMeridian(label);
+      if (meridian) {
+        if (!this.filtersList.includes(meridian)) {
+          this.filtersList.push(meridian);
+          this.filtersList.sort();
+        }
+      } else {
+        this.includeOthers = true;
+        meridian = "Others";
+      }
+      if (!Object.keys(this.filtersMapping).includes(meridian)) {
+          this.filtersMapping[meridian] = [];
+        }
+      if (!this.filtersMapping[meridian].includes(label)) {
+        console.log(zincObject)
+        this.filtersMapping[meridian].push(zincObject);
+      }
+    },
     addAcupointsInfo: function(zincObject, addInfo) {
       const label = zincObject.groupName;
       this.addAndCuratedAcupointsLabel(label, addInfo);
@@ -289,6 +319,7 @@ export default {
             }
           });
         }
+        this.addAcupointsFilter(zincObject);
       }
     },
     suggestAcupoints: function(term) {
@@ -341,10 +372,8 @@ export default {
       const date = JSON.stringify(new Date());
       writeTextFile(`${prefix}${date}.json`, data);
     },
-    onReaderLoad: function(event) {
-      const data = JSON.parse(event.target.result);
+    readAnnotations: function(data) {
       let annotations = undefined;
-      let acupoints = undefined;
       if (Array.isArray(data)) {
         annotations = data;
       } else {
@@ -369,6 +398,11 @@ export default {
       }
       */
       this.importing = false;
+    },
+
+    onReaderLoad: function(event) {
+      const data = JSON.parse(event.target.result);
+      this.readAnnotations(data);
     },
     populateAcupoints: function(rawData) {
       const parsedData = parseAcupointsData(rawData);
@@ -456,12 +490,34 @@ export default {
         }
       }
     },
+    graphicsRenamed: function(zincObject, oldName, newName) {
+      this.updateCuratedStatus(oldName);
+      this.updateCuratedStatus(newName);
+      const oldMeridian = getMeridian(oldName);
+      const newMeridian = getMeridian(newName);
+      if (oldMeridian !== newMeridian) {
+        if (Object.keys(this.filtersMapping).includes(oldMeridian)) {
+          const meridianList = this.filtersMapping[oldMeridian];
+          for (let i = meridianList.length - 1; i >= 0; i--) {
+            if (meridianList[i].uuid === zincObject.uuid) {
+              meridianList.splice(i, 1);
+            }
+          }
+          if (meridianList.length === 0) {
+            const index = this.filtersList.indexOf(oldMeridian);
+            if (index > -1) {
+              this.filtersList.splice(index, 1);
+            }
+          }
+          this.addAcupointsFilter(zincObject);
+        }
+      }
+    },
     userPrimitivesUpdated: function (payload) {
       if (this.consoleOn) console.log("userPrimitivesUpdated", payload);
       const zincObject = payload.zincObject;
       if (payload.renamedFrom) {
-        this.updateCuratedStatus(payload.renamedFrom);
-        this.updateCuratedStatus(zincObject.groupName);
+        this.graphicsRenamed(zincObject, payload.renamedFrom, zincObject.groupName);
       }
       if ((zincObject.isEditable || this.importing) && zincObject.isLines2
         && !zincObject.renamedFrom) {
