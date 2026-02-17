@@ -495,6 +495,7 @@ export default {
       this.updateCuratedStatus(newName);
       const oldMeridian = getMeridian(oldName);
       const newMeridian = getMeridian(newName);
+      //Adjust filters listing based on the information on renaming
       if (oldMeridian !== newMeridian) {
         if (Object.keys(this.filtersMapping).includes(oldMeridian)) {
           const meridianList = this.filtersMapping[oldMeridian];

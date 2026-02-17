@@ -1,6 +1,20 @@
 <template>
   <div class="block">
-    <span class="display">Acupoints Filter:</span>
+    <el-row>
+      <el-col :span="12">
+        <span class="display">Acupoints Filter:</span>
+      </el-col>
+      <el-col :span="12">
+        <el-checkbox
+          v-model="checkAll"
+          :indeterminate="isIndeterminate"
+          @change="handleCheckAllChange"
+          class="checkbox-all"
+        >
+          Check all
+        </el-checkbox>
+      </el-col>
+    </el-row>
     <el-checkbox-group v-model="filters" size="small" class="checkbox-group">
       <el-checkbox-button
         v-for="filter in filtersList"
@@ -26,9 +40,12 @@
 <script>
 /* eslint-disable no-alert, no-console */
 import {
+  ElCheckbox as Checkbox,
   ElCheckboxButton as CheckboxButton,
   ElCheckboxGroup as CheckboxGroup,
+  ElCol as Col,
   ElContainer as Container,
+  ElRow as Row,
 } from "element-plus";
 
 /**
@@ -37,9 +54,12 @@ import {
 export default {
   name: "GraphicsFilter",
   components: {
+    Checkbox,
     CheckboxButton,
     CheckboxGroup,
+    Col,
     Container,
+    Row,
   },
   props: {
     filtersList : {
@@ -53,14 +73,44 @@ export default {
   },
   data: function() {
     return {
+      checkAll: true,
       filters: [],
+      isIndeterminate: false,
       oldValue: undefined,
     }
   },
   methods: {
     changedEvent: function(meridian, flag) {
       this.$emit("toggleMeridian", {meridian, flag});
-    }
+      this.isIndeterminate = true;
+      let count = this.filtersList.length;
+      if (this.includeOthers) count = count + 1;
+      if (this.filters.length === count) {
+        this.checkAll = true;
+        this.isIndeterminate = false;
+      } else if (this.filters.length === 0) {
+        this.checkAll = false;
+        this.isIndeterminate = false;
+      }
+    },
+    handleCheckAllChange: function(flag) {
+      if (flag === true) {
+        this.checkAll = true;
+        this.isIndeterminate = false;
+        this.filters = [...this.filtersList]
+        if (this.includeOthers) this.filters.push("Others");
+        this.filters.forEach((meridian) => {
+          this.$emit("toggleMeridian", {meridian, flag});
+        });
+      } else {
+        this.checkAll = false;
+        this.isIndeterminate = false;
+        this.filters.forEach((meridian) => {
+          this.$emit("toggleMeridian", {meridian, flag});
+        });
+        this.filters.length = 0;
+      }
+    },
   },
   watch: {
     filtersList: {
@@ -72,11 +122,21 @@ export default {
             }
           });
         } else {
+          this.filters.length = 0;
           newValue.forEach(newKey => {
             this.filters.push(newKey);
           });
         }
         this.oldValue = [...newValue];
+        //Check if there is any filter that has been removed
+        for (let i = this.filters.length - 1; i >= 0; i--) {
+          if (this.filters[i] !== "Others") {
+            if (!(this.filtersList.includes(this.filters[i]))) {
+              this.filters.splice(i, 1);
+            }
+          }
+        }
+
       },
       deep: true,
       immediate: true,
@@ -132,6 +192,10 @@ export default {
   top: 57px;
   width: 250px;
   margin: 4px;
+}
+
+.checkbox-all {
+  height: 20px;
 }
 
 </style>
