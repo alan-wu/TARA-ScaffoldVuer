@@ -399,11 +399,13 @@ export default {
         if (zincObject.groupName === "Body") {
           zincObject.userData.highlightColour = [0.1, 0, 0];
           zincObject.userData.selectedColour = [0, 0.1, 0];
+          zincObject.setAlpha(0.7);
           this.bodyScaffold = markRaw(zincObject);
         }
         if (zincObject.groupName === "Scaffold") {
           zincObject.userData.selectedColour = [0, 0.1, 0];
           zincObject.userData.highlightColour = [0.1, 0, 0];
+          zincObject.setVisibility(false);
         }
         if (zincObject.groupName === "iso_block") {
           this.bodyScaffold = markRaw(zincObject);
@@ -439,9 +441,11 @@ export default {
           zincObject.setScaleAll(2);
           this.glyphs.push(zincObject);
         } else if (zincObject.isPointset) {
+          //zincObject.setLabelDepthTest(true);
           zincObject.setSize(15);
           //if (!this.loadingPredefined) {
-            zincObject.setColourHex(0xff5724);
+          zincObject.setColourHex(0xff5724);
+          zincObject.setLabelSize(0.75);
           //}
           this.addAcupointsInfo(zincObject, false);
         } else {
