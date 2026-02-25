@@ -1,7 +1,32 @@
 <template>
   <div class="scaffold-container" ref="taraContainer">
     <div v-if="readyForDisplay" class="scaffold-container">
-      <div class="settings-panels">
+      <el-menu
+        v-if="false"
+        :ellipsis="true"
+        class="el-menu-popper-demo"
+        mode="horizontal"
+        :popper-offset="8"
+        :teleported="false"
+        style="max-width:0px"
+      >
+        <el-sub-menu index="1" :teleported="false">
+          <template #title>Mode: View only</template>
+          <el-menu-item index="2-1">View only</el-menu-item>
+          <el-menu-item index="2-1">Create</el-menu-item>
+          <el-menu-item index="2-2">Edit</el-menu-item>
+          <el-menu-item index="2-3">Rename</el-menu-item>
+        </el-sub-menu>
+        <el-sub-menu index="2" :teleported="false">
+          <template #title>Annotations</template>
+          <el-menu-item index="2-1">Load default</el-menu-item>
+          <el-menu-item index="2-2">Import</el-menu-item>
+          <el-menu-item index="2-3">Export</el-menu-item>
+        </el-sub-menu>
+        <el-menu-item index="3">ResetView</el-menu-item>
+        <el-menu-item index="4">Help</el-menu-item>
+      </el-menu>
+      <div v-else class="settings-panels">
         <el-row>
           <el-col :span="12">
             <el-row :gutter="20" justify="center" align="middle">
@@ -104,15 +129,7 @@
         @scaffold-selected="onSelected"
         @user-primitives-updated="userPrimitivesUpdated"
         @zinc-object-added="objectAdded"
-      >
-        <template v-if="filtersList.length" v-slot:treeSlot>
-          <GraphicsFilter
-            @toggleMeridian="toggleMeridian"
-            :filtersList="filtersList"
-            :includeOthers="includeOthers"
-          />
-        </template>
-      </ScaffoldVuer>
+      />
       <SideBar
         v-if="acupoints && (Object.keys(acupoints)).length > 0"
         ref="sideBar"
@@ -124,6 +141,7 @@
         :acupointsInfoList="acupoints"
         @acupoints-clicked="onAcupointsClicked"
         @acupoints-hovered="onAcupointsHovered"
+        @acupoints-result="onAcupointsResult"
         @vue:mounted="onSidebarMount"
       />
     </div>
@@ -162,6 +180,9 @@ import {
   ElIcon as Icon,
   ElInput as Input,
   ElInputNumber as InputNumber,
+  ElMenu as Menu,
+  ElMenuItem as MenuItem,
+  ElSubMenu as SubMenu,
   ElPopover as Popover,
   ElRadio as Radio,
   ElRadioGroup as RadioGroup,
@@ -170,7 +191,6 @@ import {
 } from "element-plus";
 import 'element-plus/es/components/message/style/css'; // this is only needed if the page also used ElMessage
 import FileInput from './FileInput.vue';
-import GraphicsFilter from './GraphicsFilter.vue';
 
 const convertFromPrimitivesName = original => {
   let name = original.substring(0, original.indexOf(" "));
@@ -187,10 +207,11 @@ export default {
   components: {
     Button,
     Col,
-    GraphicsFilter,
     Icon,
     Input,
     InputNumber,
+    Menu,
+    MenuItem,
     Popover,
     Radio,
     RadioGroup,
@@ -201,6 +222,7 @@ export default {
     ElIconQuestionFilled,
     ScaffoldVuer,
     SideBar,
+    SubMenu,
   },
   mixins: [scaffoldMixin],
   data: function () {
@@ -437,7 +459,7 @@ export default {
           zincObject.setColourHex(0xff5724);
           zincObject.setLabelSize(0.75);
           //}
-          this.addAcupointsInfo(zincObject, false);
+          this.addAcupointsInfo(zincObject, true);
         } else {
           if (zincObject.groupName === "undefined" &&
             zincObject._lod?._material?.side) {
@@ -537,13 +559,6 @@ export default {
         }
       }
     },
-    toggleMeridian: function(payload) {
-      if (payload.meridian) {
-        this.filtersMapping[payload.meridian].forEach(zincObject => {
-          zincObject.setVisibility(payload.flag);
-        });
-      }
-    }
   },
 };
 </script>
@@ -551,5 +566,15 @@ export default {
 <style scoped lang="scss">
 
 @import "../assets/styles.scss";
+
+:deep(.el-menu-popper-demo) {
+  position:absolute;
+  z-index:2;
+  left:0px;
+  position:absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  height:30px;
+
+}
 
 </style>

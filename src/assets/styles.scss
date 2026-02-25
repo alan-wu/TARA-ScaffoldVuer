@@ -1,4 +1,4 @@
-@import 'variables';
+@import '_variables';
 
 :deep(.warning-icon) {
   display:none;
@@ -79,6 +79,21 @@ input[type="file"] {
   }
   &.collapsed {
     width: calc(100% - 560px);
+  }
+}
+
+:deep(.el-menu) {
+  --el-menu-active-color:#8300BF;
+  --el-menu-hover-text-color:#8300BF;
+  --el-menu-hover-bg-color:#F3E6F9;
+  --el-menu-base-level-padding:10px;
+  --el-menu-level-padding:10px;
+  .el-sub-menu__title.el-tooltip__trigger.el-tooltip__trigger {
+    color: #8300BF;
+    &:hover {
+      background-color: #F3E6F9;
+    }
+
   }
 }
 
