@@ -130,18 +130,18 @@
             <el-radio-group v-model="intMode" size="small">
               <el-row>
                 <el-col :offset="2" :span="10">
-                  <el-radio value="view" border>Viewing</el-radio>
+                  <el-radio value="View" border>Viewing</el-radio>
                 </el-col>
                 <el-col :offset="2" :span="10">
-                  <el-radio value="create" border>Create</el-radio>
+                  <el-radio value="Create" border>Create</el-radio>
                 </el-col>
               </el-row>
               <el-row :gutter="20" justify="center" align="middle">
                 <el-col :offset="2" :span="10">
-                  <el-radio value="edit" border>Edit</el-radio>
+                  <el-radio value="Edit" border>Edit</el-radio>
                 </el-col>
                 <el-col :offset="2" :span="10">
-                  <el-radio value="rename" border>Rename</el-radio>
+                  <el-radio value="Rename" border>Rename</el-radio>
                 </el-col>
               </el-row>
             </el-radio-group>
