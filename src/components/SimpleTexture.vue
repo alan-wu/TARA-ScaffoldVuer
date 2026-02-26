@@ -415,7 +415,7 @@ export default {
       this.loadingPredefined = false;
     },
     readPremadeAnnotations: function() {
-      this.readAnnotations({annotations: temp})
+      this.readAnnotations(new_annotations)
     },
     createGroupSuggestions: function(data) {
       if (data) {
