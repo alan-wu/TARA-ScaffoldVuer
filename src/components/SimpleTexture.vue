@@ -2,29 +2,69 @@
   <div class="scaffold-container" ref="taraContainer">
     <div v-if="readyForDisplay" class="scaffold-container">
       <el-menu
-        v-if="false"
+        v-if="true"
         :ellipsis="true"
         class="el-menu-popper-demo"
         mode="horizontal"
         :popper-offset="8"
         :teleported="false"
-        style="max-width:0px"
+        style="max-width:260px"
+        @select="onMenuSelected"
       >
         <el-sub-menu index="1" :teleported="false">
-          <template #title>Mode: View only</template>
-          <el-menu-item index="2-1">View only</el-menu-item>
-          <el-menu-item index="2-1">Create</el-menu-item>
-          <el-menu-item index="2-2">Edit</el-menu-item>
-          <el-menu-item index="2-3">Rename</el-menu-item>
+          <template #title>
+            <el-icon><ElIconView /></el-icon>
+            <span>{{ `${intMode} mode` }} </span>
+          </template>
+          <el-menu-item index="view" @click="intMode = 'View'">
+            View
+          </el-menu-item>
+          <el-menu-item index="create" @click="intMode = 'Create'">
+            Create
+          </el-menu-item>
+          <el-menu-item index="edit" @click="intMode = 'Edit'">
+            Edit
+          </el-menu-item>
+          <el-menu-item index="rename" @click="intMode = 'Rename'">
+            Rename
+          </el-menu-item>
         </el-sub-menu>
         <el-sub-menu index="2" :teleported="false">
-          <template #title>Annotations</template>
-          <el-menu-item index="2-1">Load default</el-menu-item>
-          <el-menu-item index="2-2">Import</el-menu-item>
-          <el-menu-item index="2-3">Export</el-menu-item>
+          <template #title>
+            <el-icon><ElIconFolderOpened /></el-icon>
+            <span>Annotation</span>
+          </template>
+          <el-menu-item
+            index="default"
+            @click="readPremadeAnnotations()"
+          >
+              Load default
+          </el-menu-item>
+          <el-menu-item
+            @click="importLocalAnnotations"
+            index="import"
+          >
+            Import
+          </el-menu-item>
+          <el-menu-item
+            index="export"
+            @click="exportLocalAnnotations()"
+          >
+            Export
+          </el-menu-item>
         </el-sub-menu>
-        <el-menu-item index="3">ResetView</el-menu-item>
-        <el-menu-item index="4">Help</el-menu-item>
+        <el-menu-item index="reset" @click="resetView()">
+          <template #title>
+            <el-icon><ElIconRefresh /></el-icon>
+            <span>Reset View</span>
+          </template>
+        </el-menu-item>
+        <el-menu-item index="help" @click="openHelp()">
+          <template #title>
+            <el-icon><ElIconQuestionFilled /></el-icon>
+            <span>Help</span>
+          </template>
+        </el-menu-item>
       </el-menu>
       <div v-else class="settings-panels">
         <el-row>
@@ -171,7 +211,9 @@ import {
   DataAnalysis as ElIconDataAnalysis,
   EditPen as ElIconEditPen,
   FolderOpened as ElIconFolderOpened,
+  Refresh as ElIconRefresh,
   QuestionFilled as ElIconQuestionFilled,
+  View as ElIconView,
 } from '@element-plus/icons-vue';
 import scaffoldMixin from "../mixins/scaffold.vue";
 import {
@@ -219,7 +261,9 @@ export default {
     Switch,
     ElIconEditPen,
     ElIconFolderOpened,
+    ElIconRefresh,
     ElIconQuestionFilled,
+    ElIconView,
     ScaffoldVuer,
     SideBar,
     SubMenu,
@@ -237,7 +281,7 @@ export default {
       ElIconEditPen: shallowRef(ElIconEditPen),
       ElIconFolderOpened: shallowRef(ElIconFolderOpened),
       ElIconQuestionFilled: shallowRef(ElIconQuestionFilled),
-      intMode: "view",
+      intMode: "View",
       coordinatesClicked: [],
       positionalRotation: true,
       needlesInfo: {},
@@ -278,7 +322,7 @@ export default {
       handler: function (value) {
         if (this.$refs.scaffold) {
           this.$refs.scaffold.cancelCreate();
-          if (value === "create") {
+          if (value === "Create") {
             this.$refs.scaffold.createData.shape = "Point";
           } else {
             this.$refs.scaffold.createData.shape = "";
@@ -529,15 +573,15 @@ export default {
               if (data[0].data.group && zincObject.isGlyphset) {
                 label = convertFromPrimitivesName(data[0].data.group);
               }
-              if (this.intMode === "view") {
+              if (this.intMode === "View") {
                 if (label && label.trim() && this.$refs.sideBar) {
                   this.$refs.sideBar.openAcupointsSearch(label);
                 }
               }
               if (zincObject.isPointset && zincObject.isEditable) {
-                if (this.intMode === "edit") {
+                if (this.intMode === "Edit") {
                   this.$refs.scaffold.activateEditingMode(data);
-                } else if (this.intMode === "rename") {
+                } else if (this.intMode === "Rename") {
                   this.$refs.scaffold.activateRenamingMode(data);
                 }
               }
@@ -546,10 +590,10 @@ export default {
                   zincObject);
                 this.setViewWithPointAndNormalV3(point, normal);
               }
-            } else if (this.intMode === "create" && data[0].extraData.worldCoords &&
+            } else if (this.intMode === "Create" && data[0].extraData.worldCoords &&
                 data[0].extraData.intersected?.face) {
               this.addPoint(data, data[0].extraData.worldCoords);
-            } else if (this.intMode === "edit") {
+            } else if (this.intMode === "Edit") {
               //if (this.$refs.scaffold.createData)
               if (this.$refs.scaffold.createData.editingIndex > -1) {
                 this.$refs.scaffold.draw(data);
