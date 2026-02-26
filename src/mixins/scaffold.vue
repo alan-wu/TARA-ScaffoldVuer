@@ -498,7 +498,8 @@ export default {
     },
     graphicsRenamed: function(zincObject, oldName, newName) {
       //Adjust  listing based on the information on renaming
-      zincObject.setLabelSize(0.75);
+//      zincObject.setLabelSize(1.0);
+
       this.updateCuratedStatus(oldName);
       this.updateCuratedStatus(newName);
       if (oldName in this.pointsMapping) {

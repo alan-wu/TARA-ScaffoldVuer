@@ -244,6 +244,7 @@ const convertFromPrimitivesName = original => {
   return name;
 }
 
+
 export default {
   name: "SimpleTexture",
   components: {
@@ -414,7 +415,7 @@ export default {
       this.loadingPredefined = false;
     },
     readPremadeAnnotations: function() {
-      this.readAnnotations(new_annotations)
+      this.readAnnotations({annotations: temp})
     },
     createGroupSuggestions: function(data) {
       if (data) {
