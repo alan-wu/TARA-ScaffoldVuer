@@ -502,7 +502,6 @@ export default {
           zincObject.setSize(15);
           //if (!this.loadingPredefined) {
           zincObject.setColourHex(0xff5724);
-          zincObject.setLabelSize(0.75);
           //}
           this.addAcupointsInfo(zincObject, true);
         } else {
