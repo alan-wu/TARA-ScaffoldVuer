@@ -82,6 +82,13 @@ input[type="file"] {
   }
 }
 
+:deep(.el-menu), .el-sub-menu {
+  border-bottom-right-radius: 8px;
+  &:hover {
+    border-bottom-right-radius: 8px;
+  }
+}
+
 :deep(.el-menu), .el-sub-menu, .el-menu-item{
   --el-menu-active-color:#303133;
   --el-menu-hover-text-color:#8300BF;

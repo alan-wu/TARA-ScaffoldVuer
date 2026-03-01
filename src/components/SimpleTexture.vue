@@ -547,6 +547,8 @@ export default {
           viewer.$module.scene.viewAll();
           this.calculateTextureCentre(newTexture);
           newTexture.setVisibility(false);
+          newTexture.setBrightness(0.38);
+          newTexture.setContrast(3.5);
         } else {
           ElMessage({
             message: 'Unable to load texture',
