@@ -141,7 +141,6 @@ const parseAcupointsData = data => {
 
   //console.log("total matched", match)
   //console.log("list total:", list.length)
-  console.log(parsed)
 
   return parsed;
 }

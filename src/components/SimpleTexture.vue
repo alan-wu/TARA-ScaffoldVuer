@@ -416,6 +416,13 @@ export default {
     },
     readPremadeAnnotations: function() {
       this.readAnnotations(new_annotations)
+      const viewer = this.$refs.scaffold;
+      const rootRegion = viewer.$module.scene.getRootRegion();
+      const targetRegion = rootRegion.findChildFromPath("acupoints");
+      console.log(targetRegion)
+      if (targetRegion) {
+        viewer.setRegionCheckboxDisabled(targetRegion, true);
+      }
     },
     createGroupSuggestions: function(data) {
       if (data) {
@@ -498,7 +505,6 @@ export default {
           zincObject.setScaleAll(2);
           this.glyphs.push(zincObject);
         } else if (zincObject.isPointset) {
-          //zincObject.setLabelDepthTest(true);
           zincObject.setSize(15);
           //if (!this.loadingPredefined) {
           zincObject.setColourHex(0xff5724);

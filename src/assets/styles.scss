@@ -8,6 +8,11 @@
   width: 100%;
   overflow: hidden;
   position: absolute;
+  .colour-radio-container,
+  .outlines-radio-container,
+  .viewing-mode-container {
+    display: none;
+  }
 }
 
 input[type="file"] {
