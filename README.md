@@ -67,7 +67,7 @@ TARA Acupoint viewer is a Vue component/framework that enables you to load, disp
 3. A dialog will appear, enter the group name (this will be used as the display name for the acupoints) then press confirm to create a point. A list of acupoints will be displayed after clicking on the group text box, allowing user to select a new suitable name quickly.
 <img width="619" height="799" alt="image" src="https://github.com/user-attachments/assets/d02b5eaa-74c4-4824-8fe0-18befd7f078e" />
 
-4. After creating a new acupoint, a new entry may be added to the sidebar
+4. After creating a new acupoint, a new entry may get added to the sidebar
 <img width="545" height="331" alt="image" src="https://github.com/user-attachments/assets/3efd7df0-0b17-4958-9bb4-d6cfd696a912" />
 
 **Hint 1: Choose a group name carefully, this will be used as the label for the point**
