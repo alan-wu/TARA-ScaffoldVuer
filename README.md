@@ -1,4 +1,4 @@
-# TARA Acupoint viewer 
+# TARA Acupoint viewer
 
 A tool designed to integrate 3D whole body images, models and annotations.
 
@@ -24,7 +24,7 @@ A tool designed to integrate 3D whole body images, models and annotations.
 
 ## Overview
 
-TARA Acupoint viewer is a Vue component/framework that enables you to load, display and interact with MRI images in the 3D scaffold model framework. It supports annotation and discovery of acupoint information. 
+TARA Acupoint viewer is a Vue component/framework that enables you to load, display and interact with MRI images in the 3D scaffold model framework. It supports annotation and discovery of acupoint information.
 
 ## Getting Started
 
@@ -43,7 +43,7 @@ TARA Acupoint viewer is a Vue component/framework that enables you to load, disp
 
 ### Navigating and interacting with the images, acupoints and 3D volume
 
-1. Find an acupoint: Find an acupoint of interest by clicking on any acupoint in MRI image or search for it by name on the sidebar search field. Associated information of the selected acupoint will be displayed in the sidebar. 
+1. Find an acupoint: Find an acupoint of interest by clicking on any acupoint in MRI image or search for it by name on the sidebar search field. Associated information of the selected acupoint will be displayed in the sidebar.
 <img width="963" height="995" alt="image" src="https://github.com/user-attachments/assets/a529b3a0-eaff-441c-942f-748f1dd1c851" />
 
 2. Several filters can be used for filtering the list of acupoints
@@ -57,18 +57,22 @@ TARA Acupoint viewer is a Vue component/framework that enables you to load, disp
 5. Manage image slices: Click the "Images" entry in the Regions tree to open the slice control panel. Use these controls to add new image slices or change the position (using the X, Y, Z sliders) of existing ones. Brightness and contrast of the MRI images can also be adjusted.
 <img width="429" height="574" alt="image" src="https://github.com/user-attachments/assets/28bac460-c88a-43db-92c2-b74056417278" />
 
-### Adding acupoints 
+### Adding acupoints
 
 1. Set Interactive Mode to Create at the top left corner
 <img width="462" height="351" alt="image" src="https://github.com/user-attachments/assets/256d5773-fd46-4a41-856a-fc113552b94d" />
 
-2. Click on a desired location on the image or the surface of the 3D volume
+2. Hover over the volume surface and a turquoise point will appear, indicating the location the point will be created
 
 3. A dialog will appear, enter the group name (this will be used as the display name for the acupoints) then press confirm to create a point. A list of acupoints will be displayed after clicking on the group text box, allowing user to select a new suitable name quickly.
 <img width="619" height="799" alt="image" src="https://github.com/user-attachments/assets/d02b5eaa-74c4-4824-8fe0-18befd7f078e" />
 
 4. After creating a new acupoint, a new entry may be added to the sidebar
 <img width="545" height="331" alt="image" src="https://github.com/user-attachments/assets/3efd7df0-0b17-4958-9bb4-d6cfd696a912" />
+
+**Hint 1: Choose a group name carefully, this will be used as the label for the point**
+
+**Hint 2: Multiple points can be added to the same group by choosing the same group name at the time of creation**
 
 ### Editing acupoint location
 
