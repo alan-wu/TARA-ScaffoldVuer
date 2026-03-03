@@ -163,6 +163,7 @@
         :positionalRotation="positionalRotation"
         :show-colour-picker="true"
         :render="true"
+        @check-changed="checkChanged"
         @create-group-suggestions="createGroupSuggestions"
         @create-region-suggestions="createRegionSuggestions"
         @on-ready="onReady"
@@ -419,9 +420,19 @@ export default {
       const viewer = this.$refs.scaffold;
       const rootRegion = viewer.$module.scene.getRootRegion();
       const targetRegion = rootRegion.findChildFromPath("acupoints");
-      console.log(targetRegion)
       if (targetRegion) {
-        viewer.setRegionCheckboxDisabled(targetRegion, true);
+        viewer.setRegionCheckboxDisabled(targetRegion, true, true);
+      }
+    },
+    checkChanged: function(data) {
+      if (data.region) {
+        if (data.region.getName() === "acupoints") {
+          this.acupointsIsChecked = data.isChecked;
+          if (this.acupointsIsChecked) {
+            data.region.hideAllPrimitives();
+            this.resetVisibility();
+          }
+        }
       }
     },
     createGroupSuggestions: function(data) {
@@ -583,7 +594,7 @@ export default {
               }
               if (this.intMode === "View") {
                 if (label && label.trim() && this.$refs.sideBar) {
-                  this.$refs.sideBar.openAcupointsSearch(label);
+                  //this.$refs.sideBar.openAcupointsSearch(label);
                 }
               }
               if (zincObject.isPointset && zincObject.isEditable) {

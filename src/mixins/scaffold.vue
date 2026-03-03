@@ -204,6 +204,7 @@ export default {
   data: function () {
     return {
       acupoints: {},
+      acupointsIsChecked: true,
       acupointsInfo: false,
       currentViewport: 0,
       pointsMapping: markRaw({}),
@@ -276,6 +277,10 @@ export default {
       }
       this.$refs.scaffold.changeHighlightedByName(names, "", false);
     },
+    resetVisibility: function() {
+      this.previousList.forEach(
+        zincObject => zincObject.setVisibility(true));
+    },
     onAcupointsResult: function (data) {
       this.previousList.forEach(
         zincObject => zincObject.setVisibility(false));
@@ -284,7 +289,9 @@ export default {
       data.list.forEach((item) => {
         if (keys.includes(item.Acupoint)) {
           this.pointsMapping[item.Acupoint].forEach(zincObject => {
-            zincObject.setVisibility(true);
+            if (this.acupointsIsChecked) {
+              zincObject.setVisibility(true);
+            }
             this.previousList.push(zincObject);
           });
         }
