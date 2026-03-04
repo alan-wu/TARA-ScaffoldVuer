@@ -170,7 +170,18 @@
         @scaffold-selected="onSelected"
         @user-primitives-updated="userPrimitivesUpdated"
         @zinc-object-added="objectAdded"
-      />
+      >
+        <template v-slot:treeSlot>
+          <el-checkbox
+            v-if="numberOfPointsGraphics > 0"
+            v-model="labelVisibility"
+            @change="toggleLabelVisibility"
+            size="small"
+          >
+            Display Labels
+          </el-checkbox>
+        </template>
+      </ScaffoldVuer>
       <SideBar
         v-if="acupoints && (Object.keys(acupoints)).length > 0"
         ref="sideBar"
@@ -219,6 +230,7 @@ import {
 import scaffoldMixin from "../mixins/scaffold.vue";
 import {
   ElButton as Button,
+  ElCheckbox as Checkbox,
   ElCol as Col,
   ElIcon as Icon,
   ElInput as Input,
@@ -250,6 +262,7 @@ export default {
   name: "SimpleTexture",
   components: {
     Button,
+    Checkbox,
     Col,
     Icon,
     Input,

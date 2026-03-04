@@ -204,9 +204,11 @@ export default {
   data: function () {
     return {
       acupoints: {},
+      numberOfPointsGraphics: 0,
       acupointsIsChecked: true,
       acupointsInfo: false,
       currentViewport: 0,
+      labelVisibility: true,
       pointsMapping: markRaw({}),
       previousList: markRaw([]),
       userPoints: markRaw([]),
@@ -250,6 +252,12 @@ export default {
       this.tCentre[2] = v1.z;
       const control = this.$refs.scaffold.$module.scene.getZincCameraControls();
       this.viewport = control.getCurrentViewport();
+    },
+    toggleLabelVisibility: function () {
+      Object.values(this.pointsMapping).forEach(zincObjects => {
+        zincObjects.forEach(
+          zincObject => zincObject.displayLabels(this.labelVisibility));
+      });
     },
     resetView: function() {
       this.$refs.scaffold.$module.scene.resetView();
@@ -318,6 +326,7 @@ export default {
         this.pointsMapping[label] = [];
       }
       this.pointsMapping[label].push(zincObject);
+      this.numberOfPointsGraphics++;
       this.previousList.push(zincObject);
     },
     addAcupointsInfo: function(zincObject, addInfo) {
