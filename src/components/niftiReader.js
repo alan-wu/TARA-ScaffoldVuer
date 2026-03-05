@@ -118,7 +118,12 @@ const createSources = (niftiHeader, niftiImage, maskHeader, maskImage) => {
     } else if (dataType === "uint") {
       scale = 255;
     } else if (dataType === "int16") {
-      scale = 1 / 255;
+      //scale = 1 / 255;
+      if (niftiHeader.scl_slope === 0) {
+        scale = 255;
+      } else {
+        valueOffset = niftiHeader.scl_inter;
+      }
     }
     for (let slice = 0; slice < depth; slice++) {
       const sliceOffset = sliceSize * slice;
