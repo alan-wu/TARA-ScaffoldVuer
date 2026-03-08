@@ -6,6 +6,7 @@ import {
 const hideWhitePixel = false;
 const hideBlackPixel = true;
 const keepScalePosition = true;
+const filterByValue = true;
 
 const textureSettings = {
   v1: {
@@ -145,7 +146,7 @@ const createSources = (niftiHeader, niftiImage, maskHeader, maskImage) => {
                 fullArray[offset * 4 + 3] = 0;
               }
             }
-          } else {
+          } else if (filterByValue) {
             if (hideWhitePixel && value === 255) {
               fullArray[offset * 4 + 3] = 0;
             }
