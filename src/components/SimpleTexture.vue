@@ -172,14 +172,28 @@
         @zinc-object-added="objectAdded"
       >
         <template v-slot:treeSlot>
-          <el-checkbox
-            v-if="numberOfPointsGraphics > 0"
-            v-model="labelVisibility"
-            @change="toggleLabelVisibility"
-            size="small"
-          >
-            Display Labels
-          </el-checkbox>
+          <el-row>
+            <el-col :span="12">
+              <el-button
+                class="opqaue-button"
+                size="small"
+                @click="setOpaqueBody()">
+                Opaque surfaces
+              </el-button>
+            </el-col>
+            <el-col :span="12">
+              <el-checkbox
+                class="display-checkbox"
+                v-if="numberOfPointsGraphics > 0"
+                v-model="labelVisibility"
+                @change="toggleLabelVisibility"
+                size="small"
+              >
+                Display Labels
+              </el-checkbox>
+            </el-col>
+          </el-row>
+          <el-divider class="divider"/>
         </template>
       </ScaffoldVuer>
       <SideBar
@@ -232,6 +246,7 @@ import {
   ElButton as Button,
   ElCheckbox as Checkbox,
   ElCol as Col,
+  ElDivider as Divider,
   ElIcon as Icon,
   ElInput as Input,
   ElInputNumber as InputNumber,
@@ -264,6 +279,7 @@ export default {
     Button,
     Checkbox,
     Col,
+    Divider,
     Icon,
     Input,
     InputNumber,
@@ -289,8 +305,10 @@ export default {
       acupointsLabelOn: false,
       alignPoint: false,
       bodyScaffold: undefined,
+      bodySegmentation: undefined,
       displayAxis: false,
       glyphs: markRaw([]),
+      opaqueBody: false,
       displayUI: true,
       ElIconDataAnalysis: shallowRef(ElIconDataAnalysis),
       ElIconEditPen: shallowRef(ElIconEditPen),
@@ -472,9 +490,9 @@ export default {
     openHelp: function() {
       window.open("https://github.com/ABI-Software/TARA-ScaffoldVuer/blob/acupoint/README.md#overview", "_blank")
     },
-    setBodyScaffoldPickable: function(flag) {
-      if (this.bodyScaffold) {
-        this.bodyScaffold.setIsPickable(flag);
+    setbodySegmentationPickable: function(flag) {
+      if (this.bodySegmentation) {
+        this.bodySegmentation.setIsPickable(flag);
       }
     },
     objectAdded: function (zincObject) {
@@ -482,21 +500,22 @@ export default {
         const regionName = zincObject.region?.getName()
         if (regionName && regionName === "skin") {
           zincObject.setIsPickable(false);
-          this.bodyScaffold = markRaw(zincObject);
+          this.bodySegmentation = markRaw(zincObject);
         }
         if (zincObject.groupName === "Body") {
           zincObject.userData.highlightColour = [0.1, 0, 0];
           zincObject.userData.selectedColour = [0, 0.1, 0];
           zincObject.setAlpha(0.7);
-          this.bodyScaffold = markRaw(zincObject);
+          this.bodySegmentation = markRaw(zincObject);
         }
         if (zincObject.groupName === "Scaffold") {
           zincObject.userData.selectedColour = [0, 0.1, 0];
           zincObject.userData.highlightColour = [0.1, 0, 0];
           zincObject.setVisibility(false);
+          this.bodyScaffold = markRaw(zincObject);
         }
         if (zincObject.groupName === "iso_block") {
-          this.bodyScaffold = markRaw(zincObject);
+          this.bodySegmentation = markRaw(zincObject);
           const mesh = zincObject.getMorph();
           /*
           if (mesh) {
@@ -509,12 +528,12 @@ export default {
             }
           }
           */
-          //scaffoldSmoothing(this.bodyScaffold, 3, 0.5);
-          this.bodyScaffold.setPosition(-240, -259, -445.6);
-          const group = this.bodyScaffold.getGroup();
+          //scaffoldSmoothing(this.bodySegmentation, 3, 0.5);
+          this.bodySegmentation.setPosition(-240, -259, -445.6);
+          const group = this.bodySegmentation.getGroup();
           group.scale.set(1.2, 1.2, 1.2);
           group.updateMatrix();
-          this.bodyScaffold.boundingBoxUpdateRequired = true;
+          this.bodySegmentation.boundingBoxUpdateRequired = true;
           const morph = zincObject.getGroup();
           if (morph && morph.position) {
             zincObject.userData.originalPos = [
@@ -635,6 +654,10 @@ export default {
         }
       }
     },
+    setOpaqueBody: function () {
+      this.bodyScaffold?.setAlpha(1.0);
+      this.bodySegmentation?.setAlpha(1.0);
+    },
   },
 };
 </script>
@@ -642,6 +665,15 @@ export default {
 <style scoped lang="scss">
 
 @import "../assets/styles.scss";
+
+.display-checkbox, .opqaue-button {
+  margin-top: 8px;
+}
+
+.divider {
+  margin-top: 8px;
+  margin-bottom: 0px;
+}
 
 :deep(.el-menu-popper-demo) {
   position:absolute;

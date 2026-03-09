@@ -3,7 +3,8 @@ import { THREE } from "zincjs";
 import { watchEffect } from 'vue';
 //import { acupointEntries } from '../acupoints.js';
 import { markRaw } from 'vue';
-import { impliedData } from '../implied.js';
+//import { impliedData } from '../data/implied.js';
+import { onMRIData } from '../data/onMRI.js';
 import EventBus from '@abi-software/map-utilities/src/components/EventBus.js';
 
 const v1 = new THREE.Vector3();
@@ -109,15 +110,13 @@ const parseAcupointsData = data => {
     "Special Point Role": "Special_Point_Role",
   };
 
-  let match = 0;
   list.forEach(item => {
     const name = item['Acupoint']['value'];
     let onMRI = false;
     const nameToMatch = name.split('(')[0].replaceAll(" ", "");
 
-    if (nameToMatch in impliedData ) {
-      match = match + 1
-      onMRI = impliedData[nameToMatch];
+    if (onMRIData['mriSpotted'].includes(nameToMatch)) {
+      onMRI = true;
     }
     const obj = {};
     for (const [key, value] of Object.entries(keyMap)) {

@@ -14,6 +14,7 @@ declare module 'vue' {
     ElCheckboxGroup: typeof import('element-plus/es')['ElCheckboxGroup']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElContainer: typeof import('element-plus/es')['ElContainer']
+    ElDivider: typeof import('element-plus/es')['ElDivider']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElIconFolderOpened: typeof import('@element-plus/icons-vue')['FolderOpened']
     ElIconFolderRefresh: typeof import('@element-plus/icons-vue')['FolderRefresh']
