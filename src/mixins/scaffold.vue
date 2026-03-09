@@ -456,6 +456,7 @@ export default {
           this.isDrawerOpen = sideBar.drawerOpen
         })
       }
+      this.$emit("sidebar-mounted");
     },
     addPoint: function (data, coord) {
       const myViewer = this.$refs.scaffold;

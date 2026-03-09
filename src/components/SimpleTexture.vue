@@ -224,6 +224,7 @@
 <script>
 /* eslint-disable no-alert, no-console */
 //import { getMergedGeometry, scaffoldSmoothing } from "../scripts/Utilities.js";
+import { demoFilters } from '../data/demoFilters.js';
 import { markRaw, shallowRef } from 'vue';
 import { ElMessage } from 'element-plus';
 import { readNIFTIFromURL } from "./niftiReader.js"
@@ -272,7 +273,6 @@ const convertFromPrimitivesName = original => {
   return name;
 }
 
-
 export default {
   name: "SimpleTexture",
   components: {
@@ -309,6 +309,7 @@ export default {
       displayAxis: false,
       glyphs: markRaw([]),
       opaqueBody: false,
+      readPremade: false,
       displayUI: true,
       ElIconDataAnalysis: shallowRef(ElIconDataAnalysis),
       ElIconEditPen: shallowRef(ElIconEditPen),
@@ -454,6 +455,7 @@ export default {
       if (targetRegion) {
         viewer.setRegionCheckboxDisabled(targetRegion, true, true);
       }
+      this.readPremade = true;
     },
     checkChanged: function(data) {
       if (data.region) {
@@ -567,6 +569,18 @@ export default {
     },
     screenCapture: function () {
       this.$refs.scaffold.captureScreenshot("capture.png");
+    },
+    setupDemoFilters: function () {
+      if (this.$refs.sideBar) {
+        this.$refs.sideBar.openAcupointsSearch(demoFilters, "");
+      }
+    },
+    setupDemo: function () {
+      console.log("setupDemo")
+      if (!this.readPremade) {
+        this.readPremadeAnnotations();
+      }
+      this.setupDemoFilters();
     },
     readTexture: async function () {
       const viewer = this.$refs.scaffold;

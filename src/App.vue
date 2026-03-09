@@ -5,13 +5,16 @@ import TaraScaffoldVuer from './components/TaraScaffoldVuer.vue';
 <template>
   <div id="app">
     <SimpleTexture
-      v-if="mode === 'simple'"
+      v-if="routerIsReady"
+      ref="viewer"
       :url="url"
       :acupoints-endpoint="acupoints"
       :mask-url="maskURL"
       :texture-url="textureURL"
       :console-on="false"
+      @sidebar-mounted="sidebarMounted"
     />
+    <!--
     <TaraScaffoldVuer
       v-else
       :acupointsViewer="mode === 'acupoints'"
@@ -20,6 +23,7 @@ import TaraScaffoldVuer from './components/TaraScaffoldVuer.vue';
       :texture-url="textureURL"
       :console-on="false"
     />
+    -->
   </div>
 </template>
 
@@ -39,14 +43,33 @@ export default {
       acupointsViewer: true,
       //url: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/whole_body-30-1-25/human_body_acupoints_metadata.json",
       //url: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/10-Nov-25/cut_metadata.json",
+      routerIsReady: false,
       url: import.meta.env.VITE_SCAFFOLD_LOCATION,
       textureURL: import.meta.env.VITE_TEXTURE_LOCATION,
       maskURL: import.meta.env.VITE_MASK_LOCATION,
       acupoints: import.meta.env.VITE_ACUPOINTS_API,
+      demo: false,
     }
   },
   created: function() {
     if (document) document.title = "Tara Acupoints Viewer"
+  },
+  methods: {
+    sidebarMounted: function() {
+      this.$router.isReady().then(async () => {
+        if (Object.keys(this.$route.query).includes("demo")) {
+          this.$refs.viewer?.setupDemo();
+        }
+      });
+    },
+    waitForRouter: function () {
+      this.$router.isReady().then(async () => {
+        this.routerIsReady = true;
+      });
+    },
+  },
+  mounted: function() {
+    this.waitForRouter();
   },
 }
 
