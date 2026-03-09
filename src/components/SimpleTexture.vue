@@ -174,12 +174,14 @@
         <template v-slot:treeSlot>
           <el-row>
             <el-col :span="12">
-              <el-button
-                class="opqaue-button"
+              <el-checkbox
+                class="display-checkbox"
+                v-model="opaque"
+                @change="toggleOpaque"
                 size="small"
-                @click="setOpaqueBody()">
+              >
                 Opaque surfaces
-              </el-button>
+              </el-checkbox>
             </el-col>
             <el-col :span="12">
               <el-checkbox
@@ -308,7 +310,7 @@ export default {
       bodySegmentation: undefined,
       displayAxis: false,
       glyphs: markRaw([]),
-      opaqueBody: false,
+      opaque: false,
       readPremade: false,
       displayUI: true,
       ElIconDataAnalysis: shallowRef(ElIconDataAnalysis),
@@ -513,6 +515,7 @@ export default {
         if (zincObject.groupName === "Scaffold") {
           zincObject.userData.selectedColour = [0, 0.1, 0];
           zincObject.userData.highlightColour = [0.1, 0, 0];
+          zincObject.setAlpha(0.7);
           zincObject.setVisibility(false);
           this.bodyScaffold = markRaw(zincObject);
         }
@@ -552,9 +555,14 @@ export default {
         } else if (zincObject.isPointset) {
           zincObject.setSize(15);
           //if (!this.loadingPredefined) {
-          zincObject.setColourHex(0xff5724);
+
           //}
-          this.addAcupointsInfo(zincObject, true);
+          const info = this.addAcupointsInfo(zincObject, true);
+          if (info?.onMRI) {
+            zincObject.setColourHex(0x57ff24);
+          } else {
+            zincObject.setColourHex(0xff5724);
+          }
         } else {
           if (zincObject.groupName === "undefined" &&
             zincObject._lod?._material?.side) {
@@ -668,9 +676,14 @@ export default {
         }
       }
     },
-    setOpaqueBody: function () {
-      this.bodyScaffold?.setAlpha(1.0);
-      this.bodySegmentation?.setAlpha(1.0);
+    toggleOpaque: function (val) {
+      if (val) {
+        this.bodyScaffold?.setAlpha(1.0);
+        this.bodySegmentation?.setAlpha(1.0);
+      } else {
+        this.bodyScaffold?.setAlpha(0.7);
+        this.bodySegmentation?.setAlpha(0.7);
+      }
     },
   },
 };
