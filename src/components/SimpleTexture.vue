@@ -306,7 +306,7 @@ export default {
     return {
       acupointsLabelOn: false,
       alignPoint: false,
-      bodyScaffold: undefined,
+      bodyScaffolds: [],
       bodySegmentation: undefined,
       displayAxis: false,
       glyphs: markRaw([]),
@@ -504,12 +504,14 @@ export default {
         const regionName = zincObject.region?.getName()
         if (regionName && regionName === "skin") {
           zincObject.setIsPickable(false);
+          this.bodyScaffolds.push(zincObject);
           this.bodySegmentation = markRaw(zincObject);
         }
         if (zincObject.groupName === "Body") {
           zincObject.userData.highlightColour = [0.1, 0, 0];
           zincObject.userData.selectedColour = [0, 0.1, 0];
           zincObject.setAlpha(0.7);
+          this.bodyScaffolds.push(zincObject);
           this.bodySegmentation = markRaw(zincObject);
         }
         if (zincObject.groupName === "Scaffold") {
@@ -517,7 +519,21 @@ export default {
           zincObject.userData.highlightColour = [0.1, 0, 0];
           zincObject.setAlpha(0.7);
           zincObject.setVisibility(false);
-          this.bodyScaffold = markRaw(zincObject);
+          this.bodyScaffolds.push(zincObject);
+        }
+        if (zincObject.groupName === "Thresholding Seg") {
+          zincObject.userData.highlightColour = [0.1, 0, 0];
+          zincObject.userData.selectedColour = [0, 0.1, 0];
+          zincObject.setAlpha(0.7);
+          zincObject.setVisibility(false);
+          this.bodyScaffolds.push(zincObject);
+        }
+        if (zincObject.groupName === "Stretch nnUnet Seg") {
+          zincObject.userData.highlightColour = [0.1, 0, 0];
+          zincObject.userData.selectedColour = [0, 0.1, 0];
+          zincObject.setAlpha(0.7);
+          zincObject.setVisibility(false);
+          this.bodyScaffolds.push(zincObject);
         }
         if (zincObject.groupName === "iso_block") {
           this.bodySegmentation = markRaw(zincObject);
@@ -678,11 +694,9 @@ export default {
     },
     toggleOpaque: function (val) {
       if (val) {
-        this.bodyScaffold?.setAlpha(1.0);
-        this.bodySegmentation?.setAlpha(1.0);
+        this.bodyScaffolds.forEach(scaffold => scaffold.setAlpha(1.0));
       } else {
-        this.bodyScaffold?.setAlpha(0.7);
-        this.bodySegmentation?.setAlpha(0.7);
+        this.bodyScaffolds.forEach(scaffold => scaffold.setAlpha(0.7));
       }
     },
   },
