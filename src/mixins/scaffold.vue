@@ -326,7 +326,7 @@ export default {
         this.pointsMapping[label] = [];
       }
       this.pointsMapping[label].push(zincObject);
-      this.numberOfPointsGraphics++;
+      this.numberOfPsuggestAcupointsointsGraphics++;
       this.previousList.push(zincObject);
     },
     addAcupointsInfo: function(zincObject, addInfo) {
@@ -347,7 +347,11 @@ export default {
     suggestAcupoints: function(term) {
       const suggestedTerms = [];
       if (this.acupoints) {
-        Object.keys(this.acupoints).forEach(key => {
+        const keys = Object.keys(this.acupoints);
+        keys.sort((a, b) => {
+          return a.localeCompare(b, undefined, { numeric: true })
+        });
+        keys.forEach(key => {
           if (!this.acupoints[key].Curated && key.startsWith(term)) {
             suggestedTerms.push({value: key, value: key});
           }

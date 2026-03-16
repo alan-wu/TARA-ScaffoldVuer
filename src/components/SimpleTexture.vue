@@ -28,6 +28,11 @@
           <el-menu-item index="rename" @click="intMode = 'Rename'">
             Rename
           </el-menu-item>
+          <!--
+          <el-menu-item index="delete" @click="intMode = 'Delete'">
+            Delete
+          </el-menu-item>
+          -->
         </el-sub-menu>
         <el-sub-menu index="2" :teleported="false">
           <template #title>
@@ -264,7 +269,7 @@ export default {
   },
   computed: {
     readyForDisplay: function() {
-      //return false;
+      return true;
       if (this.url) {
         return (!this.requireTexture || (this.url && this.textureUrl));
       }
@@ -590,6 +595,8 @@ export default {
                   this.$refs.scaffold.activateEditingMode(data);
                 } else if (this.intMode === "Rename") {
                   this.$refs.scaffold.activateRenamingMode(data);
+                } else if (this.intMode === "Delete") {
+                  this.$refs.scaffold.activateDeleteMode(data);
                 }
               }
               if (this.alignPoint && data.length === 1 && zincObject.isGlyphset) {
