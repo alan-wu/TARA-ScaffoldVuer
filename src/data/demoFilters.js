@@ -7,9 +7,9 @@ export const demoFilters = [
   },
   {
       "facetPropPath": "acupoints.onMRI",
-      "facet": "Spotted",
-      "term": "Spotted on mri",
-      "tagLabel": "Spotted"
+      "facet": "Marked",
+      "term": "Markers",
+      "tagLabel": "Marked"
   },
   {
       "facetPropPath": "acupoints.WHO",
