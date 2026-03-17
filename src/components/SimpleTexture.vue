@@ -46,10 +46,16 @@
               Load default
           </el-menu-item>
           <el-menu-item
-            @click="importLocalAnnotations"
+            @click="importLocalAnnotationsTrigger"
             index="import"
           >
             Import
+            <input
+              id="annotations-upload"
+              type="file"
+              accept="application/json"
+              @change="importLocalAnnotations"
+            />
           </el-menu-item>
           <el-menu-item
             index="export"
@@ -402,6 +408,9 @@ export default {
       if (data) {
         data.cb(this.suggestAcupoints(data.term));
       }
+    },
+    importLocalAnnotationsTrigger: function() {
+      const selectedFile = document.getElementById("annotations-upload")?.click();
     },
     onReady: async function () {
       //this.addPremadePoints();

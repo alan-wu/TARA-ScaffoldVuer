@@ -351,8 +351,9 @@ export default {
         keys.sort((a, b) => {
           return a.localeCompare(b, undefined, { numeric: true })
         });
+        const lowerCaseTerm = term.toLowerCase();
         keys.forEach(key => {
-          if (!this.acupoints[key].Curated && key.startsWith(term)) {
+          if (!this.acupoints[key].Curated && key.toLowerCase().startsWith(lowerCaseTerm)) {
             suggestedTerms.push({value: key, value: key});
           }
         });
