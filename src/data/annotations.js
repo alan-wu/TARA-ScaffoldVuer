@@ -1,6007 +1,3252 @@
 export const new_annotations = {
   "annotations": [
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LR 5"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F - 106"
-      },
-      "feature": {
-        "id": "acupoints/LR 5",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              359.44354248046875,
-              302.2073974609375,
-              192.6741943359375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LR 5",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/KI 7"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-2"
-      },
-      "feature": {
-        "id": "acupoints/KI 7",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              357.08184814453125,
-              323.4889221191406,
-              169.48304748535156
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "KI 7",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/KI 3"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-3"
-      },
-      "feature": {
-        "id": "acupoints/KI 3",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              359.58111572265625,
-              327.4620056152344,
-              118.45796966552734
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "KI 3",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/KI 4"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-4"
-      },
-      "feature": {
-        "id": "acupoints/KI 4",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              358.564697265625,
-              334.4703674316406,
-              108.50761413574219
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "KI 4",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/KI 5"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-5"
-      },
-      "feature": {
-        "id": "acupoints/KI 5",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              354.7426452636719,
-              322.39324951171875,
-              94.74494171142578
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "KI 5",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/KI 6"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/SP 5"
-      },
-      "feature": {
-        "id": "acupoints/KI 6",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              351.3085021972656,
-              289.6075439453125,
-              97.83549499511719
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "KI 6",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/KI 2"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-7"
-      },
-      "feature": {
-        "id": "acupoints/KI 2",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              348.9424133300781,
-              262.59600830078125,
-              77.76573944091797
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "KI 2",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SP 5"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-8"
-      },
-      "feature": {
-        "id": "acupoints/SP 5",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              360.4854431152344,
-              267.27789306640625,
-              112.52440643310547
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SP 5",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LR 4"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-9"
-      },
-      "feature": {
-        "id": "acupoints/LR 4",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              364.8930358886719,
-              261.6520080566406,
-              121.71916961669922
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LR 4",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SP 4"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-10"
-      },
-      "feature": {
-        "id": "acupoints/SP 4",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              348.48760986328125,
-              225.51438903808594,
-              64.55542755126953
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SP 4",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SP 3"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-11"
-      },
-      "feature": {
-        "id": "acupoints/SP 3",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              342.7484130859375,
-              206.94784545898438,
-              50.980838775634766
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SP 3",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LR 3"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-12"
-      },
-      "feature": {
-        "id": "acupoints/LR 3",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              387.14691162109375,
-              199.45883178710938,
-              64.91281127929688
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LR 3",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 42"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-13"
-      },
-      "feature": {
-        "id": "acupoints/ST 42",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              397.4356994628906,
-              235.64524841308594,
-              101.28057861328125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 42",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 41"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-14"
-      },
-      "feature": {
-        "id": "acupoints/ST 41",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              397.9016418457031,
-              254.7400665283203,
-              126.31437683105469
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 41",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-15"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-15",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              381.5242614746094,
-              232.94000244140625,
-              21.5045223236084
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-15",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SP 6"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/SP 9"
-      },
-      "feature": {
-        "id": "acupoints/SP 6",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              357.3229064941406,
-              280.0353698730469,
-              266.07135009765625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SP 6",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/KI 9"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-17"
-      },
-      "feature": {
-        "id": "acupoints/KI 9",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              345.6468505859375,
-              315.9449768066406,
-              261.98370361328125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "KI 9",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 36"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-18"
-      },
-      "feature": {
-        "id": "acupoints/ST 36",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              429.52069091796875,
-              237.82241821289062,
-              403.5749206542969
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 36",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 37"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-19"
-      },
-      "feature": {
-        "id": "acupoints/ST 37",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              428.0333251953125,
-              247.08856201171875,
-              355.37451171875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 37",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 38"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-20"
-      },
-      "feature": {
-        "id": "acupoints/ST 38",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              420.587646484375,
-              245.8601837158203,
-              322.3660888671875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 38",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 39"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-21"
-      },
-      "feature": {
-        "id": "acupoints/ST 39",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              420.03662109375,
-              249.24874877929688,
-              304.9798889160156
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 39",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 40"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-22"
-      },
-      "feature": {
-        "id": "acupoints/ST 40",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              439.4762878417969,
-              254.93641662597656,
-              324.34661865234375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 40",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SP 9"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-23"
-      },
-      "feature": {
-        "id": "acupoints/SP 9",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              352.85015869140625,
-              261.4605712890625,
-              441.4268798828125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SP 9",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 35"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-24"
-      },
-      "feature": {
-        "id": "acupoints/ST 35",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              421.92974853515625,
-              215.41537475585938,
-              487.0773010253906
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 35",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 34"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-25"
-      },
-      "feature": {
-        "id": "acupoints/ST 34",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              422.79168701171875,
-              197.8027801513672,
-              584.27587890625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 34",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SP 10"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-26"
-      },
-      "feature": {
-        "id": "acupoints/SP 10",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              356.54034423828125,
-              196.55271911621094,
-              593.412109375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SP 10",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/KI 10"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-27"
-      },
-      "feature": {
-        "id": "acupoints/KI 10",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              335.48016357421875,
-              299.32525634765625,
-              511.12030029296875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "KI 10",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LR 8"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-28"
-      },
-      "feature": {
-        "id": "acupoints/LR 8",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              345.6727600097656,
-              311.619384765625,
-              531.5189208984375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LR 8",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LR 9"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/f 345"
-      },
-      "feature": {
-        "id": "acupoints/LR 9",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              314.2137145996094,
-              279.66473388671875,
-              630.150634765625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LR 9",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SP 11"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-30"
-      },
-      "feature": {
-        "id": "acupoints/SP 11",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              364.68194580078125,
-              168.1273651123047,
-              792.3734741210938
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SP 11",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-31"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-31",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              260.6404113769531,
-              163.51800537109375,
-              780.1079711914062
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-31",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-32"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-32",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              267.6521911621094,
-              165.12008666992188,
-              900.6815795898438
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-32",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/KI 11"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-33"
-      },
-      "feature": {
-        "id": "acupoints/KI 11",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              354.0115661621094,
-              173.58309936523438,
-              885.0748901367188
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "KI 11",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 30"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-34"
-      },
-      "feature": {
-        "id": "acupoints/ST 30",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              397.6302795410156,
-              165.8291015625,
-              883.8726806640625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 30",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-35"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-35",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              292.9693908691406,
-              169.1898956298828,
-              966.009765625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-35",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/CV 4"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/CV 6"
-      },
-      "feature": {
-        "id": "acupoints/CV 4",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              329.54815673828125,
-              155.47410583496094,
-              1007.41552734375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "CV 4",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/CV 3"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-37"
-      },
-      "feature": {
-        "id": "acupoints/CV 3",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              333.14166259765625,
-              164.8617401123047,
-              942.5543212890625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "CV 3",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-38"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-38",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              358.3715515136719,
-              167.91232299804688,
-              958.9769897460938
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-38",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SP 13"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-39"
-      },
-      "feature": {
-        "id": "acupoints/SP 13",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              368.2779235839844,
-              166.64500427246094,
-              943.2576293945312
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SP 13",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SP 12"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-40"
-      },
-      "feature": {
-        "id": "acupoints/SP 12",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              369.7542724609375,
-              169.83450317382812,
-              913.3831787109375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SP 12",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 29"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-41"
-      },
-      "feature": {
-        "id": "acupoints/ST 29",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              392.2847900390625,
-              169.58975219726562,
-              938.8717651367188
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 29",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-42"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-42",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              278.1440734863281,
-              149.8403778076172,
-              1050.84521484375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-42",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-43"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-43",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              308.74658203125,
-              130.48492431640625,
-              1075.9271240234375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-43",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 25"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-44"
-      },
-      "feature": {
-        "id": "acupoints/ST 25",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              397.9694519042969,
-              159.1329345703125,
-              1051.130615234375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 25",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/KI 23"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-45"
-      },
-      "feature": {
-        "id": "acupoints/KI 23",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              372.1661682128906,
-              128.63827514648438,
-              1285.4188232421875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "KI 23",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-46"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-46",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              307.72784423828125,
-              120.82225799560547,
-              1285.87255859375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-46",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-47"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-47",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              296.2078857421875,
-              121.39588165283203,
-              1245.9688720703125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-47",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-48"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-48",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              317.9571228027344,
-              126.4763412475586,
-              1256.511474609375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-48",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-49"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-49",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              314.8891906738281,
-              121.15061950683594,
-              1226.92236328125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-49",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/CV 16"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-50"
-      },
-      "feature": {
-        "id": "acupoints/CV 16",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              340.0421142578125,
-              132.07122802734375,
-              1253.5574951171875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "CV 16",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-51"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-51",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              359.1721496582031,
-              133.3046417236328,
-              1252.669921875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-51",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/KI 22"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-52"
-      },
-      "feature": {
-        "id": "acupoints/KI 22",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              386.0810852050781,
-              131.7538604736328,
-              1253.1495361328125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "KI 22",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-53"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-53",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              372.0432434082031,
-              129.1330108642578,
-              1237.710693359375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-53",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/CV 12"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Position Updated"
-      },
-      "feature": {
-        "id": "acupoints/CV 12",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              350.2298583984375,
-              125.93243408203125,
-              1165.800048828125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "CV 12",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/KI 21"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-55"
-      },
-      "feature": {
-        "id": "acupoints/KI 21",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              368.6705322265625,
-              126.7669906616211,
-              1186.227783203125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "KI 21",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-56"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-56",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              338.7934875488281,
-              125.4007568359375,
-              1169.3480224609375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-56",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-57"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-57",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              307.9931945800781,
-              119.91718292236328,
-              1189.6661376953125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-57",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 11"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/ST 10"
-      },
-      "feature": {
-        "id": "acupoints/ST 11",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              374.92718505859375,
-              185.6963653564453,
-              1447.2774658203125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 11",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-59"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-59",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              379.60064697265625,
-              168.74876403808594,
-              1415.2122802734375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-59",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/CV 22"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/CV 23"
-      },
-      "feature": {
-        "id": "acupoints/CV 22",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              339.89788818359375,
-              178.80157470703125,
-              1433.405029296875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "CV 22",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-61"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-61",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              308.1164855957031,
-              160.9835205078125,
-              1414.788330078125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-61",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 9"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-62"
-      },
-      "feature": {
-        "id": "acupoints/ST 9",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              376.8890686035156,
-              185.5927734375,
-              1483.9974365234375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 9",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 4"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-63"
-      },
-      "feature": {
-        "id": "acupoints/ST 4",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              385.0431213378906,
-              137.1764678955078,
-              1563.4122314453125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 4",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 19"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-64"
-      },
-      "feature": {
-        "id": "acupoints/ST 19",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              467.8484191894531,
-              176.12196350097656,
-              1264.01708984375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 19",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SP 21"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-65"
-      },
-      "feature": {
-        "id": "acupoints/SP 21",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              484.88458251953125,
-              214.73057556152344,
-              1248.0130615234375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SP 21",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-66"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-66",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              550.520751953125,
-              243.09933471679688,
-              1299.2763671875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-66",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/HT 1"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-67"
-      },
-      "feature": {
-        "id": "acupoints/HT 1",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              512.0674438476562,
-              216.01902770996094,
-              1326.134521484375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "HT 1",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 12"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-68"
-      },
-      "feature": {
-        "id": "acupoints/ST 12",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              441.5883483886719,
-              203.76519775390625,
-              1460.9632568359375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 12",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 2"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-69"
-      },
-      "feature": {
-        "id": "acupoints/ST 2",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              381.81427001953125,
-              135.56065368652344,
-              1620.38525390625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 2",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SI 19"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-70"
-      },
-      "feature": {
-        "id": "acupoints/SI 19",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              427.2047424316406,
-              213.41383361816406,
-              1602.9639892578125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SI 19",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 7"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-71"
-      },
-      "feature": {
-        "id": "acupoints/ST 7",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              422.2560119628906,
-              190.607177734375,
-              1608.49169921875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 7",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GB 2"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-72"
-      },
-      "feature": {
-        "id": "acupoints/GB 2",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              426.11767578125,
-              215.9391632080078,
-              1625.60009765625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GB 2",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/TE 20"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-73"
-      },
-      "feature": {
-        "id": "acupoints/TE 20",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              421.5744934082031,
-              246.18260192871094,
-              1643.8099365234375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "TE 20",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 8"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-74"
-      },
-      "feature": {
-        "id": "acupoints/ST 8",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              403.5914001464844,
-              210.08677673339844,
-              1706.165771484375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 8",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LU 4"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-75"
-      },
-      "feature": {
-        "id": "acupoints/LU 4",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              118.12535858154297,
-              224.6350555419922,
-              1304.43994140625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LU 4",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-76"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-76",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              181.8894500732422,
-              201.06594848632812,
-              1245.4462890625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-76",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-105"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/PC 1"
-      },
-      "feature": {
-        "id": "acupoints/F-105",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              204.06085205078125,
-              164.05874633789062,
-              1259.8702392578125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-105",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/PC 2"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-78"
-      },
-      "feature": {
-        "id": "acupoints/PC 2",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              162.502685546875,
-              200.91390991210938,
-              1324.7515869140625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "PC 2",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LU 5"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-79"
-      },
-      "feature": {
-        "id": "acupoints/LU 5",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              115.50749969482422,
-              243.26083374023438,
-              1166.1197509765625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LU 5",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/PC 3"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-80"
-      },
-      "feature": {
-        "id": "acupoints/PC 3",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              146.99151611328125,
-              265.08984375,
-              1144.9927978515625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "PC 3",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-81"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-81",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              185.3721160888672,
-              200.81314086914062,
-              1116.8028564453125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-81",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LI 6"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/LI 5"
-      },
-      "feature": {
-        "id": "acupoints/LI 6",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              52.86155319213867,
-              256.1941833496094,
-              949.0220336914062
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LI 6",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LI 5"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/LI 4"
-      },
-      "feature": {
-        "id": "acupoints/LI 5",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              49.38566970825195,
-              265.5423583984375,
-              900.7255859375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LI 5",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LU 7"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-84"
-      },
-      "feature": {
-        "id": "acupoints/LU 7",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              81.0846939086914,
-              224.1706085205078,
-              941.5886840820312
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LU 7",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LU 8"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-85"
-      },
-      "feature": {
-        "id": "acupoints/LU 8",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              93.6545181274414,
-              230.57931518554688,
-              923.070068359375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LU 8",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LU 9"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-86"
-      },
-      "feature": {
-        "id": "acupoints/LU 9",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              99.92829132080078,
-              230.01910400390625,
-              905.6756591796875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LU 9",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/PC 4"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-87"
-      },
-      "feature": {
-        "id": "acupoints/PC 4",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              121.35871887207031,
-              264.0969543457031,
-              1010.396240234375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "PC 4",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/PC 5"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-88"
-      },
-      "feature": {
-        "id": "acupoints/PC 5",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              114.92269897460938,
-              261.7403869628906,
-              979.6470336914062
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "PC 5",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/PC 6"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-89"
-      },
-      "feature": {
-        "id": "acupoints/PC 6",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              108.2538070678711,
-              257.012939453125,
-              952.9268798828125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "PC 6",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LU 11"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-90"
-      },
-      "feature": {
-        "id": "acupoints/LU 11",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              117.96293640136719,
-              215.97776794433594,
-              804.6736450195312
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LU 11",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/TE 5"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-91"
-      },
-      "feature": {
-        "id": "acupoints/TE 5",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              579.5845336914062,
-              279.08978271484375,
-              940.3010864257812
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "TE 5",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SI 6"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-92"
-      },
-      "feature": {
-        "id": "acupoints/SI 6",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              577.1224975585938,
-              287.7337341308594,
-              891.66845703125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SI 6",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-93"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-93",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              552.5486450195312,
-              245.41665649414062,
-              935.0514526367188
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-93",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-94"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-94",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              538.0647583007812,
-              250.348876953125,
-              918.2955322265625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-94",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-95"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-95",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              531.3402099609375,
-              248.5014190673828,
-              901.1077880859375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-95",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-96"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-96",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              505.000732421875,
-              232.58242797851562,
-              803.5528564453125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-96",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-97"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-97",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              539.9451904296875,
-              261.6790466308594,
-              1161.935546875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-97",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/HT 3"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-98"
-      },
-      "feature": {
-        "id": "acupoints/HT 3",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              504.7857360839844,
-              280.7018127441406,
-              1144.8865966796875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "HT 3",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SP 14"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-99"
-      },
-      "feature": {
-        "id": "acupoints/SP 14",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              465.1211853027344,
-              202.91717529296875,
-              1111.836181640625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SP 14",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/F-100"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/F-100",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              468.41021728515625,
-              210.0878448486328,
-              1111.8399658203125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "F-100",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/HT 4"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-101"
-      },
-      "feature": {
-        "id": "acupoints/HT 4",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              515.5701904296875,
-              281.5743408203125,
-              1007.6077880859375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "HT 4",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/HT 5"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-102"
-      },
-      "feature": {
-        "id": "acupoints/HT 5",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              520.4095458984375,
-              279.50665283203125,
-              975.7564697265625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "HT 5",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/HT 6"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Rename from acupoints/F-103"
-      },
-      "feature": {
-        "id": "acupoints/HT 6",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              524.6361694335938,
-              275.1650085449219,
-              949.2864990234375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "HT 6",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LU 10"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LU 10",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              112.69766235351562,
-              221.6269073486328,
-              879.0791625976562
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LU 10",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LI 1"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LI 1",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              93.7458267211914,
-              240.09774780273438,
-              749.7816162109375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LI 1",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LI 2"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LI 2",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              79.6319808959961,
-              230.61395263671875,
-              793.7744140625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LI 2",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LI 4"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LI 4",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              80.18960571289062,
-              216.9726104736328,
-              858.1556396484375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LI 4",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LI 11"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LI 11",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              78.6405258178711,
-              246.80001831054688,
-              1137.7933349609375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LI 11",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/PC 7"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/PC 7",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              100.6648178100586,
-              254.217041015625,
-              901.0863037109375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "PC 7",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 10"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/ST 10",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              371.6897277832031,
-              189.81298828125,
-              1461.1536865234375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 10",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/ST 31"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/ST 31",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              460.4969787597656,
-              185.17123413085938,
-              846.624755859375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "ST 31",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SP 17"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/SP 17",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              471.2481994628906,
-              191.9133758544922,
-              1265.8394775390625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SP 17",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SI 18"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/SI 18",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              412.8861083984375,
-              180.82315063476562,
-              1585.3236083984375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SI 18",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SI 17"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/SI 17",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              407.7999267578125,
-              229.70953369140625,
-              1547.72216796875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SI 17",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SI 16"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/SI 16",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              400.0528869628906,
-              252.00698852539062,
-              1533.4658203125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SI 16",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SI 15"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/SI 15",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              362.94403076171875,
-              304.7476806640625,
-              1501.8309326171875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SI 15",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SI 11"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/SI 11",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              492.7451171875,
-              341.30487060546875,
-              1437.6116943359375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SI 11",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SI 9"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/SI 9",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              543.1234741210938,
-              333.6167297363281,
-              1393.5340576171875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SI 9",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SI 8"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Position Updated"
-      },
-      "feature": {
-        "id": "acupoints/SI 8",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              549.5513305664062,
-              353.85479736328125,
-              1144.433837890625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SI 8",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SI 7"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/SI 7",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              544.4340209960938,
-              331.47283935546875,
-              1009.1848754882812
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SI 7",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SI 5"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/SI 5",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              542.7451782226562,
-              311.383544921875,
-              890.8169555664062
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SI 5",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SI 4"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/SI 4",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              535.6006469726562,
-              320.98175048828125,
-              865.6903076171875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SI 4",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SI 3"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/SI 3",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              529.8318481445312,
-              321.60589599609375,
-              848.771240234375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SI 3",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SI 2"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/SI 2",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              527.567138671875,
-              320.799072265625,
-              826.853759765625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SI 2",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/SI 1"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/SI 1",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              514.6189575195312,
-              321.77349853515625,
-              779.4384155273438
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "SI 1",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 1"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 1",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              359.39337158203125,
-              128.83021545410156,
-              1629.612060546875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 1",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 2"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 2",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              359.3424987792969,
-              128.17994689941406,
-              1660.4998779296875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 2",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 3"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 3",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              346.9696350097656,
-              166.07012939453125,
-              1724.089111328125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 3",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 4"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 4",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              375.82476806640625,
-              172.59500122070312,
-              1716.065185546875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 4",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 9"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 9",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              354.39337158203125,
-              307.5037536621094,
-              1587.2344970703125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 9",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 10"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 10",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              361.8381042480469,
-              282.6931457519531,
-              1535.381103515625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 10",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 11"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 11",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              347.2186584472656,
-              337.82659912109375,
-              1461.974365234375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 11",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 23"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 23",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              355.6817932128906,
-              339.3995361328125,
-              1068.3267822265625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 23",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 26"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 26",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              311.38775634765625,
-              359.7614440917969,
-              904.5615234375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 26",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 36"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 36",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              400.8009338378906,
-              352.6777648925781,
-              822.2169189453125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 36",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 38"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 38",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              397.62542724609375,
-              323.3092041015625,
-              538.0801391601562
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 38",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 40"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 40",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              370.0921630859375,
-              319.73040771484375,
-              510.7247009277344
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 40",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 39"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 39",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              402.9444580078125,
-              325.5628356933594,
-              513.1990966796875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 39",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 41"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 41",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              416.2816467285156,
-              346.2445068359375,
-              1455.8389892578125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 41",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 55"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 55",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              357.5205078125,
-              333.99969482421875,
-              436.2547607421875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 55",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 56"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 56",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              376.840576171875,
-              347.55902099609375,
-              378.0040283203125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 56",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 57"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 57",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              376.9900817871094,
-              338.57855224609375,
-              289.03594970703125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 57",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 58"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 58",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              398.55718994140625,
-              342.0862121582031,
-              282.6986083984375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 58",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 60"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 60",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              391.7639465332031,
-              338.20245361328125,
-              193.7599334716797
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 60",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 61"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 61",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              407.15216064453125,
-              331.77801513671875,
-              70.9180908203125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 61",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/BL 62"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/BL 62",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              422.237060546875,
-              289.50946044921875,
-              78.96826934814453
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "BL 62",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/KI 27"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/KI 27",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              416.6838684082031,
-              200.03439331054688,
-              1447.4564208984375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "KI 27",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GB 41"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GB 41",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              422.4266357421875,
-              241.1643829345703,
-              57.553558349609375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GB 41",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GB 40"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GB 40",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              421.4566345214844,
-              315.58660888671875,
-              114.8321762084961
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GB 40",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GB 35"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GB 35",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              459.8530578613281,
-              309.73138427734375,
-              336.07073974609375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GB 35",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GB 34"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GB 34",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              461.1545715332031,
-              280.67474365234375,
-              429.97015380859375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GB 34",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GB 33"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GB 33",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              456.19647216796875,
-              276.32421875,
-              528.3196411132812
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GB 33",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GB 32"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GB 32",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              463.18218994140625,
-              295.8753356933594,
-              699.4173583984375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GB 32",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GB 31"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GB 31",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              470.6982727050781,
-              299.952880859375,
-              731.2926635742188
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GB 31",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GB 30"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GB 30",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              506.03271484375,
-              301.6920471191406,
-              938.2479248046875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GB 30",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GB 22"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GB 22",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              489.53369140625,
-              242.41326904296875,
-              1269.7752685546875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GB 22",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GB 21"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GB 21",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              384.98382568359375,
-              270.8583679199219,
-              1533.0455322265625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GB 21",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GB 20"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GB 20",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              399.35498046875,
-              257.6839599609375,
-              1560.34765625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GB 20",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GB 15"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GB 15",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              377.7707214355469,
-              165.1314697265625,
-              1708.0638427734375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GB 15",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GB 14"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GB 14",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              398.9193420410156,
-              156.17977905273438,
-              1661.6739501953125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GB 14",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GB 12"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GB 12",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              405.1448974609375,
-              244.39453125,
-              1569.0479736328125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GB 12",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GB 7"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GB 7",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              418.2421875,
-              192.53623962402344,
-              1623.457763671875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GB 7",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/TE 23"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/TE 23",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              410.7856750488281,
-              175.63633728027344,
-              1645.29052734375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "TE 23",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/TE 22"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/TE 22",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              416.5923156738281,
-              195.9521026611328,
-              1640.651123046875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "TE 22",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/TE 21"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/TE 21",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              420.16473388671875,
-              218.92861938476562,
-              1638.829345703125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "TE 21",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/TE 16"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/TE 16",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              381.4507751464844,
-              282.4040832519531,
-              1519.5347900390625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "TE 16",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/TE 14"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/TE 14",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              555.44873046875,
-              320.05999755859375,
-              1414.547119140625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "TE 14",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/TE 10"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/TE 10",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              544.271728515625,
-              348.33984375,
-              1163.6710205078125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "TE 10",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/TE 4"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/TE 4",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              553.1741333007812,
-              309.45458984375,
-              829.1837768554688
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "TE 4",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/TE 17"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/TE 17",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              409.8067932128906,
-              238.50791931152344,
-              1576.064208984375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "TE 17",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LR 14"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LR 14",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              458.2839050292969,
-              170.49697875976562,
-              1261.42333984375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LR 14",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LR 13"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LR 13",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              474.98004150390625,
-              217.66552734375,
-              1175.60400390625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LR 13",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LR 12"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LR 12",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              393.52740478515625,
-              172.09083557128906,
-              936.5799560546875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LR 12",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LR 11"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LR 11",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              369.5443420410156,
-              171.6489715576172,
-              886.1089477539062
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LR 11",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GV 2"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GV 2",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              311.5718078613281,
-              358.4594421386719,
-              893.947021484375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GV 2",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GV 14"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GV 14",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              332.6483154296875,
-              304.4377136230469,
-              1500.43310546875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GV 14",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GV 4"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GV 4",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              314.7068786621094,
-              356.0515441894531,
-              1029.470458984375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GV 4",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GV 16"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GV 16",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              335.8852844238281,
-              300.77197265625,
-              1574.9749755859375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GV 16",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GV 17"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GV 17",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              335.38031005859375,
-              314.2177429199219,
-              1603.85498046875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GV 17",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GV 20"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GV 20",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              338.67364501953125,
-              235.41310119628906,
-              1735.8232421875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GV 20",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GV 24"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GV 24",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              347.4845886230469,
-              151.78965759277344,
-              1710.4168701171875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GV 24",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GV 23"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GV 23",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              345.7931213378906,
-              164.58189392089844,
-              1723.3350830078125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GV 23",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GV 22"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GV 22",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              343.31683349609375,
-              184.95387268066406,
-              1732.4986572265625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GV 22",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/GV 26"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/GV 26",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              349.1557312011719,
-              112.44513702392578,
-              1585.4366455078125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "GV 26",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/CV 8"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/CV 8",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              342.5370788574219,
-              141.05914306640625,
-              1081.12109375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "CV 8",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/CV 6"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/CV 6",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              341.12591552734375,
-              148.22303771972656,
-              1039.067138671875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "CV 6",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/CV 23"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/CV 23",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              344.7686462402344,
-              168.00570678710938,
-              1478.3070068359375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "CV 23",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LU 3"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LU 3",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              126.01946258544922,
-              217.56228637695312,
-              1344.033935546875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LU 3",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LU 2"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LU 2",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              194.09095764160156,
-              171.1755828857422,
-              1406.0103759765625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LU 2",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LI 12"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LI 12",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              85.17436981201172,
-              253.02474975585938,
-              1182.119873046875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LI 12",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LI 14"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LI 14",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              92.88692474365234,
-              256.4128112792969,
-              1296.7344970703125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LI 14",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LI 15"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LI 15",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              121.29193878173828,
-              251.77716064453125,
-              1444.783935546875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LI 15",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LI 16"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LI 16",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              158.45407104492188,
-              265.7582702636719,
-              1472.3603515625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LI 16",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LI 17"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LI 17",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              290.5929260253906,
-              201.2920379638672,
-              1470.5716552734375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LI 17",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LI 18"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LI 18",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              290.8802490234375,
-              201.71023559570312,
-              1510.22265625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LI 18",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/LI 20"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/LI 20",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              318.707763671875,
-              131.71060180664062,
-              1613.85693359375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "LI 20",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/HT 2"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/HT 2",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              505.0141906738281,
-              249.26812744140625,
-              1233.62060546875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "HT 2",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/HT 7"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/HT 7",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              532.1568603515625,
-              274.2445373535156,
-              910.5368041992188
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "HT 7",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/HT 8"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/HT 8",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              521.5205688476562,
-              301.4834899902344,
-              824.0656127929688
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "HT 8",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/PC 8"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/PC 8",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              96.16509246826172,
-              267.27978515625,
-              845.7088012695312
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "PC 8",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/Yintang"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/Yintang",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              346.875244140625,
-              126.1874008178711,
-              1654.875732421875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "Yintang",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/Yuyao"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/Yuyao",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              306.1292724609375,
-              135.80905151367188,
-              1662.639404296875
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "Yuyao",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/Taiyang"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/Taiyang",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              277.73779296875,
-              167.68450927734375,
-              1642.0511474609375
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "Taiyang",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/Jianqian"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/Jianqian",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              151.1898193359375,
-              188.8960418701172,
-              1410.6925048828125
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "Jianqian",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/Sifeng"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/Sifeng",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              107.35723876953125,
-              254.04638671875,
-              765.3161010742188
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "Sifeng",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/Luozhen"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/Luozhen",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              60.08940124511719,
-              247.3205108642578,
-              821.5255737304688
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "Luozhen",
-      "region": "acupoints"
-    },
-    {
-      "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v1.json",
-      "item": {
-        "id": "acupoints/Xiyan"
-      },
-      "body": {
-        "evidence": [],
-        "comment": "Create"
-      },
-      "feature": {
-        "id": "acupoints/Xiyan",
-        "properties": {
-          "drawn": true,
-          "label": "Drawn annotation"
-        },
-        "geometry": {
-          "coordinates": [
-            [
-              414.4197998046875,
-              215.12875366210938,
-              487.53912353515625
-            ]
-          ],
-          "type": "MultiPoint"
-        }
-      },
-      "group": "Xiyan",
-      "region": "acupoints"
-    }
+      {
+          "body": {
+              "comment": "Rename from acupoints/CV 2",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          332.81634521484375,
+                          165.74549865722656,
+                          941.4091796875
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/CV 3",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "CV 3",
+          "item": {
+              "id": "acupoints/CV 3"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          342.1992492675781,
+                          143.3871307373047,
+                          1081.164306640625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/CV 8",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "CV 8",
+          "item": {
+              "id": "acupoints/CV 8"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          335.1697692871094,
+                          147.0203399658203,
+                          1038.3431396484375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/CV 6",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "CV 6",
+          "item": {
+              "id": "acupoints/CV 6"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          327.96539306640625,
+                          157.1343231201172,
+                          1007.3489990234375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/CV 4",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "CV 4",
+          "item": {
+              "id": "acupoints/CV 4"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          339.65374755859375,
+                          127.99040222167969,
+                          1167.3402099609375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/CV 12",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "CV 12",
+          "item": {
+              "id": "acupoints/CV 12"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          340.7398681640625,
+                          133.126953125,
+                          1252.7259521484375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/CV 16",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "CV 16",
+          "item": {
+              "id": "acupoints/CV 16"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          340.0204162597656,
+                          182.54405212402344,
+                          1435.0870361328125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/CV 22",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "CV 22",
+          "item": {
+              "id": "acupoints/CV 22"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          348.3387451171875,
+                          166.0991973876953,
+                          1484.1317138671875
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/CV 23",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "CV 23",
+          "item": {
+              "id": "acupoints/CV 23"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          380.2815246582031,
+                          136.2504425048828,
+                          1618.4130859375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 2",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 2",
+          "item": {
+              "id": "acupoints/ST 2"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          385.5450744628906,
+                          138.38442993164062,
+                          1565.3067626953125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 4",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 4",
+          "item": {
+              "id": "acupoints/ST 4"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          402.9366455078125,
+                          208.7734832763672,
+                          1704.4769287109375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 8",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 8",
+          "item": {
+              "id": "acupoints/ST 8"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          419.8945617675781,
+                          188.84347534179688,
+                          1609.72705078125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 7",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 7",
+          "item": {
+              "id": "acupoints/ST 7"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          378.0062255859375,
+                          186.57736206054688,
+                          1484.4017333984375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 9",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 9",
+          "item": {
+              "id": "acupoints/ST 9"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          375.8086242675781,
+                          188.19528198242188,
+                          1446.2606201171875
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 10",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 10",
+          "item": {
+              "id": "acupoints/ST 10"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          442.18212890625,
+                          205.2639923095703,
+                          1457.421630859375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 12",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 12",
+          "item": {
+              "id": "acupoints/ST 12"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          381.259521484375,
+                          171.4334716796875,
+                          1414.421142578125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 11",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 11",
+          "item": {
+              "id": "acupoints/ST 11"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          396.8003234863281,
+                          235.0067138671875,
+                          99.02944946289062
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 42",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 42",
+          "item": {
+              "id": "acupoints/ST 42"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          398.6725769042969,
+                          255.3401641845703,
+                          125.4318618774414
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 41",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 41",
+          "item": {
+              "id": "acupoints/ST 41"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          439.11627197265625,
+                          255.4678955078125,
+                          324.7341003417969
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 40",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 40",
+          "item": {
+              "id": "acupoints/ST 40"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          420.1509704589844,
+                          250.62535095214844,
+                          306.0267333984375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 39",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 39",
+          "item": {
+              "id": "acupoints/ST 39"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          421.9758605957031,
+                          248.1835479736328,
+                          323.91143798828125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 38",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 38",
+          "item": {
+              "id": "acupoints/ST 38"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          428.3520812988281,
+                          247.3289794921875,
+                          356.39697265625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 37",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 37",
+          "item": {
+              "id": "acupoints/ST 37"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          428.90594482421875,
+                          239.0159149169922,
+                          402.7339172363281
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 36",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 36",
+          "item": {
+              "id": "acupoints/ST 36"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          421.48797607421875,
+                          216.6978302001953,
+                          489.1360168457031
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 35",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 35",
+          "item": {
+              "id": "acupoints/ST 35"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          422.9134216308594,
+                          199.31712341308594,
+                          586.5714721679688
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 34",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 34",
+          "item": {
+              "id": "acupoints/ST 34"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Rename from acupoints/ST 30",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          399.14471435546875,
+                          167.78302001953125,
+                          885.8568115234375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 31",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 31",
+          "item": {
+              "id": "acupoints/ST 31"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Rename from acupoints/ST 29",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          369.28131103515625,
+                          170.59202575683594,
+                          914.1744384765625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 30",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 30",
+          "item": {
+              "id": "acupoints/ST 30"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          368.7409973144531,
+                          166.5753173828125,
+                          944.4888305664062
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 29",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 29",
+          "item": {
+              "id": "acupoints/ST 29"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          371.7768859863281,
+                          135.05908203125,
+                          1073.7130126953125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 25",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 25",
+          "item": {
+              "id": "acupoints/ST 25"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          464.4606628417969,
+                          175.42703247070312,
+                          1265.958740234375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/ST 19",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "ST 19",
+          "item": {
+              "id": "acupoints/ST 19"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          505.60784912109375,
+                          232.7449951171875,
+                          805.0023193359375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LU 11",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LU 11",
+          "item": {
+              "id": "acupoints/LU 11"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          510.8818664550781,
+                          250.849853515625,
+                          877.9271850585938
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LU 10",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LU 10",
+          "item": {
+              "id": "acupoints/LU 10"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          534.6666870117188,
+                          248.7919464111328,
+                          901.00732421875
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LU 9",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LU 9",
+          "item": {
+              "id": "acupoints/LU 9"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          541.82861328125,
+                          250.57257080078125,
+                          918.0639038085938
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LU 8",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LU 8",
+          "item": {
+              "id": "acupoints/LU 8"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          554.52978515625,
+                          245.3521270751953,
+                          935.9909057617188
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LU 7",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LU 7",
+          "item": {
+              "id": "acupoints/LU 7"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          540.1412963867188,
+                          262.494140625,
+                          1163.510498046875
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LU 5",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LU 5",
+          "item": {
+              "id": "acupoints/LU 5"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          549.2742919921875,
+                          243.68885803222656,
+                          1301.4012451171875
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LU 4",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LU 4",
+          "item": {
+              "id": "acupoints/LU 4"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          519.1517944335938,
+                          282.9504089355469,
+                          1009.7081298828125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/PC 4",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "PC 4",
+          "item": {
+              "id": "acupoints/PC 4"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          523.927001953125,
+                          282.30938720703125,
+                          980.43896484375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/PC 5",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "PC 5",
+          "item": {
+              "id": "acupoints/PC 5"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          528.5888061523438,
+                          276.5254211425781,
+                          951.09375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/PC 6",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "PC 6",
+          "item": {
+              "id": "acupoints/PC 6"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          533.0798950195312,
+                          277.9823303222656,
+                          837.72314453125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/PC 8",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "PC 8",
+          "item": {
+              "id": "acupoints/PC 8"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          529.9920654296875,
+                          281.19964599609375,
+                          900.2698974609375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/PC 7",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "PC 7",
+          "item": {
+              "id": "acupoints/PC 7"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          504.22344970703125,
+                          281.4498596191406,
+                          1144.812744140625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/PC 3",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "PC 3",
+          "item": {
+              "id": "acupoints/PC 3"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          513.9794311523438,
+                          217.9391632080078,
+                          1327.546630859375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/PC 2",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "PC 2",
+          "item": {
+              "id": "acupoints/PC 2"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          546.2767333984375,
+                          237.43307495117188,
+                          1331.698486328125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LU 3",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LU 3",
+          "item": {
+              "id": "acupoints/LU 3"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          510.1278381347656,
+                          191.66305541992188,
+                          1411.420166015625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LU 2",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LU 2",
+          "item": {
+              "id": "acupoints/LU 2"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          533.4717407226562,
+                          288.46063232421875,
+                          817.4797973632812
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/HT 8",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "HT 8",
+          "item": {
+              "id": "acupoints/HT 8"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          534.507568359375,
+                          294.6980285644531,
+                          911.718994140625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/HT 7",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "HT 7",
+          "item": {
+              "id": "acupoints/HT 7"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          530.49462890625,
+                          302.4284973144531,
+                          936.4000244140625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/HT 6",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "HT 6",
+          "item": {
+              "id": "acupoints/HT 6"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          526.6570434570312,
+                          307.70404052734375,
+                          954.0942993164062
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/HT 5",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "HT 5",
+          "item": {
+              "id": "acupoints/HT 5"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          523.236328125,
+                          308.2247314453125,
+                          969.2670288085938
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/HT 4",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "HT 4",
+          "item": {
+              "id": "acupoints/HT 4"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          496.65106201171875,
+                          294.7120361328125,
+                          1139.65771484375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/HT 3",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "HT 3",
+          "item": {
+              "id": "acupoints/HT 3"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          503.7174987792969,
+                          250.30076599121094,
+                          1234.0528564453125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/HT 2",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "HT 2",
+          "item": {
+              "id": "acupoints/HT 2"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          513.2388916015625,
+                          196.4560546875,
+                          1378.9415283203125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/HT 1",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "HT 1",
+          "item": {
+              "id": "acupoints/HT 1"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          575.5401000976562,
+                          288.64593505859375,
+                          894.1752319335938
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/TE 4",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "TE 4",
+          "item": {
+              "id": "acupoints/TE 4"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          578.4255981445312,
+                          279.2832946777344,
+                          941.6845092773438
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/TE 5",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "TE 5",
+          "item": {
+              "id": "acupoints/TE 5"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          545.23779296875,
+                          345.32391357421875,
+                          1182.406005859375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/TE 10",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "TE 10",
+          "item": {
+              "id": "acupoints/TE 10"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          554.58349609375,
+                          255.45814514160156,
+                          1455.5732421875
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/TE 14",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "TE 14",
+          "item": {
+              "id": "acupoints/TE 14"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          386.6883239746094,
+                          273.4964294433594,
+                          1546.0987548828125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/TE 16",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "TE 16",
+          "item": {
+              "id": "acupoints/TE 16"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          420.29498291015625,
+                          247.81842041015625,
+                          1645.34423828125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/TE 20",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "TE 20",
+          "item": {
+              "id": "acupoints/TE 20"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          424.6666259765625,
+                          215.37794494628906,
+                          1626.1502685546875
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/TE 21",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "TE 21",
+          "item": {
+              "id": "acupoints/TE 21"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          415.78497314453125,
+                          190.30514526367188,
+                          1637.31591796875
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/TE 22",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "TE 22",
+          "item": {
+              "id": "acupoints/TE 22"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          405.2558288574219,
+                          166.20773315429688,
+                          1651.8828125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/TE 23",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "TE 23",
+          "item": {
+              "id": "acupoints/TE 23"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          407.9874267578125,
+                          235.179443359375,
+                          1570.6376953125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/TE 17",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "TE 17",
+          "item": {
+              "id": "acupoints/TE 17"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          385.396240234375,
+                          200.42002868652344,
+                          65.85591125488281
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LR 3",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LR 3",
+          "item": {
+              "id": "acupoints/LR 3"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          367.2411193847656,
+                          261.44024658203125,
+                          122.12984466552734
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LR 4",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LR 4",
+          "item": {
+              "id": "acupoints/LR 4"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          374.1618347167969,
+                          282.3743591308594,
+                          186.7246856689453
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LR 5",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LR 5",
+          "item": {
+              "id": "acupoints/LR 5"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          337.9798889160156,
+                          292.6976623535156,
+                          511.07177734375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LR 8",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LR 8",
+          "item": {
+              "id": "acupoints/LR 8"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          318.37445068359375,
+                          272.3721923828125,
+                          630.4981079101562
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LR 9",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LR 9",
+          "item": {
+              "id": "acupoints/LR 9"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          366.917236328125,
+                          169.8080291748047,
+                          790.9293212890625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LR 11",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LR 11",
+          "item": {
+              "id": "acupoints/LR 11"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          389.47784423828125,
+                          171.4759979248047,
+                          936.0755004882812
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LR 12",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LR 12",
+          "item": {
+              "id": "acupoints/LR 12"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          464.4248046875,
+                          206.92601013183594,
+                          1112.75439453125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LR 13",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LR 13",
+          "item": {
+              "id": "acupoints/LR 13"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          481.0909729003906,
+                          214.35423278808594,
+                          1249.220703125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/LR 14",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "LR 14",
+          "item": {
+              "id": "acupoints/LR 14"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          535.084716796875,
+                          322.22552490234375,
+                          839.39794921875
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SI 2",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SI 2",
+          "item": {
+              "id": "acupoints/SI 2"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          538.8353271484375,
+                          321.01947021484375,
+                          855.9927368164062
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SI 3",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SI 3",
+          "item": {
+              "id": "acupoints/SI 3"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          544.4501953125,
+                          316.7911071777344,
+                          876.0447998046875
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SI 4",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SI 4",
+          "item": {
+              "id": "acupoints/SI 4"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          547.8873291015625,
+                          309.7297668457031,
+                          897.494140625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SI 5",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SI 5",
+          "item": {
+              "id": "acupoints/SI 5"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          566.7568359375,
+                          306.3661193847656,
+                          913.7139282226562
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SI 6",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SI 6",
+          "item": {
+              "id": "acupoints/SI 6"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          552.0311889648438,
+                          325.4187927246094,
+                          988.8241577148438
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SI 7",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SI 7",
+          "item": {
+              "id": "acupoints/SI 7"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          537.88330078125,
+                          349.4498596191406,
+                          1128.777587890625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SI 8",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SI 8",
+          "item": {
+              "id": "acupoints/SI 8"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          534.2271728515625,
+                          336.8371887207031,
+                          1371.775146484375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SI 9",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SI 9",
+          "item": {
+              "id": "acupoints/SI 9"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          494.0612487792969,
+                          345.67626953125,
+                          1419.1851806640625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SI 11",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SI 11",
+          "item": {
+              "id": "acupoints/SI 11"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          363.0192565917969,
+                          299.7425842285156,
+                          1508.0362548828125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SI 15",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SI 15",
+          "item": {
+              "id": "acupoints/SI 15"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          357.24627685546875,
+                          283.260498046875,
+                          1529.85400390625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SI 16",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SI 16",
+          "item": {
+              "id": "acupoints/SI 16"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          404.9051513671875,
+                          241.4806365966797,
+                          1553.7701416015625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SI 17",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SI 17",
+          "item": {
+              "id": "acupoints/SI 17"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          410.6011962890625,
+                          171.9217987060547,
+                          1582.2391357421875
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SI 18",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SI 18",
+          "item": {
+              "id": "acupoints/SI 18"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          426.7062683105469,
+                          212.8138885498047,
+                          1605.712646484375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SI 19",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SI 19",
+          "item": {
+              "id": "acupoints/SI 19"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          344.0641784667969,
+                          204.1642608642578,
+                          49.56932067871094
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SP 3",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SP 3",
+          "item": {
+              "id": "acupoints/SP 3"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          350.8224182128906,
+                          224.75392150878906,
+                          65.58565521240234
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SP 4",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SP 4",
+          "item": {
+              "id": "acupoints/SP 4"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Rename from acupoints/SP 5",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          363.5525817871094,
+                          326.6296081542969,
+                          120.87583923339844
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/KI 3",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "KI 3",
+          "item": {
+              "id": "acupoints/KI 3"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          361.0262145996094,
+                          302.8935241699219,
+                          193.9175567626953
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SP 6",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SP 6",
+          "item": {
+              "id": "acupoints/SP 6"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          356.410888671875,
+                          260.7004089355469,
+                          442.1934509277344
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SP 9",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SP 9",
+          "item": {
+              "id": "acupoints/SP 9"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          356.6187438964844,
+                          197.33724975585938,
+                          594.1416625976562
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SP 10",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SP 10",
+          "item": {
+              "id": "acupoints/SP 10"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          407.714111328125,
+                          168.88973999023438,
+                          843.7412719726562
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SP 11",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SP 11",
+          "item": {
+              "id": "acupoints/SP 11"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          359.14459228515625,
+                          169.22801208496094,
+                          958.1256103515625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SP 12",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SP 12",
+          "item": {
+              "id": "acupoints/SP 12"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          378.70013427734375,
+                          174.48365783691406,
+                          971.691650390625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SP 13",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SP 13",
+          "item": {
+              "id": "acupoints/SP 13"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          400.23675537109375,
+                          154.91090393066406,
+                          1050.4586181640625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SP 14",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SP 14",
+          "item": {
+              "id": "acupoints/SP 14"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          475.27880859375,
+                          202.39959716796875,
+                          1267.5958251953125
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SP 17",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SP 17",
+          "item": {
+              "id": "acupoints/SP 17"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          484.4124450683594,
+                          252.9880828857422,
+                          1199.25537109375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SP 21",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SP 21",
+          "item": {
+              "id": "acupoints/SP 21"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          350.5281066894531,
+                          262.069580078125,
+                          78.7330551147461
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/KI 2",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "KI 2",
+          "item": {
+              "id": "acupoints/KI 2"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          359.60675048828125,
+                          333.9492492675781,
+                          106.64273834228516
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/KI 4",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "KI 4",
+          "item": {
+              "id": "acupoints/KI 4"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          358.37518310546875,
+                          319.70306396484375,
+                          94.29078674316406
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/KI 5",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "KI 5",
+          "item": {
+              "id": "acupoints/KI 5"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          354.6448669433594,
+                          286.9312744140625,
+                          98.28263854980469
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/KI 6",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "KI 6",
+          "item": {
+              "id": "acupoints/KI 6"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          358.70404052734375,
+                          322.44256591796875,
+                          168.7966766357422
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/KI 7",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "KI 7",
+          "item": {
+              "id": "acupoints/KI 7"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          357.3119812011719,
+                          281.6307373046875,
+                          266.94677734375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/KI 9",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "KI 9",
+          "item": {
+              "id": "acupoints/KI 9"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          347.31402587890625,
+                          312.23919677734375,
+                          530.2935791015625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/KI 10",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "KI 10",
+          "item": {
+              "id": "acupoints/KI 10"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          376.2852478027344,
+                          171.06275939941406,
+                          928.2800903320312
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/KI 11",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "KI 11",
+          "item": {
+              "id": "acupoints/KI 11"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          387.7587585449219,
+                          134.13134765625,
+                          1252.98046875
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/KI 21",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "KI 21",
+          "item": {
+              "id": "acupoints/KI 21"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          372.15191650390625,
+                          128.9127960205078,
+                          1285.8193359375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/KI 22",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "KI 22",
+          "item": {
+              "id": "acupoints/KI 22"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          376.0145263671875,
+                          139.84463500976562,
+                          1325.8123779296875
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/KI 23",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "KI 23",
+          "item": {
+              "id": "acupoints/KI 23"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          410.8540954589844,
+                          198.1470947265625,
+                          1444.14208984375
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/KI 27",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "KI 27",
+          "item": {
+              "id": "acupoints/KI 27"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      },
+      {
+          "body": {
+              "comment": "Create",
+              "evidence": []
+          },
+          "feature": {
+              "geometry": {
+                  "coordinates": [
+                      [
+                          348.81768798828125,
+                          312.97698974609375,
+                          263.004150390625
+                      ]
+                  ],
+                  "type": "MultiPoint"
+              },
+              "id": "acupoints/SP 5",
+              "properties": {
+                  "drawn": true,
+                  "label": "Drawn annotation"
+              }
+          },
+          "group": "SP 5",
+          "item": {
+              "id": "acupoints/SP 5"
+          },
+          "region": "acupoints",
+          "resource": "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/19-01-26/combine_v3.json"
+      }
   ]
 }

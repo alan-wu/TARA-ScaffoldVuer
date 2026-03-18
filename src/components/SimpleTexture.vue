@@ -8,7 +8,7 @@
         mode="horizontal"
         :popper-offset="8"
         :teleported="false"
-        style="max-width:260px"
+        style="max-width:340px"
         @select="onMenuSelected"
       >
         <el-sub-menu index="1" :teleported="false">
@@ -34,6 +34,12 @@
           </el-menu-item>
           -->
         </el-sub-menu>
+        <el-menu-item index="reset" @click="resetView()">
+          <template #title>
+            <el-icon><ElIconRefresh /></el-icon>
+            <span>Reset View</span>
+          </template>
+        </el-menu-item>
         <el-sub-menu index="2" :teleported="false">
           <template #title>
             <el-icon><ElIconFolderOpened /></el-icon>
@@ -64,12 +70,6 @@
             Export
           </el-menu-item>
         </el-sub-menu>
-        <el-menu-item index="reset" @click="resetView()">
-          <template #title>
-            <el-icon><ElIconRefresh /></el-icon>
-            <span>Reset View</span>
-          </template>
-        </el-menu-item>
         <el-menu-item index="help" @click="openHelp()">
           <template #title>
             <el-icon><ElIconQuestionFilled /></el-icon>

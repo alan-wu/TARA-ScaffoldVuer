@@ -95,7 +95,8 @@ input[type="file"] {
 }
 
 :deep(.el-menu), .el-sub-menu, .el-menu-item{
-  --el-menu-active-color:#303133;
+  color: #8300BF;
+  --el-menu-active-color:#8300BF;
   --el-menu-hover-text-color:#8300BF;
   --el-menu-hover-bg-color:#F3E6F9;
   --el-menu-base-level-padding:10px;
