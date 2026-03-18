@@ -9,7 +9,6 @@
         :popper-offset="8"
         :teleported="false"
         style="max-width:340px"
-        @select="onMenuSelected"
       >
         <el-sub-menu index="1" :teleported="false">
           <template #title>
@@ -28,11 +27,9 @@
           <el-menu-item index="rename" @click="intMode = 'Rename'">
             Rename
           </el-menu-item>
-          <!--
           <el-menu-item index="delete" @click="intMode = 'Delete'">
             Delete
           </el-menu-item>
-          -->
         </el-sub-menu>
         <el-menu-item index="reset" @click="resetView()">
           <template #title>

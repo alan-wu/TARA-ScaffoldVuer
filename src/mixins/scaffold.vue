@@ -518,21 +518,29 @@ export default {
         }
       }
     },
-    graphicsRenamed: function(zincObject, oldName, newName) {
-      //Adjust  listing based on the information on renaming
-      this.updateCuratedStatus(oldName);
-      this.updateCuratedStatus(newName);
-      if (oldName in this.pointsMapping) {
-        const list = this.pointsMapping[oldName];
+    graphicsDeleted: function(zincObject, name) {
+      this.updateCuratedStatus(name);
+      if (name in this.pointsMapping) {
+        const list = this.pointsMapping[name];
         for (let i = list.length - 1; i >= 0; i--) {
           if (list[i].uuid === zincObject.uuid) {
             list.splice(i, 1);
           }
         }
         if (list.length === 0) {
-          delete this.pointsMapping[oldName];
+          delete this.pointsMapping[name];
         }
       }
+      for (let i = this.previousList.length - 1; i >= 0; i--) {
+        if (this.previousList[i].uuid === zincObject.uuid) {
+          this.previousList.splice(i, 1);
+        }
+      }
+    },
+    graphicsRenamed: function(zincObject, oldName, newName) {
+      //Adjust  listing based on the information on renaming
+      this.updateCuratedStatus(newName);
+      this.graphicsDeleted(zincObject, oldName);
       this.addGraphicsToPointsList(zincObject);
     },
     userPrimitivesUpdated: function (payload) {
@@ -540,6 +548,8 @@ export default {
       const zincObject = payload.zincObject;
       if (payload.renamedFrom) {
         this.graphicsRenamed(zincObject, payload.renamedFrom, zincObject.groupName);
+      } else if (payload.deleted) {
+        this.graphicsDeleted(payload.zincObject, payload.group);
       }
       if ((zincObject.isEditable || this.importing) && zincObject.isLines2
         && !zincObject.renamedFrom) {
