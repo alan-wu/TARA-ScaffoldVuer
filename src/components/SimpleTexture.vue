@@ -98,6 +98,16 @@
         @zinc-object-added="objectAdded"
       >
         <template v-slot:treeSlot>
+          <!--
+          <el-row v-if="!imagesInit && requireTexture && textureUrl">
+            <el-button
+              size="small"
+              :icon="ElIconPicture"
+              @click="readTexture()">
+              Load images
+            </el-button>
+          </el-row>
+          -->
           <el-row>
             <el-col :span="12">
               <el-checkbox
@@ -166,6 +176,7 @@ import {
   DataAnalysis as ElIconDataAnalysis,
   EditPen as ElIconEditPen,
   FolderOpened as ElIconFolderOpened,
+  Picture as ElIconPicture,
   Refresh as ElIconRefresh,
   QuestionFilled as ElIconQuestionFilled,
   View as ElIconView,
@@ -220,6 +231,7 @@ export default {
     Switch,
     ElIconEditPen,
     ElIconFolderOpened,
+    ElIconPicture,
     ElIconRefresh,
     ElIconQuestionFilled,
     ElIconView,
@@ -236,9 +248,10 @@ export default {
       bodySegmentation: undefined,
       displayAxis: false,
       glyphs: markRaw([]),
-      opaque: false,
+      opaque: true,
       readPremade: false,
       displayUI: true,
+      imagesInit: false,
       ElIconDataAnalysis: shallowRef(ElIconDataAnalysis),
       ElIconEditPen: shallowRef(ElIconEditPen),
       ElIconFolderOpened: shallowRef(ElIconFolderOpened),
@@ -439,28 +452,29 @@ export default {
         if (zincObject.groupName === "Body") {
           zincObject.userData.highlightColour = [0.1, 0, 0];
           zincObject.userData.selectedColour = [0, 0.1, 0];
-          zincObject.setAlpha(0.7);
+          if (!this.opaque) zincObject.setAlpha(0.7);
+          zincObject.setVisibility(false);
           this.bodyScaffolds.push(zincObject);
           this.bodySegmentation = markRaw(zincObject);
         }
         if (zincObject.groupName === "Scaffold") {
           zincObject.userData.selectedColour = [0, 0.1, 0];
           zincObject.userData.highlightColour = [0.1, 0, 0];
-          zincObject.setAlpha(0.7);
+          if (!this.opaque) zincObject.setAlpha(0.7);
           zincObject.setVisibility(false);
           this.bodyScaffolds.push(zincObject);
         }
         if (zincObject.groupName === "Thresholding Seg") {
           zincObject.userData.highlightColour = [0.1, 0, 0];
           zincObject.userData.selectedColour = [0, 0.1, 0];
-          zincObject.setAlpha(0.7);
-          zincObject.setVisibility(false);
+          if (!this.opaque) zincObject.setAlpha(0.7);
+          //zincObject.setVisibility(false);
           this.bodyScaffolds.push(zincObject);
         }
         if (zincObject.groupName === "Stretch nnUnet Seg") {
           zincObject.userData.highlightColour = [0.1, 0, 0];
           zincObject.userData.selectedColour = [0, 0.1, 0];
-          zincObject.setAlpha(0.7);
+          if (!this.opaque) zincObject.setAlpha(0.7);
           zincObject.setVisibility(false);
           this.bodyScaffolds.push(zincObject);
         }
@@ -536,6 +550,7 @@ export default {
       this.setupDemoFilters();
     },
     readTexture: async function () {
+      this.imagesInit = true;
       const viewer = this.$refs.scaffold;
       viewer.offlineAnnotationEnabled = true;
       if (this.consoleOn) console.log("Lines length", this._createLinesLength);
