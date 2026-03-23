@@ -8,7 +8,7 @@
         mode="horizontal"
         :popper-offset="8"
         :teleported="false"
-        style="max-width:340px"
+        style="max-width:350px"
       >
         <el-sub-menu index="1" :teleported="false">
           <template #title>
