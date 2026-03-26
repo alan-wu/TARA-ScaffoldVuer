@@ -38,8 +38,8 @@
   },
   "dependencies": {
     "@abi-software/map-side-bar": "2.13.0-acupoint.8",
-    "@abi-software/map-utilities": "1.7.8-beta.4",
-    "@abi-software/scaffoldvuer": "1.13.1-beta.18",
+    "@abi-software/map-utilities": "1.8.1",
+    "@abi-software/scaffoldvuer": "1.14.1",
     "element-plus": "2.8.4",
     "nifti-reader-js": "^0.7.1",
     "pinia": "^2.1.7",
