@@ -93,7 +93,7 @@ const getMeridian = original => {
   return undefined;
 }
 
-const parseAcupointsData = data => {
+const parseAcupointsData = (data, genderIn) => {
   const list = data['results']['bindings'];
   const parsed = {};
   const keyMap = {
@@ -114,9 +114,16 @@ const parseAcupointsData = data => {
     const name = item['Acupoint']['value'];
     let onMRI = false;
     const nameToMatch = name.split('(')[0].replaceAll(" ", "");
-
+    let gender = "";
+    if (name.toLowerCase().includes("female")) {
+      gender = "female";
+    } else if (name.toLowerCase().includes("male")) {
+      gender = "male";
+    }
     if (onMRIData['mriSpotted'].includes(nameToMatch)) {
-      onMRI = true;
+      if (!gender || (gender === genderIn)) {
+        onMRI = true;
+      }
     }
     const obj = {};
     for (const [key, value] of Object.entries(keyMap)) {
@@ -203,6 +210,7 @@ export default {
   data: function () {
     return {
       acupoints: {},
+      gender: "male",
       numberOfPointsGraphics: 0,
       acupointsIsChecked: true,
       acupointsInfo: false,
@@ -305,6 +313,7 @@ export default {
       });
     },
     addAndCuratedAcupointsLabel: function(label, addInfo) {
+      console.log("gender", this.gender)
       if (!this.acupoints) this.acupoints = {};
       if (label) {
         if (addInfo && !(label in this.acupoints)) {
@@ -314,9 +323,20 @@ export default {
             userDefined: true,
           };
         }
-        if (label in this.acupoints) {
-          this.acupoints[label].Curated = true;
-        }
+        Object.keys(this.acupoints).forEach((key) => {
+          const name = key.split(' ').slice(0, 2).join(' ');
+          if (name === label) {
+            let gender = "";
+            if (key.toLowerCase().includes("female")) {
+              gender = "female";
+            } else if (key.toLowerCase().includes("male")) {
+              gender = "male";
+            }
+            if (!gender || (gender === this.gender)) {
+              this.acupoints[key].Curated = true;
+            }
+          }
+        });
       }
       return this.acupoints[label];
     },
@@ -432,7 +452,10 @@ export default {
       this.readAnnotations(data);
     },
     populateAcupoints: function(rawData) {
-      const parsedData = parseAcupointsData(rawData);
+      if ("gender" in Object.keys(onMRIData)) {
+        this.gender = onMRIData.gender;
+      }
+      const parsedData = parseAcupointsData(rawData, this.gender);
       //Dont filtered
       this.acupoints = parsedData;
       const keys = Object.keys(parsedData);
