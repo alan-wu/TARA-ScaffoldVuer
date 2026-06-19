@@ -39,9 +39,9 @@
   "dependencies": {
     "@abi-software/map-side-bar": "2.14.1-acupoint.0",
     "@abi-software/map-utilities": "1.8.1",
-    "@abi-software/scaffoldvuer": "1.15.1",
+    "@abi-software/scaffoldvuer": "^1.16.0-beta.2",
     "element-plus": "2.8.4",
-    "nifti-reader-js": "^0.7.1",
+    "nifti-reader-js": "^0.8.0",
     "pinia": "^2.1.7",
     "three-mesh-halfedge": "^1.0.3",
     "vite-plugin-node-polyfills": "^0.22.0",

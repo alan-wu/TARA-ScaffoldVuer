@@ -181,7 +181,7 @@
 import { markRaw, shallowRef } from 'vue';
 import { ElMessage } from 'element-plus'
 import NeedlesTable from "./NeedlesTable.vue";
-import { readNIFTIFromURL } from "./niftiReader.js"
+import { readNIFTIFromSource } from "./niftiReader.js"
 import { SideBar } from "@abi-software/map-side-bar";
 import "@abi-software/map-side-bar/dist/style.css";
 import { ScaffoldVuer } from "@abi-software/scaffoldvuer";
@@ -407,7 +407,7 @@ export default {
           duration: 0,
           appendTo: ele,
         });
-        const newTexture = await readNIFTIFromURL(Zinc, this.textureUrl, false);
+        const newTexture = await readNIFTIFromSource(Zinc, this.textureUrl, false);
         if (newTexture) {
           ElMessage({
             message: 'Texture loaded Successfully',

@@ -1,12 +1,16 @@
-import * as nifti from 'nifti-reader-js';
+//import * as nifti from 'nifti-reader-js';
+import { createPrimitivesFromNIFTI } from "zincjs/src/loaders/niftiReader.js";
 import {
   THREE
 } from "zincjs";
 
-const hideWhitePixel = false;
-const hideBlackPixel = true;
-const keepScalePosition = true;
-const filterByValue = true;
+const options = {
+  hideWhitePixel: false,
+  hideBlackPixel: true,
+  keepScalePosition: true,
+  filterByValue: true,
+
+}
 
 const textureSettings = {
   v1: {
@@ -273,21 +277,10 @@ const createTexturePrimitives = (Zinc, niftiHeader, sources, useHeaderInfo) => {
   return undefined;
 }
 
-const readNIFTIFromURL = async (Zinc, url, useHeaderInfo, maskURL) => {
-  //  try {
-  let maskHeader = undefined, maskImage = undefined;
-  if (maskURL) {
-    const mask = await fetch(maskURL);
-    const maskBuffer = await mask.arrayBuffer();
-    const maskedNIFTI = readNIFTI(maskBuffer);
-    maskHeader = maskedNIFTI.niftiHeader;
-    maskImage = maskedNIFTI.niftiImage;
-  }
-  const response = await fetch(url);
-  const buffer = await response.arrayBuffer();
-  const {niftiHeader, niftiImage} = readNIFTI(buffer);
-  const sources = createSources(niftiHeader, niftiImage, maskHeader, maskImage);
-  return createTexturePrimitives(Zinc, niftiHeader, sources, useHeaderInfo);
+const readNIFTIFromSource = async (url, useHeaderInfo, maskURL) => {
+  const images = await createPrimitivesFromNIFTI(
+    url, useHeaderInfo, maskURL, textureSettings['v1'], options);
+  return images;
 }
 
-export { readNIFTIFromURL }
+export { readNIFTIFromSource }

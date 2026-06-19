@@ -165,7 +165,7 @@
 import { demoFilters } from '../data/demoFilters.js';
 import { markRaw, shallowRef } from 'vue';
 import { ElMessage } from 'element-plus';
-import { readNIFTIFromURL } from "./niftiReader.js"
+import { readNIFTIFromSource } from "./niftiReader.js"
 import { SideBar } from "@abi-software/map-side-bar";
 import "@abi-software/map-side-bar/dist/style.css";
 import { ScaffoldVuer } from "@abi-software/scaffoldvuer";
@@ -563,7 +563,7 @@ export default {
           duration: 0,
           appendTo: ele,
         });
-        const newTexture = await readNIFTIFromURL(Zinc, this.textureUrl, true, this.maskUrl);
+        const newTexture = await readNIFTIFromSource(this.textureUrl, true, this.maskUrl);
         if (newTexture) {
           ElMessage({
             message: 'Texture loaded Successfully',
