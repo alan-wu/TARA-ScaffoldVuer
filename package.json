@@ -39,7 +39,7 @@
   "dependencies": {
     "@abi-software/map-side-bar": "2.14.1-acupoint.0",
     "@abi-software/map-utilities": "1.8.1",
-    "@abi-software/scaffoldvuer": "1.16.1",
+    "@abi-software/scaffoldvuer": "1.17.0",
     "element-plus": "2.8.4",
     "nifti-reader-js": "^0.8.0",
     "pinia": "^2.1.7",
