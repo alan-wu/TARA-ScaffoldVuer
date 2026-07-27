@@ -79,7 +79,7 @@
         class="vuer main-column"
         :class="['vuer', isDrawerOpen ? 'collapsed' : '']"
         :display-u-i="displayUI"
-        :url="url"
+        :url="sURL"
         :display-latest-changes="false"
         :display-minimap="false"
         :display-markers="false"
@@ -151,9 +151,11 @@
     </div>
     <div v-else class="scaffold-container">
       <FileInput
-        v-model:maskURL="mURL"
-        v-model:scaffoldURL="sURL"
-        v-model:textureURL="tURL"
+        :maskURL="mURL"
+        :scaffoldURL="sURL"
+        :textureURL="tURL"
+        :requireTexture="requireTexture"
+        @updateURLs="updateURLs"
       />
     </div>
   </div>
@@ -219,6 +221,7 @@ export default {
     Checkbox,
     Col,
     Divider,
+    FileInput,
     Icon,
     Input,
     InputNumber,
@@ -247,6 +250,7 @@ export default {
       bodyScaffolds: [],
       bodySegmentation: undefined,
       displayAxis: false,
+      fileConfirmed: false,
       glyphs: markRaw([]),
       opaque: true,
       readPremade: false,
@@ -285,9 +289,9 @@ export default {
   },
   computed: {
     readyForDisplay: function() {
-      return true;
-      if (this.url) {
-        return (!this.requireTexture || (this.url && this.textureUrl));
+      //return false;
+      if (this.fileConfirmed && this.sURL) {
+        return (!this.requireTexture || this.tURL);
       }
       return false;
     },
@@ -555,7 +559,7 @@ export default {
       viewer.offlineAnnotationEnabled = true;
       if (this.consoleOn) console.log("Lines length", this._createLinesLength);
       const Zinc = this.$refs.scaffold.$module.Zinc;
-      if (this.textureUrl) {
+      if (this.tURL) {
         const ele = this.$refs.taraContainer;
         const original = ElMessage({
           message: 'Downloading texture',
@@ -563,7 +567,7 @@ export default {
           duration: 0,
           appendTo: ele,
         });
-        const newTexture = await readNIFTIFromSource(this.textureUrl, true, this.maskUrl);
+        const newTexture = await readNIFTIFromSource(this.tURL, true, this.mURL);
         if (newTexture) {
           ElMessage({
             message: 'Texture loaded Successfully',
@@ -645,6 +649,15 @@ export default {
         this.bodyScaffolds.forEach(scaffold => scaffold.setAlpha(0.7));
       }
     },
+    updateURLs: function(data) {
+      if (data.scaffold && (!this.requireTexture || data.texture)) {
+        this.sURL = data.scaffold;
+        this.mURL = data.mask;
+        this.tURL = data.texture;
+        this.fileConfirmed = true;
+      }
+
+    }
   },
 };
 </script>

@@ -227,14 +227,6 @@ export default {
       viewport: undefined,
     }
   },
-  computed: {
-    readyForDisplay: function() {
-      if (this.url) {
-        return (!this.requireTexture || (this.url && this.textureUrl));
-      }
-      return false;
-    },
-  },
   watch: {
     helpMode: function (newVal) {
       if (!newVal) {

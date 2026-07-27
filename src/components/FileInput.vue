@@ -3,15 +3,20 @@
     <div class="input-container">
       <UrlFileReader
         name="Scaffold"
+        folder
         v-model:resource="scaffold"
       />
       <UrlFileReader
         name="Texture"
+        type=".nii, .nii.gz"
         v-model:resource="texture"
+        :required="requireTexture"
       />
       <UrlFileReader
         name="Texture Mask"
+        type=".nii, .nii.gz"
         v-model:resource="mask"
+        :required="false"
       />
       <el-row :gutter="20">
         <el-button
@@ -35,7 +40,7 @@ import {
 } from "element-plus";
 
 export default {
-  name: "UrlFileReader",
+  name: "FileInput",
   components: {
     Button,
     Col,
@@ -50,6 +55,10 @@ export default {
     }
   },
   props: {
+    requireTexture: {
+      type: Boolean,
+      default: false,
+    },
     maskURL: {
       type: String,
       default: "",
@@ -65,7 +74,7 @@ export default {
   },
   computed: {
     readyToConfirm: function() {
-      return this.scaffold && this.texture;
+      return this.scaffold && (!this.requireTexture || this.texture);
     },
   },
   created: function() {
@@ -75,9 +84,11 @@ export default {
   },
   methods: {
     confirm: function() {
-      this.$emit('update:scaffoldURL', scaffold);
-      this.$emit('update.textureURL', texture);
-      this.$emit('update.maskURL', mask);
+      this.$emit('updateURLs', {
+        scaffold: this.scaffold,
+        texture: this.texture,
+        mask: this.mask
+      });
     },
   }
 };
