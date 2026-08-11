@@ -250,7 +250,7 @@ export default {
       bodyScaffolds: [],
       bodySegmentation: undefined,
       displayAxis: false,
-      fileConfirmed: false,
+      fileConfirmed: true,
       glyphs: markRaw([]),
       opaque: true,
       readPremade: false,
@@ -547,7 +547,6 @@ export default {
       }
     },
     setupDemo: function () {
-      console.log("setupDemo")
       if (!this.readPremade) {
         this.readPremadeAnnotations();
       }
@@ -656,7 +655,6 @@ export default {
         this.tURL = data.texture;
         this.fileConfirmed = true;
       }
-
     }
   },
 };
