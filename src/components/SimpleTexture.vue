@@ -289,7 +289,7 @@ export default {
   },
   computed: {
     readyForDisplay: function() {
-      //return false;
+      return true;
       if (this.fileConfirmed && this.sURL) {
         return (!this.requireTexture || this.tURL);
       }
