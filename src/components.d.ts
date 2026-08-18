@@ -7,17 +7,12 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    EditingToolTip: typeof import('./components/EditingToolTip.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
-    ElCheckboxButton: typeof import('element-plus/es')['ElCheckboxButton']
-    ElCheckboxGroup: typeof import('element-plus/es')['ElCheckboxGroup']
     ElCol: typeof import('element-plus/es')['ElCol']
-    ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDivider: typeof import('element-plus/es')['ElDivider']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElIconFolderOpened: typeof import('@element-plus/icons-vue')['FolderOpened']
-    ElIconFolderRefresh: typeof import('@element-plus/icons-vue')['FolderRefresh']
     ElIconQuestionFilled: typeof import('@element-plus/icons-vue')['QuestionFilled']
     ElIconRefresh: typeof import('@element-plus/icons-vue')['Refresh']
     ElIconView: typeof import('@element-plus/icons-vue')['View']
@@ -26,8 +21,6 @@ declare module 'vue' {
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElOption: typeof import('element-plus/es')['ElOption']
     ElPopover: typeof import('element-plus/es')['ElPopover']
-    ElRadio: typeof import('element-plus/es')['ElRadio']
-    ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
@@ -36,15 +29,11 @@ declare module 'vue' {
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     FileInput: typeof import('./components/FileInput.vue')['default']
     GraphicsFilter: typeof import('./components/GraphicsFilter.vue')['default']
-    GraphicsWidget: typeof import('./components/GraphicsWidget.vue')['default']
-    InputDialog: typeof import('./components/inputDialog.vue')['default']
     NeedlesTable: typeof import('./components/NeedlesTable.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Scaffold: typeof import('./components/mixins/scaffold.vue')['default']
     SimpleTexture: typeof import('./components/SimpleTexture.vue')['default']
     TaraScaffoldVuer: typeof import('./components/TaraScaffoldVuer.vue')['default']
-    URLFIleHandler: typeof import('./components/URLFIleHandler.vue')['default']
     UrlFileReader: typeof import('./components/UrlFileReader.vue')['default']
   }
 }
