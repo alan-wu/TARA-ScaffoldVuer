@@ -12,6 +12,7 @@ import TaraScaffoldVuer from './components/TaraScaffoldVuer.vue';
       :mask-url="maskURL"
       :texture-url="textureURL"
       :console-on="false"
+      :confirmRequired="confirmRequired"
       @sidebar-mounted="sidebarMounted"
     />
     <!--
@@ -41,12 +42,13 @@ export default {
        */
       mode: "simple",
       acupointsViewer: true,
+      confirmRequired: false,
       //url: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/whole_body-30-1-25/human_body_acupoints_metadata.json",
       //url: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/10-Nov-25/cut_metadata.json",
       routerIsReady: false,
-      url: import.meta.env.VITE_SCAFFOLD_LOCATION,
-      textureURL: import.meta.env.VITE_TEXTURE_LOCATION,
-      maskURL: import.meta.env.VITE_MASK_LOCATION,
+      url: undefined,
+      textureURL: undefined,
+      maskURL: undefined,
       acupoints: import.meta.env.VITE_ACUPOINTS_API,
       demo: false,
     }
@@ -65,6 +67,25 @@ export default {
     waitForRouter: function () {
       this.$router.isReady().then(async () => {
         this.routerIsReady = true;
+        const query = this.$route.query;
+        if (query.seg) {
+          this.url = query.seg;
+        } else {
+          this.url = import.meta.env.VITE_SCAFFOLD_LOCATION;
+        }
+        if (query.textureURL) {
+          this.textureURL = query.textureURL;
+        } else {
+          this.textureURL = import.meta.env.VITE_TEXTURE_LOCATION;
+        }
+        if (query.maskURL) {
+          this.maskURL = query.maskURL;
+        } else {
+          this.maskURL = import.meta.env.VITE_MASK_LOCATION;
+        }
+        if (Object.keys(query).includes("tbc")) {
+          this.confirmRequired = true;
+        }
       });
     },
   },

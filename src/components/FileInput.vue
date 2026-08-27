@@ -2,7 +2,7 @@
   <div class="input-parent">
     <div class="input-container">
       <UrlFileReader
-        name="Scaffold"
+        name="Segmentation"
         folder
         v-model:resource="scaffold"
       />

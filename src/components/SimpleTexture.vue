@@ -250,7 +250,7 @@ export default {
       bodyScaffolds: [],
       bodySegmentation: undefined,
       displayAxis: false,
-      fileConfirmed: true,
+      fileConfirmed: false,
       glyphs: markRaw([]),
       opaque: true,
       readPremade: false,
@@ -282,6 +282,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    confirmRequired: {
+      type: Boolean,
+      default: false,
+    },
     pointTolerance: {
       type: Number,
       default: 20,
@@ -289,8 +293,10 @@ export default {
   },
   computed: {
     readyForDisplay: function() {
-      return true;
-      if (this.fileConfirmed && this.sURL) {
+      //return true;
+      if ((!this.confirmRequired ||
+       (this.confirmRequired && this.fileConfirmed)) &&
+        this.sURL) {
         return (!this.requireTexture || this.tURL);
       }
       return false;
@@ -320,7 +326,6 @@ export default {
     this._pickableObjects = [];
     if (this.$refs.scaffold) {
       const Zinc = this.$refs.scaffold.$module.Zinc;
-
       const scene  = this.$refs.scaffold.$module.scene;
       this._rayCaster = new Zinc.RayCaster(
         scene,
@@ -446,6 +451,8 @@ export default {
       }
     },
     objectAdded: function (zincObject) {
+      const segs = ["Thresholding Seg", "Stretch nnUnet Seg", "Segmentation"];
+
       if (!zincObject.isLines2) {
         const regionName = zincObject.region?.getName()
         if (regionName && regionName === "skin") {
@@ -468,19 +475,14 @@ export default {
           zincObject.setVisibility(false);
           this.bodyScaffolds.push(zincObject);
         }
-        if (zincObject.groupName === "Thresholding Seg") {
+        if (segs.includes(zincObject.groupName)) {
           zincObject.userData.highlightColour = [0.1, 0, 0];
           zincObject.userData.selectedColour = [0, 0.1, 0];
           if (!this.opaque) zincObject.setAlpha(0.7);
-          //zincObject.setVisibility(false);
           this.bodyScaffolds.push(zincObject);
         }
         if (zincObject.groupName === "Stretch nnUnet Seg") {
-          zincObject.userData.highlightColour = [0.1, 0, 0];
-          zincObject.userData.selectedColour = [0, 0.1, 0];
-          if (!this.opaque) zincObject.setAlpha(0.7);
           zincObject.setVisibility(false);
-          this.bodyScaffolds.push(zincObject);
         }
         if (zincObject.groupName === "iso_block") {
           this.bodySegmentation = markRaw(zincObject);
