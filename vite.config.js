@@ -28,12 +28,12 @@ export default defineConfig(({ command, mode }) => {
     ],
     resolve: {
       alias: {
-        '@': resolve(__dirname, './src'),
+        '@': resolve(import.meta.dirname, './src'),
       }
     },
     build: {
       lib: {
-        entry: resolve(__dirname, './src/components/index.js'),
+        entry: resolve(import.meta.dirname, './src/components/index.js'),
         name: 'TaraScaffoldVuer',
         fileName: 'TaraScaffoldVuer',
       },
