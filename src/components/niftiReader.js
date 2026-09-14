@@ -1,5 +1,5 @@
 //import * as nifti from 'nifti-reader-js';
-import { createPrimitivesFromNIFTI } from "zincjs/src/loaders/niftiReader.js";
+import { createPrimitivesFromNIFTI } from "zincjs";
 
 const options = {
   hideBlackPixel: true,

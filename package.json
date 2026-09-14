@@ -47,7 +47,7 @@
     "nifti-reader-js": "^0.8.0",
     "pinia": "^4.0.3",
     "three-mesh-halfedge": "^1.0.3",
-    "vue": "^3.4.21"
+    "vue": "^3.5.41"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.8",
