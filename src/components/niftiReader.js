@@ -1,6 +1,3 @@
-//import * as nifti from 'nifti-reader-js';
-import { createPrimitivesFromNIFTI } from "zincjs";
-
 const options = {
   hideBlackPixel: true,
   keepScalePosition: true,
@@ -73,8 +70,8 @@ const textureSettings = {
   }
 }
 
-const readNIFTIFromSource = async (url, useHeaderInfo, maskURL) => {
-  const images = await createPrimitivesFromNIFTI(url, useHeaderInfo, maskURL, textureSettings['v1'], options);
+const readNIFTIFromSource = async (Zinc, url, useHeaderInfo, maskURL) => {
+  const images = await Zinc.createPrimitivesFromNIFTI(url, useHeaderInfo, maskURL, textureSettings['v1'], options);
   return images;
 }
 

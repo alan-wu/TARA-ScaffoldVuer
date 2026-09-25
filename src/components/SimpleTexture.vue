@@ -85,6 +85,7 @@
         :display-markers="false"
         :enableOpenMapUI="false"
         :enableLocalAnnotations="true"
+        :annotationIgnoreResource="true"
         :marker-cluster="false"
         :positionalRotation="positionalRotation"
         :show-colour-picker="true"
@@ -324,16 +325,6 @@ export default {
   mounted: function () {
     this._createLinesLength = 100;
     this._pickableObjects = [];
-    if (this.$refs.scaffold) {
-      const Zinc = this.$refs.scaffold.$module.Zinc;
-      const scene  = this.$refs.scaffold.$module.scene;
-      this._rayCaster = new Zinc.RayCaster(
-        scene,
-        scene,
-        undefined,
-        undefined,
-      );
-    }
     this.acupointsInfo = true;
   },
   methods: {
@@ -441,6 +432,16 @@ export default {
         this.$refs.scaffold.createAxisDisplay(false);
         this.$refs.scaffold.enableAxisDisplay(true, false);
       }
+      if (this.$refs.scaffold) {
+        const Zinc = this.$refs.scaffold.$module.Zinc;
+        const scene  = this.$refs.scaffold.$module.scene;
+        this._rayCaster = new Zinc.RayCaster(
+          scene,
+          scene,
+          undefined,
+          undefined,
+      );
+    }
     },
     openHelp: function() {
       window.open("https://github.com/ABI-Software/TARA-ScaffoldVuer/blob/acupoint/README.md#overview", "_blank")
@@ -568,7 +569,7 @@ export default {
           duration: 0,
           appendTo: ele,
         });
-        const newTexture = await readNIFTIFromSource(this.tURL, true, this.mURL);
+        const newTexture = await readNIFTIFromSource(Zinc, this.tURL, true, this.mURL);
         if (newTexture) {
           ElMessage({
             message: 'Texture loaded Successfully',

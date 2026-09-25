@@ -407,7 +407,7 @@ export default {
           duration: 0,
           appendTo: ele,
         });
-        const newTexture = await readNIFTIFromSource(this.textureUrl, false);
+        const newTexture = await readNIFTIFromSource(Zinc, this.textureUrl, false);
         if (newTexture) {
           ElMessage({
             message: 'Texture loaded Successfully',
