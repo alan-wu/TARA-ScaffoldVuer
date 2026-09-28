@@ -101,13 +101,18 @@ const parseAcupointsData = (data, genderIn) => {
     "Acupuncture Method": "Acupuncture_Method",
     Synonym: "Synonym",
     Meridian: "Meridian",
+    "Pinyin Name": "Pinyin_Name",
     "Chinese Name": "Chinese_Name",
     Location: "Location",
     "Locational Anatomy": "Locational_Anatomy",
     Reference: "Reference",
     Innervation: "Innervation",
+    "Nearby Nerve": "Nearby_Nerve",
     Vasculature: "Vasculature",
+    "Nearby Artery": "Nearby_Artery",
+    "Nearby Vein": "Nearby_Vein",
     "Special Point Role": "Special_Point_Role",
+    "Link": "Acupoint_IRI",
   };
 
   list.forEach(item => {
@@ -131,16 +136,18 @@ const parseAcupointsData = (data, genderIn) => {
         obj[key] = item[value]['value'];
       }
     }
-    if (item['Acupoint_Category']['value'] === "Meridian Acupoint") {
+    if (item['Acupoint_Category']['value'] === "Meridian Acupuncture Point") {
       obj["Meridian Point"] = true;
     } else {
       obj["Meridian Point"] = false;
     }
+    /*
     if (item['Acupoint_Curie']['value'].includes('TARA:')) {
       let curie = item['Acupoint_Curie']['value'];
       curie = curie.replace(":", "_");
       obj['Link'] = "https://tara-repository.mgb.org/term_resolution/tara.html#" + curie;
     }
+      */
     obj['onMRI'] = onMRI;
     parsed[name] = obj;
   });
@@ -196,7 +203,7 @@ export default {
     },
     requireTexture: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     textureUrl: {
       type: String,
