@@ -4,30 +4,28 @@ A tool designed to integrate 3D whole body images, models and annotations.
 
 ## Table of Contents
 
-* [Overview](#overview)
-* [Getting Started](#getting-started)
-    * [Import And Export Acupoints Information](#import-and-export-acupoints-information)
-    * [Navigating and interacting...](#navigating-and-interacting-with-the-images-acupoints-and-3d-volume)
-    * [Adding acupoints](#adding-acupoints)
-    * [Editing acupoint location](#editing-acupoint-location)
-* [TARA ScaffoldVuer on NPM](#tara-scaffoldvuer-on-npm)
-    * [Prerequisites](#prerequisites)
-    * [Installation](#installation)
-    * [Usage](#usage)
-        * [Props & Events:](#props--events)
-* [Development & Build](#development--build)
-    * [To contribute or modify locally:](#to-contribute-or-modify-locally)
-    * [Run the app locally:](#run-the-app-locally)
-    * [To build for distribution:](#to-build-for-distribution)
-* [License](#license)
-
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+  - [Import And Export Acupoints Information](#import-and-export-acupoints-information)
+  - [Navigating and interacting...](#navigating-and-interacting-with-the-images-acupoints-and-3d-volume)
+  - [Adding acupoints](#adding-acupoints)
+  - [Editing acupoint location](#editing-acupoint-location)
+- [TARA ScaffoldVuer on NPM](#tara-scaffoldvuer-on-npm)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [Props & Events:](#props--events)
+- [Development & Build](#development--build)
+  - [To contribute or modify locally:](#to-contribute-or-modify-locally)
+  - [Run the app locally:](#run-the-app-locally)
+  - [To build for distribution:](#to-build-for-distribution)
+- [License](#license)
 
 ## Overview
 
 TARA Acupoint viewer is a Vue component/framework that enables you to load, display and interact with MRI images in the 3D scaffold model framework. It supports annotation and discovery of acupoint information.
 
 ## Getting Started
-
 
 ### Import And Export Acupoints Information
 
@@ -39,7 +37,6 @@ TARA Acupoint viewer is a Vue component/framework that enables you to load, disp
 3. All newly created acupoints can be imported or exported
 
 4. It is recommended to export often to prevent information lost
-
 
 ### Navigating and interacting with the images, acupoints and 3D volume
 
@@ -84,30 +81,30 @@ TARA Acupoint viewer is a Vue component/framework that enables you to load, disp
 3. Move to a desired location, click and a prompt will appear and ask for confirmation, press Edit to confirm:
 <img width="582" height="369" alt="image" src="https://github.com/user-attachments/assets/4bf68376-c4bb-4e25-b096-5679b0a0c8ea" />
 
-
 ### Resetting View
 
 You may reset to the original scaffold view by using the **Reset View** button on the top left corner.
 <img width="612" height="286" alt="image" src="https://github.com/user-attachments/assets/251e6eb9-8f50-42b5-88c4-7b0b51983985" />
 
-
 ## TARA ScaffoldVuer on NPM
 
 ### Prerequisites
 
-* Node.js
+- Node.js
 
-* A Vue project
+- A Vue project
 
 ### Installation
 
-* npm i @abi-software/tara-scaffoldvuer
+- npm i @abi-software/tara-scaffoldvuer
 
 ### Usage
 
 ## How to integrate With Your Vue App
+
 Install the package in your vue app project with the following command "npm i @abi-software/tara-scaffoldvuer".
 Import the package in your script as followed:
+
 ```javascript
 <script setup>
 
@@ -136,22 +133,24 @@ export default {
 
 #### Props & Events
 
-* ```url``` (String): The URL or path to the model metadata (JSON)
-* ```@scaffold-selected```: Event emitted when a part is selected; the callback receives the annotation/object
+- `url` (String): The URL or path to the model metadata (JSON)
+- `@scaffold-selected`: Event emitted when a part is selected; the callback receives the annotation/object
 
 ## Development & Build
 
 ### To contribute or modify locally
 
-* git clone https://github.com/abi-software/TARA-ScaffoldVuer.git
+- git clone https://github.com/abi-software/TARA-ScaffoldVuer.git
 
-* In your terminal:
+- In your terminal:
+
 ```
 cd TARA-ScaffoldVuer
 npm install
 ```
 
 ### Run the app locally
+
 ```
 npm run serve
 ```
@@ -159,16 +158,11 @@ npm run serve
 This will allow you to view and test the component in action and inspect how it handles model loading, events, etc.
 
 ### To build for distribution:
+
 ```
 npm run build-bundle
 ```
 
-
 ## License
 
 This project is licensed under the MIT License — see the LICENSE file for details.
-
-
-
-
-

@@ -8,28 +8,18 @@
         mode="horizontal"
         :popper-offset="8"
         :teleported="false"
-        style="max-width:350px"
+        style="max-width: 350px"
       >
         <el-sub-menu index="1" :teleported="false">
           <template #title>
             <el-icon><ElIconView /></el-icon>
-            <span>{{ `${intMode} mode` }} </span>
+            <span>{{ `${intMode} mode` }}</span>
           </template>
-          <el-menu-item index="view" @click="intMode = 'View'">
-            View
-          </el-menu-item>
-          <el-menu-item index="create" @click="intMode = 'Create'">
-            Create
-          </el-menu-item>
-          <el-menu-item index="edit" @click="intMode = 'Edit'">
-            Edit
-          </el-menu-item>
-          <el-menu-item index="rename" @click="intMode = 'Rename'">
-            Rename
-          </el-menu-item>
-          <el-menu-item index="delete" @click="intMode = 'Delete'">
-            Delete
-          </el-menu-item>
+          <el-menu-item index="view" @click="intMode = 'View'">View</el-menu-item>
+          <el-menu-item index="create" @click="intMode = 'Create'">Create</el-menu-item>
+          <el-menu-item index="edit" @click="intMode = 'Edit'">Edit</el-menu-item>
+          <el-menu-item index="rename" @click="intMode = 'Rename'">Rename</el-menu-item>
+          <el-menu-item index="delete" @click="intMode = 'Delete'">Delete</el-menu-item>
         </el-sub-menu>
         <el-menu-item index="reset" @click="resetView()">
           <template #title>
@@ -42,16 +32,10 @@
             <el-icon><ElIconFolderOpened /></el-icon>
             <span>Annotation</span>
           </template>
-          <el-menu-item
-            index="default"
-            @click="readPremadeAnnotations()"
-          >
-              Load default
+          <el-menu-item index="default" @click="readPremadeAnnotations()">
+            Load default
           </el-menu-item>
-          <el-menu-item
-            @click="importLocalAnnotationsTrigger"
-            index="import"
-          >
+          <el-menu-item @click="importLocalAnnotationsTrigger" index="import">
             Import
             <input
               id="annotations-upload"
@@ -60,12 +44,7 @@
               @change="importLocalAnnotations"
             />
           </el-menu-item>
-          <el-menu-item
-            index="export"
-            @click="exportLocalAnnotations()"
-          >
-            Export
-          </el-menu-item>
+          <el-menu-item index="export" @click="exportLocalAnnotations()">Export</el-menu-item>
         </el-sub-menu>
         <el-menu-item index="help" @click="openHelp()">
           <template #title>
@@ -132,11 +111,11 @@
               </el-checkbox>
             </el-col>
           </el-row>
-          <el-divider class="divider"/>
+          <el-divider class="divider" />
         </template>
       </ScaffoldVuer>
       <SideBar
-        v-if="acupoints && (Object.keys(acupoints)).length > 0"
+        v-if="acupoints && Object.keys(acupoints).length > 0"
         ref="sideBar"
         class="side-bar main-column"
         :visible="true"
@@ -168,13 +147,13 @@
 import { demoFilters } from '../data/demoFilters.js';
 import { markRaw, shallowRef } from 'vue';
 import { ElMessage } from 'element-plus';
-import { readNIFTIFromSource } from "./niftiReader.js"
-import { SideBar } from "@abi-software/map-side-bar";
-import "@abi-software/map-side-bar/dist/style.css";
-import { ScaffoldVuer } from "@abi-software/scaffoldvuer";
-import "@abi-software/scaffoldvuer/dist/style.css";
+import { readNIFTIFromSource } from './niftiReader.js';
+import { SideBar } from '@abi-software/map-side-bar';
+import '@abi-software/map-side-bar/dist/style.css';
+import { ScaffoldVuer } from '@abi-software/scaffoldvuer';
+import '@abi-software/scaffoldvuer/dist/style.css';
 //import { dataPoints } from '../data/points.js';
-import { new_annotations } from '../data/annotations.js'
+import { new_annotations } from '../data/annotations.js';
 import {
   DataAnalysis as ElIconDataAnalysis,
   EditPen as ElIconEditPen,
@@ -184,7 +163,7 @@ import {
   QuestionFilled as ElIconQuestionFilled,
   View as ElIconView,
 } from '@element-plus/icons-vue';
-import scaffoldMixin from "../mixins/scaffold.vue";
+import scaffoldMixin from '../mixins/scaffold.vue';
 import {
   ElButton as Button,
   ElCheckbox as Checkbox,
@@ -201,22 +180,22 @@ import {
   ElRadioGroup as RadioGroup,
   ElRow as Row,
   ElSwitch as Switch,
-} from "element-plus";
+} from 'element-plus';
 import 'element-plus/es/components/message/style/css'; // this is only needed if the page also used ElMessage
 import FileInput from './FileInput.vue';
 
-const convertFromPrimitivesName = original => {
-  let name = original.substring(0, original.indexOf(" "));
+const convertFromPrimitivesName = (original) => {
+  let name = original.substring(0, original.indexOf(' '));
   if (name) {
-    name = `${name.substring(0, 2)} ${name.substring(2, 4)}`
+    name = `${name.substring(0, 2)} ${name.substring(2, 4)}`;
   } else {
     name = original;
   }
   return name;
-}
+};
 
 export default {
-  name: "SimpleTexture",
+  name: 'SimpleTexture',
   components: {
     Button,
     Checkbox,
@@ -261,17 +240,15 @@ export default {
       ElIconEditPen: shallowRef(ElIconEditPen),
       ElIconFolderOpened: shallowRef(ElIconFolderOpened),
       ElIconQuestionFilled: shallowRef(ElIconQuestionFilled),
-      intMode: "View",
+      intMode: 'View',
       coordinatesClicked: [],
       positionalRotation: true,
       needlesInfo: {},
       infoVisible: false,
-      sidebarTabs: [
-        {title: 'Acupoints', id: 1, type: 'acupoints' },
-      ],
+      sidebarTabs: [{ title: 'Acupoints', id: 1, type: 'acupoints' }],
       messageSettings: {
         duration: 0,
-        message: "Downloading Texture"
+        message: 'Downloading Texture',
       },
       mURL: undefined,
       sURL: undefined,
@@ -293,12 +270,10 @@ export default {
     },
   },
   computed: {
-    readyForDisplay: function() {
+    readyForDisplay: function () {
       //return true;
-      if ((!this.confirmRequired ||
-       (this.confirmRequired && this.fileConfirmed)) &&
-        this.sURL) {
-        return (!this.requireTexture || this.tURL);
+      if ((!this.confirmRequired || (this.confirmRequired && this.fileConfirmed)) && this.sURL) {
+        return !this.requireTexture || this.tURL;
       }
       return false;
     },
@@ -308,16 +283,16 @@ export default {
       handler: function (value) {
         if (this.$refs.scaffold) {
           this.$refs.scaffold.cancelCreate();
-          if (value === "Create") {
-            this.$refs.scaffold.createData.shape = "Point";
+          if (value === 'Create') {
+            this.$refs.scaffold.createData.shape = 'Point';
           } else {
-            this.$refs.scaffold.createData.shape = "";
+            this.$refs.scaffold.createData.shape = '';
           }
         }
       },
-    }
+    },
   },
-  created: function() {
+  created: function () {
     this.mURL = this.maskUrl;
     this.sURL = this.url;
     this.tURL = this.textureUrl;
@@ -328,7 +303,7 @@ export default {
     this.acupointsInfo = true;
   },
   methods: {
-    addPremadePoints: function() {
+    addPremadePoints: function () {
       const viewer = this.$refs.scaffold;
       const scene = viewer.$module.scene;
       //for torso
@@ -349,14 +324,18 @@ export default {
       points.forEach((point) => {
         const pointName = point.label;
         const object = scene.createPoints(
-          "acupoints",
+          'acupoints',
           pointName,
           [point.position],
           pointName,
           0xffff00,
         );
-        this.$refs.scaffold.addAndEditAnnotations("acupoints", pointName,
-          object.zincObject, "Create");
+        this.$refs.scaffold.addAndEditAnnotations(
+          'acupoints',
+          pointName,
+          object.zincObject,
+          'Create',
+        );
         object.zincObject.isEditable = true;
       });
 
@@ -388,19 +367,19 @@ export default {
       */
       this.loadingPredefined = false;
     },
-    readPremadeAnnotations: function() {
-      this.readAnnotations(new_annotations)
+    readPremadeAnnotations: function () {
+      this.readAnnotations(new_annotations);
       const viewer = this.$refs.scaffold;
       const rootRegion = viewer.$module.scene.getRootRegion();
-      const targetRegion = rootRegion.findChildFromPath("acupoints");
+      const targetRegion = rootRegion.findChildFromPath('acupoints');
       if (targetRegion) {
         viewer.setRegionCheckboxDisabled(targetRegion, true, true);
       }
       this.readPremade = true;
     },
-    checkChanged: function(data) {
+    checkChanged: function (data) {
       if (data.region) {
-        if (data.region.getName() === "acupoints") {
+        if (data.region.getName() === 'acupoints') {
           this.acupointsIsChecked = data.isChecked;
           if (this.acupointsIsChecked) {
             data.region.hideAllPrimitives();
@@ -409,18 +388,18 @@ export default {
         }
       }
     },
-    createGroupSuggestions: function(data) {
+    createGroupSuggestions: function (data) {
       if (data) {
         data.cb(this.suggestAcupoints(data.term));
       }
     },
-    createRegionSuggestions: function(data) {
+    createRegionSuggestions: function (data) {
       if (data) {
         data.cb(this.suggestAcupoints(data.term));
       }
     },
-    importLocalAnnotationsTrigger: function() {
-      const selectedFile = document.getElementById("annotations-upload")?.click();
+    importLocalAnnotationsTrigger: function () {
+      const selectedFile = document.getElementById('annotations-upload')?.click();
     },
     onReady: async function () {
       //this.addPremadePoints();
@@ -434,34 +413,32 @@ export default {
       }
       if (this.$refs.scaffold) {
         const Zinc = this.$refs.scaffold.$module.Zinc;
-        const scene  = this.$refs.scaffold.$module.scene;
-        this._rayCaster = new Zinc.RayCaster(
-          scene,
-          scene,
-          undefined,
-          undefined,
+        const scene = this.$refs.scaffold.$module.scene;
+        this._rayCaster = new Zinc.RayCaster(scene, scene, undefined, undefined);
+      }
+    },
+    openHelp: function () {
+      window.open(
+        'https://github.com/ABI-Software/TARA-ScaffoldVuer/blob/acupoint/README.md#overview',
+        '_blank',
       );
-    }
     },
-    openHelp: function() {
-      window.open("https://github.com/ABI-Software/TARA-ScaffoldVuer/blob/acupoint/README.md#overview", "_blank")
-    },
-    setbodySegmentationPickable: function(flag) {
+    setbodySegmentationPickable: function (flag) {
       if (this.bodySegmentation) {
         this.bodySegmentation.setIsPickable(flag);
       }
     },
     objectAdded: function (zincObject) {
-      const segs = ["Thresholding Seg", "Stretch nnUnet Seg", "Segmentation"];
+      const segs = ['Thresholding Seg', 'Stretch nnUnet Seg', 'Segmentation'];
 
       if (!zincObject.isLines2) {
-        const regionName = zincObject.region?.getName()
-        if (regionName && regionName === "skin") {
+        const regionName = zincObject.region?.getName();
+        if (regionName && regionName === 'skin') {
           zincObject.setIsPickable(false);
           this.bodyScaffolds.push(zincObject);
           this.bodySegmentation = markRaw(zincObject);
         }
-        if (zincObject.groupName === "Body") {
+        if (zincObject.groupName === 'Body') {
           zincObject.userData.highlightColour = [0.1, 0, 0];
           zincObject.userData.selectedColour = [0, 0.1, 0];
           if (!this.opaque) zincObject.setAlpha(0.7);
@@ -469,7 +446,7 @@ export default {
           this.bodyScaffolds.push(zincObject);
           this.bodySegmentation = markRaw(zincObject);
         }
-        if (zincObject.groupName === "Scaffold") {
+        if (zincObject.groupName === 'Scaffold') {
           zincObject.userData.selectedColour = [0, 0.1, 0];
           zincObject.userData.highlightColour = [0.1, 0, 0];
           if (!this.opaque) zincObject.setAlpha(0.7);
@@ -482,10 +459,10 @@ export default {
           if (!this.opaque) zincObject.setAlpha(0.7);
           this.bodyScaffolds.push(zincObject);
         }
-        if (zincObject.groupName === "Stretch nnUnet Seg") {
+        if (zincObject.groupName === 'Stretch nnUnet Seg') {
           zincObject.setVisibility(false);
         }
-        if (zincObject.groupName === "iso_block") {
+        if (zincObject.groupName === 'iso_block') {
           this.bodySegmentation = markRaw(zincObject);
           const mesh = zincObject.getMorph();
           /*
@@ -510,7 +487,7 @@ export default {
             zincObject.userData.originalPos = [
               morph.position.x,
               morph.position.y,
-              morph.position.z
+              morph.position.z,
             ];
           }
         }
@@ -530,23 +507,22 @@ export default {
             zincObject.setColourHex(0xff5724);
           }
         } else {
-          if (zincObject.groupName === "undefined" &&
-            zincObject._lod?._material?.side) {
-            zincObject._lod._material.side =  THREE.FrontSide;
+          if (zincObject.groupName === 'undefined' && zincObject._lod?._material?.side) {
+            zincObject._lod._material.side = THREE.FrontSide;
           }
         }
       } else {
-        this.userPrimitivesUpdated({zincObject});
+        this.userPrimitivesUpdated({ zincObject });
       }
       this.$refs.scaffold.cancelCreate();
       //this.$refs.scaffold.createData.shape = "";
     },
     screenCapture: function () {
-      this.$refs.scaffold.captureScreenshot("capture.png");
+      this.$refs.scaffold.captureScreenshot('capture.png');
     },
     setupDemoFilters: function () {
       if (this.$refs.sideBar) {
-        this.$refs.sideBar.openAcupointsSearch(demoFilters, "");
+        this.$refs.sideBar.openAcupointsSearch(demoFilters, '');
       }
     },
     setupDemo: function () {
@@ -559,7 +535,7 @@ export default {
       this.imagesInit = true;
       const viewer = this.$refs.scaffold;
       viewer.offlineAnnotationEnabled = true;
-      if (this.consoleOn) console.log("Lines length", this._createLinesLength);
+      if (this.consoleOn) console.log('Lines length', this._createLinesLength);
       const Zinc = this.$refs.scaffold.$module.Zinc;
       if (this.tURL) {
         const ele = this.$refs.taraContainer;
@@ -575,7 +551,7 @@ export default {
             message: 'Texture loaded Successfully',
             showClose: true,
             duration: 6000,
-            type: "success",
+            type: 'success',
             appendTo: ele,
           });
           original.close();
@@ -591,7 +567,7 @@ export default {
             message: 'Unable to load texture',
             showClose: true,
             duration: 6000,
-            type: "error",
+            type: 'error',
             appendTo: ele,
           });
           original.close();
@@ -612,29 +588,31 @@ export default {
               if (data[0].data.group && zincObject.isGlyphset) {
                 label = convertFromPrimitivesName(data[0].data.group);
               }
-              if (this.intMode === "View") {
+              if (this.intMode === 'View') {
                 if (label && label.trim() && this.$refs.sideBar) {
                   //this.$refs.sideBar.openAcupointsSearch(label);
                 }
               }
               if (zincObject.isPointset && zincObject.isEditable) {
-                if (this.intMode === "Edit") {
+                if (this.intMode === 'Edit') {
                   this.$refs.scaffold.activateEditingMode(data);
-                } else if (this.intMode === "Rename") {
+                } else if (this.intMode === 'Rename') {
                   this.$refs.scaffold.activateRenamingMode(data);
-                } else if (this.intMode === "Delete") {
+                } else if (this.intMode === 'Delete') {
                   this.$refs.scaffold.activateDeleteMode(data);
                 }
               }
               if (this.alignPoint && data.length === 1 && zincObject.isGlyphset) {
-                const {point, normal} = this.findNearestPointAndNormalFromObject(
-                  zincObject);
+                const { point, normal } = this.findNearestPointAndNormalFromObject(zincObject);
                 this.setViewWithPointAndNormalV3(point, normal);
               }
-            } else if (this.intMode === "Create" && data[0].extraData.worldCoords &&
-                data[0].extraData.intersected?.face) {
+            } else if (
+              this.intMode === 'Create' &&
+              data[0].extraData.worldCoords &&
+              data[0].extraData.intersected?.face
+            ) {
               this.addPoint(data, data[0].extraData.worldCoords);
-            } else if (this.intMode === "Edit") {
+            } else if (this.intMode === 'Edit') {
               //if (this.$refs.scaffold.createData)
               if (this.$refs.scaffold.createData.editingIndex > -1) {
                 this.$refs.scaffold.draw(data);
@@ -646,28 +624,28 @@ export default {
     },
     toggleOpaque: function (val) {
       if (val) {
-        this.bodyScaffolds.forEach(scaffold => scaffold.setAlpha(1.0));
+        this.bodyScaffolds.forEach((scaffold) => scaffold.setAlpha(1.0));
       } else {
-        this.bodyScaffolds.forEach(scaffold => scaffold.setAlpha(0.7));
+        this.bodyScaffolds.forEach((scaffold) => scaffold.setAlpha(0.7));
       }
     },
-    updateURLs: function(data) {
+    updateURLs: function (data) {
       if (data.scaffold && (!this.requireTexture || data.texture)) {
         this.sURL = data.scaffold;
         this.mURL = data.mask;
         this.tURL = data.texture;
         this.fileConfirmed = true;
       }
-    }
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
+@import '../assets/styles.scss';
 
-@import "../assets/styles.scss";
-
-.display-checkbox, .opqaue-button {
+.display-checkbox,
+.opqaue-button {
   margin-top: 8px;
 }
 
@@ -677,13 +655,11 @@ export default {
 }
 
 :deep(.el-menu-popper-demo) {
-  position:absolute;
-  z-index:2;
-  left:0px;
-  position:absolute;
+  position: absolute;
+  z-index: 2;
+  left: 0px;
+  position: absolute;
   background-color: rgba(255, 255, 255, 0.8);
-  height:30px;
-
+  height: 30px;
 }
-
 </style>

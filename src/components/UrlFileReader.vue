@@ -15,9 +15,7 @@
         />
       </el-col>
       <el-col :span="3">
-        <el-button @click="local">
-          Local Drive
-        </el-button>
+        <el-button @click="local">Local Drive</el-button>
       </el-col>
     </el-row>
   </div>
@@ -25,20 +23,23 @@
 
 <script>
 /* eslint-disable no-alert, no-console */
-import { createNiftiURL, createURLFromFiles } from "@abi-software/scaffoldvuer/src/scripts/LocalFilesHelper";
+import {
+  createNiftiURL,
+  createURLFromFiles,
+} from '@abi-software/scaffoldvuer/src/scripts/LocalFilesHelper';
 
 const getNiftiURL = (files) => {
   if (files && files.length > 0) {
     const file = files[0];
-    const zipped = (file.type === "application/x-gzip") ? true : false;
+    const zipped = file.type === 'application/x-gzip' ? true : false;
     const url = createNiftiURL(file, zipped);
     return url;
   }
   return undefined;
-}
+};
 
 const readFolder = async (type, folder) => {
-  return new Promise ((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     const input = document.createElement('input');
     input.type = 'file';
     if (type) {
@@ -52,66 +53,56 @@ const readFolder = async (type, folder) => {
     input.addEventListener('change', (event) => {
       const files = event.target.files;
       if (!files || files.length === 0) {
-        reject(new Error("No file has been selected"));
+        reject(new Error('No file has been selected'));
       } else {
-        resolve(files)
+        resolve(files);
       }
     });
     input.click();
   });
-}
+};
 
 const processFolder = (files) => {
   const fileArray = Array.from(files).reduce((acc, item) => {
     const entry = [];
     const relativePath = item.webkitRelativePath;
-    entry.push("/" + relativePath);
+    entry.push('/' + relativePath);
     entry.push(item);
     acc.push(entry);
     return acc;
   }, []);
   return fileArray;
-}
+};
 
 const isURLValid = (string) => {
   try {
     const url = new URL(string);
-    console.log(url)
-    return url.protocol === "http:" || url.protocol === "https:";
+    console.log(url);
+    return url.protocol === 'http:' || url.protocol === 'https:';
   } catch {
     return false;
   }
-}
+};
 
-import {
-  ElButton as Button,
-  ElCol as Col,
-  ElInput as Input,
-  ElRow as Row,
-} from "element-plus";
+import { ElButton as Button, ElCol as Col, ElInput as Input, ElRow as Row } from 'element-plus';
 
 export default {
-  name: "UrlFileReader",
-  components: [
-    Button,
-    Col,
-    Input,
-    Row,
-  ],
-  created: function() {
+  name: 'UrlFileReader',
+  components: [Button, Col, Input, Row],
+  created: function () {
     this.path = this.resource;
     this.old_path = this.path;
   },
   data() {
     return {
-      old_path: "",
-      path: ""
-    }
+      old_path: '',
+      path: '',
+    };
   },
   props: {
     placeholderText: {
       type: String,
-      default:"Please choose a file or enter an URL",
+      default: 'Please choose a file or enter an URL',
     },
     folder: {
       type: Boolean,
@@ -119,11 +110,11 @@ export default {
     },
     name: {
       type: String,
-      default: "",
+      default: '',
     },
     resource: {
       type: String,
-      default: "",
+      default: '',
     },
     required: {
       type: Boolean,
@@ -131,13 +122,13 @@ export default {
     },
     type: {
       type: String,
-      default: "",
-    }
+      default: '',
+    },
   },
   methods: {
-    changed: function() {
+    changed: function () {
       if (!this.required && !this.path) {
-        this.path = "";
+        this.path = '';
         this.old_path = this.path;
         this.$emit('update:resource', this.path);
       }
@@ -148,7 +139,7 @@ export default {
         this.path = this.old_path;
       }
     },
-    local: async function() {
+    local: async function () {
       const files = await readFolder(this.type, this.folder);
       if (this.folder && files) {
         const fileArray = processFolder(files);
@@ -157,20 +148,18 @@ export default {
           this.path = data.url;
           this.$emit('update:resource', this.path);
         }
-      } else if (this.type === ".nii, .nii.gz" && files) {
+      } else if (this.type === '.nii, .nii.gz' && files) {
         const url = getNiftiURL(files);
         this.path = url;
         this.$emit('update:resource', this.path);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
-
 .reader-container {
   border-color: black;
 }
-
 </style>

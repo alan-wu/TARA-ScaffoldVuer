@@ -1,7 +1,7 @@
 @import '_variables';
 
 :deep(.warning-icon) {
-  display:none;
+  display: none;
 }
 .scaffold-container {
   height: 100%;
@@ -15,7 +15,7 @@
   }
 }
 
-input[type="file"] {
+input[type='file'] {
   display: none;
 }
 
@@ -24,18 +24,17 @@ input[type="file"] {
 }
 
 .settings-panels {
-  z-index:2;
-  left:0px;
-  position:absolute;
+  z-index: 2;
+  left: 0px;
+  position: absolute;
   text-align: left;
   background-color: rgba(255, 255, 255, 0.5);
-  width:300px;
+  width: 300px;
 
   .el-radio-group {
-    width:300px;
-    .el-radio{
+    width: 300px;
+    .el-radio {
       margin-right: 15px;
-
     }
     .el-radio__label {
       color: #333333;
@@ -43,7 +42,7 @@ input[type="file"] {
   }
 
   .el-row {
-    width:200px;
+    width: 200px;
 
     .el-col {
       &.extra-wide {
@@ -70,7 +69,7 @@ input[type="file"] {
 }
 
 .needles-button {
-  z-index:10000;
+  z-index: 10000;
   margin-top: 5px;
 }
 
@@ -80,34 +79,37 @@ input[type="file"] {
 
 .vuer {
   :deep(svg.map-icon) {
-    color: #8300BF;
+    color: #8300bf;
   }
   &.collapsed {
     width: calc(100% - 560px);
   }
 }
 
-:deep(.el-menu), .el-sub-menu {
+:deep(.el-menu),
+.el-sub-menu {
   border-bottom-right-radius: 8px;
   &:hover {
     border-bottom-right-radius: 8px;
   }
 }
 
-:deep(.el-menu), .el-sub-menu, .el-menu-item{
-  color: #8300BF;
-  --el-menu-active-color:#8300BF;
-  --el-menu-hover-text-color:#8300BF;
-  --el-menu-hover-bg-color:#F3E6F9;
-  --el-menu-base-level-padding:10px;
-  --el-menu-level-padding:10px;
-  --el-font-family: "Asap", sans-serif;
-  font-family: "Asap", sans-serif;
+:deep(.el-menu),
+.el-sub-menu,
+.el-menu-item {
+  color: #8300bf;
+  --el-menu-active-color: #8300bf;
+  --el-menu-hover-text-color: #8300bf;
+  --el-menu-hover-bg-color: #f3e6f9;
+  --el-menu-base-level-padding: 10px;
+  --el-menu-level-padding: 10px;
+  --el-font-family: 'Asap', sans-serif;
+  font-family: 'Asap', sans-serif;
 
   .el-tooltip__trigger.el-tooltip__trigger {
-    color: #8300BF;
+    color: #8300bf;
     &:hover {
-      background-color: #F3E6F9;
+      background-color: #f3e6f9;
     }
   }
 

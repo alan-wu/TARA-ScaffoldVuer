@@ -1,11 +1,7 @@
 <template>
   <div class="input-parent">
     <div class="input-container">
-      <UrlFileReader
-        name="Segmentation"
-        folder
-        v-model:resource="scaffold"
-      />
+      <UrlFileReader name="Segmentation" folder v-model:resource="scaffold" />
       <UrlFileReader
         name="Texture"
         type=".nii, .nii.gz"
@@ -19,12 +15,7 @@
         :required="false"
       />
       <el-row :gutter="20">
-        <el-button
-          size="default"
-          :disabled="!readyToConfirm"
-          @click="confirm()">
-          Confirm
-        </el-button>
+        <el-button size="default" :disabled="!readyToConfirm" @click="confirm()">Confirm</el-button>
       </el-row>
     </div>
   </div>
@@ -33,14 +24,10 @@
 <script>
 /* eslint-disable no-alert, no-console */
 import UrlFileReader from './UrlFileReader.vue';
-import {
-  ElButton as Button,
-  ElCol as Col,
-  ElRow as Row,
-} from "element-plus";
+import { ElButton as Button, ElCol as Col, ElRow as Row } from 'element-plus';
 
 export default {
-  name: "FileInput",
+  name: 'FileInput',
   components: {
     Button,
     Col,
@@ -49,10 +36,10 @@ export default {
   },
   data() {
     return {
-      mask: "",
-      scaffold: "",
-      texture: "",
-    }
+      mask: '',
+      scaffold: '',
+      texture: '',
+    };
   },
   props: {
     requireTexture: {
@@ -61,51 +48,49 @@ export default {
     },
     maskURL: {
       type: String,
-      default: "",
+      default: '',
     },
     scaffoldURL: {
       type: String,
-      default: "",
+      default: '',
     },
     textureURL: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   computed: {
-    readyToConfirm: function() {
+    readyToConfirm: function () {
       return this.scaffold && (!this.requireTexture || this.texture);
     },
   },
-  created: function() {
+  created: function () {
     this.mask = this.maskURL;
     this.scaffold = this.scaffoldURL;
     this.texture = this.textureURL;
   },
   methods: {
-    confirm: function() {
+    confirm: function () {
       this.$emit('updateURLs', {
         scaffold: this.scaffold,
         texture: this.texture,
-        mask: this.mask
+        mask: this.mask,
       });
     },
-  }
+  },
 };
 </script>
 
 <style scoped lang="scss">
-
 .input-parent {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center; /* Centers horizontally */
-  align-items: center;     /* Centers vertically */
+  align-items: center; /* Centers vertically */
 }
 
 .input-container {
   width: 800px;
 }
-
 </style>

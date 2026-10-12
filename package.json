@@ -11,6 +11,8 @@
     "build-static": "vite build -c vite.static-build.js",
     "preview": "vite preview",
     "lint": "eslint src",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "changelog": "auto-changelog -p --output CHANGELOG.md --template keepachangelog",
     "version": "npm run build-bundle; npm run changelog; git add CHANGELOG.md",
     "test:open": "cypress open",

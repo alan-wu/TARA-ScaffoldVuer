@@ -21,7 +21,6 @@ const VueComponentTemplate = defineClientComponent(() => {
 });
 </script>
 
-
 ## Code Preview
 
 ```js-vue

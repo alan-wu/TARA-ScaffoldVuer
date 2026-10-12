@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "Vue Component Template"
-  text: "API documentation"
+  name: 'Vue Component Template'
+  text: 'API documentation'
   tagline: Some description about the component.
   actions:
     - theme: brand

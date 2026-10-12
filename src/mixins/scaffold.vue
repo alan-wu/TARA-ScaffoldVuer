@@ -1,5 +1,5 @@
 <script>
-import { THREE } from "zincjs";
+import { THREE } from 'zincjs';
 import { watchEffect } from 'vue';
 //import { acupointEntries } from '../acupoints.js';
 import { markRaw } from 'vue';
@@ -11,122 +11,86 @@ const v1 = new THREE.Vector3();
 const v2 = new THREE.Vector3();
 const v3 = new THREE.Vector3();
 const viewportSettings = [
-        {
-          "nearPlane": 0.027395078287421885,
-          "farPlane": 2683.7607807805707,
-          "eyePosition": [
-              -0.0000095367431640625,
-              -20.000009536743164,
-              484.4976341266126
-          ],
-          "targetPosition": [
-              -0.0000095367431640625,
-              -20.000009536743164,
-              -222.8000030517578
-          ],
-          "upVector": [
-              0,
-              1,
-              0
-          ]
-        },
-        {
-          "nearPlane": 0.027395078287421885,
-          "farPlane": 2683.7607807805707,
-          "eyePosition": [
-              1.9910875395733882,
-              -713.157608674361,
-              -349.13651530364507
-          ],
-          "targetPosition": [
-              1.9910875395733882,
-              -6.3130423424072495,
-              -323.8243323649339
-          ],
-          "upVector": [
-              0,
-              -0.03578717304880148,
-              0.9993594339601859
-          ]
-        },
-        {
-          "nearPlane": 0.027395078287421885,
-          "farPlane": 2683.7607807805707,
-          "eyePosition": [
-              708.4639055284002,
-              -20.057694130887516,
-              -355.08436352885076
-          ],
-          "targetPosition": [
-              1.9910875395733882,
-              -6.3130423424072495,
-              -323.8243323649339
-          ],
-          "upVector": [
-              0.04429318816331025,
-              0.0045770111274922535,
-              0.9990080902833776
-          ]
-        }
-      ];
+  {
+    nearPlane: 0.027395078287421885,
+    farPlane: 2683.7607807805707,
+    eyePosition: [-0.0000095367431640625, -20.000009536743164, 484.4976341266126],
+    targetPosition: [-0.0000095367431640625, -20.000009536743164, -222.8000030517578],
+    upVector: [0, 1, 0],
+  },
+  {
+    nearPlane: 0.027395078287421885,
+    farPlane: 2683.7607807805707,
+    eyePosition: [1.9910875395733882, -713.157608674361, -349.13651530364507],
+    targetPosition: [1.9910875395733882, -6.3130423424072495, -323.8243323649339],
+    upVector: [0, -0.03578717304880148, 0.9993594339601859],
+  },
+  {
+    nearPlane: 0.027395078287421885,
+    farPlane: 2683.7607807805707,
+    eyePosition: [708.4639055284002, -20.057694130887516, -355.08436352885076],
+    targetPosition: [1.9910875395733882, -6.3130423424072495, -323.8243323649339],
+    upVector: [0.04429318816331025, 0.0045770111274922535, 0.9990080902833776],
+  },
+];
 
-const convertToPrimitivesName = original => {
-  const name = original.replace(" ", "");
+const convertToPrimitivesName = (original) => {
+  const name = original.replace(' ', '');
   return [`${name} left`, `${name} right`];
-}
+};
 
-const convertFromPrimitivesName = original => {
-  let name = original.substring(0, original.indexOf(" "));
+const convertFromPrimitivesName = (original) => {
+  let name = original.substring(0, original.indexOf(' '));
   if (name) {
-    name = `${name.substring(0, 2)} ${name.substring(2, 4)}`
+    name = `${name.substring(0, 2)} ${name.substring(2, 4)}`;
   } else {
     name = original;
   }
   return name;
-}
+};
 
-const getMeridian = original => {
-  let name = original.substring(0, original.indexOf(" "));
+const getMeridian = (original) => {
+  let name = original.substring(0, original.indexOf(' '));
   if (name.length === 2) {
     return name;
   }
   return undefined;
-}
+};
 
 const parseAcupointsData = (data, genderIn) => {
   const list = data['results']['bindings'];
   const parsed = {};
   const keyMap = {
-    Acupoint: "Acupoint",
-    "Acupuncture Method": "Acupuncture_Method",
-    Synonym: "Synonym",
-    Meridian: "Meridian",
-    "Pinyin Name": "Pinyin_Name",
-    "Chinese Name": "Chinese_Name",
-    Location: "Location",
-    "Locational Anatomy": "Locational_Anatomy",
-    Reference: "Reference",
-    Innervation: "Innervation",
-    "Nearby Nerve": "Nearby_Nerve",
-    Vasculature: "Vasculature",
-    "Nearby Artery": "Nearby_Artery",
-    "Nearby Vein": "Nearby_Vein",
-    "Special Point Role": "Special_Point_Role",
-    "Link": "Acupoint_IRI",
+    Acupoint: 'Acupoint',
+    'Acupuncture Method': 'Acupuncture_Method',
+    Synonym: 'Synonym',
+    Meridian: 'Meridian',
+    'Pinyin Name': 'Pinyin_Name',
+    'Chinese Name': 'Chinese_Name',
+    Location: 'Location',
+    'Locational Anatomy': 'Locational_Anatomy',
+    Reference: 'Reference',
+    Innervation: 'Innervation',
+    'Nearby Nerve': 'Nearby_Nerve',
+    Vasculature: 'Vasculature',
+    'Nearby Artery': 'Nearby_Artery',
+    'Nearby Vein': 'Nearby_Vein',
+    'Special Point Role': 'Special_Point_Role',
+    Link: 'Acupoint_IRI',
   };
 
-  list.forEach(item => {
+  list.forEach((item) => {
     const name = item['Acupoint']['value'];
     let onMRI = false;
-    const nameToMatch = name.split('(')[0].replaceAll(" ", "");
-    let gender = "";
-    if (name.toLowerCase().includes("female")) {
-      gender = "female";
-    } else if (name.toLowerCase().includes("male")) {
-      gender = "male";
+    const nameToMatch = name.split('(')[0].replaceAll(' ', '');
+    let gender = '';
+    if (name.toLowerCase().includes('female')) {
+      gender = 'female';
+    } else if (name.toLowerCase().includes('male')) {
+      gender = 'male';
     }
     if (onMRIData['mriSpotted'].includes(nameToMatch)) {
-      if (!gender || (gender === genderIn)) {
+      if (!gender || gender === genderIn) {
         onMRI = true;
       }
     }
@@ -136,10 +100,10 @@ const parseAcupointsData = (data, genderIn) => {
         obj[key] = item[value]['value'];
       }
     }
-    if (item['Acupoint_Category']['value'] === "Meridian Acupuncture Point") {
-      obj["Meridian Point"] = true;
+    if (item['Acupoint_Category']['value'] === 'Meridian Acupuncture Point') {
+      obj['Meridian Point'] = true;
     } else {
-      obj["Meridian Point"] = false;
+      obj['Meridian Point'] = false;
     }
     /*
     if (item['Acupoint_Curie']['value'].includes('TARA:')) {
@@ -156,19 +120,17 @@ const parseAcupointsData = (data, genderIn) => {
   //console.log("list total:", list.length)
 
   return parsed;
-}
+};
 
 const writeTextFile = (filename, data) => {
-  let dataStr =
-    "data:text/json;charset=utf-8," +
-    encodeURIComponent(JSON.stringify(data));
-  let hrefElement = document.createElement("a");
+  let dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+  let hrefElement = document.createElement('a');
   document.body.append(hrefElement);
   hrefElement.download = filename;
   hrefElement.href = dataStr;
   hrefElement.click();
   hrefElement.remove();
-}
+};
 
 const getIntersectedObjects = (intersects) => {
   const primitiveInfos = [];
@@ -180,18 +142,18 @@ const getIntersectedObjects = (intersects) => {
       const x = intersect.point.x.toFixed(2);
       const y = intersect.point.y.toFixed(2);
       const z = intersect.point.z.toFixed(2);
-      primitiveInfos.push({groupName, distance, x, y, z});
+      primitiveInfos.push({ groupName, distance, x, y, z });
     }
   });
   return primitiveInfos;
-}
+};
 
 export default {
-  name: "scaffoldMixin",
+  name: 'scaffoldMixin',
   props: {
     acupointsEndpoint: {
       type: String,
-      default: "",
+      default: '',
     },
     consoleOn: {
       type: Boolean,
@@ -199,7 +161,7 @@ export default {
     },
     maskUrl: {
       type: String,
-      default: "",
+      default: '',
     },
     requireTexture: {
       type: Boolean,
@@ -207,17 +169,18 @@ export default {
     },
     textureUrl: {
       type: String,
-      default: "",
+      default: '',
     },
     url: {
       type: String,
-      default: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/whole_body-30-1-25/human_body_acupoints_metadata.json",
+      default:
+        'https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/whole_body-30-1-25/human_body_acupoints_metadata.json',
     },
   },
   data: function () {
     return {
       acupoints: {},
-      gender: "male",
+      gender: 'male',
       numberOfPointsGraphics: 0,
       acupointsIsChecked: true,
       acupointsInfo: false,
@@ -232,7 +195,7 @@ export default {
       isDrawerOpen: false,
       tCentre: [0, 0, 0],
       viewport: undefined,
-    }
+    };
   },
   watch: {
     helpMode: function (newVal) {
@@ -240,17 +203,17 @@ export default {
         this.helpModeActiveItem = 0;
       }
     },
-    quickEditOn: function(value) {
+    quickEditOn: function (value) {
       if (value) {
         this.$refs.scaffold.$module.ignorePreviousSelected = true;
-        this.$refs.scaffold.viewingMode = "Exploration";
+        this.$refs.scaffold.viewingMode = 'Exploration';
       } else {
         this.$refs.scaffold.$module.ignorePreviousSelected = false;
       }
     },
   },
   methods: {
-    calculateTextureCentre: function(texture) {
+    calculateTextureCentre: function (texture) {
       const box = texture.getBoundingBox();
       box.getCenter(v1);
       this.tCentre[0] = v1.x;
@@ -260,15 +223,14 @@ export default {
       this.viewport = control.getCurrentViewport();
     },
     toggleLabelVisibility: function () {
-      Object.values(this.pointsMapping).forEach(zincObjects => {
-        zincObjects.forEach(
-          zincObject => zincObject.displayLabels(this.labelVisibility));
+      Object.values(this.pointsMapping).forEach((zincObjects) => {
+        zincObjects.forEach((zincObject) => zincObject.displayLabels(this.labelVisibility));
       });
     },
-    resetView: function() {
+    resetView: function () {
       this.$refs.scaffold.$module.scene.resetView();
     },
-    rotate: function() {
+    rotate: function () {
       const num = viewportSettings.length;
       let index = this.currentViewport + 1;
       if (index >= num) index = 0;
@@ -282,27 +244,25 @@ export default {
       if (data?.Acupoint) {
         names = convertToPrimitivesName(data.Acupoint);
       }
-      this.$refs.scaffold.changeActiveByName(names, "", false);
+      this.$refs.scaffold.changeActiveByName(names, '', false);
     },
     onAcupointsHovered: function (data) {
       let names = undefined;
       if (data?.Acupoint) {
         names = convertToPrimitivesName(data.Acupoint);
       }
-      this.$refs.scaffold.changeHighlightedByName(names, "", false);
+      this.$refs.scaffold.changeHighlightedByName(names, '', false);
     },
-    resetVisibility: function() {
-      this.previousList.forEach(
-        zincObject => zincObject.setVisibility(true));
+    resetVisibility: function () {
+      this.previousList.forEach((zincObject) => zincObject.setVisibility(true));
     },
     onAcupointsResult: function (data) {
-      this.previousList.forEach(
-        zincObject => zincObject.setVisibility(false));
+      this.previousList.forEach((zincObject) => zincObject.setVisibility(false));
       this.previousList = [];
       const keys = Object.keys(this.pointsMapping);
       data.list.forEach((item) => {
         if (keys.includes(item.Acupoint)) {
-          this.pointsMapping[item.Acupoint].forEach(zincObject => {
+          this.pointsMapping[item.Acupoint].forEach((zincObject) => {
             if (this.acupointsIsChecked) {
               zincObject.setVisibility(true);
             }
@@ -311,27 +271,27 @@ export default {
         }
       });
     },
-    addAndCuratedAcupointsLabel: function(label, addInfo) {
-      console.log("gender", this.gender)
+    addAndCuratedAcupointsLabel: function (label, addInfo) {
+      console.log('gender', this.gender);
       if (!this.acupoints) this.acupoints = {};
       if (label) {
         if (addInfo && !(label in this.acupoints)) {
           this.acupoints[label] = {
             Acupoint: label,
-            "Meridian Point": false,
+            'Meridian Point': false,
             userDefined: true,
           };
         }
         Object.keys(this.acupoints).forEach((key) => {
           const name = key.split(' ').slice(0, 2).join(' ');
           if (name === label) {
-            let gender = "";
-            if (key.toLowerCase().includes("female")) {
-              gender = "female";
-            } else if (key.toLowerCase().includes("male")) {
-              gender = "male";
+            let gender = '';
+            if (key.toLowerCase().includes('female')) {
+              gender = 'female';
+            } else if (key.toLowerCase().includes('male')) {
+              gender = 'male';
             }
-            if (!gender || (gender === this.gender)) {
+            if (!gender || gender === this.gender) {
               this.acupoints[key].Curated = true;
             }
           }
@@ -339,7 +299,7 @@ export default {
       }
       return this.acupoints[label];
     },
-    addGraphicsToPointsList: function(zincObject) {
+    addGraphicsToPointsList: function (zincObject) {
       const label = zincObject.groupName;
       if (!(label in Object.keys(this.pointsMapping))) {
         this.pointsMapping[label] = [];
@@ -348,11 +308,11 @@ export default {
       this.numberOfPsuggestAcupointsointsGraphics++;
       this.previousList.push(zincObject);
     },
-    addAcupointsInfo: function(zincObject, addInfo) {
+    addAcupointsInfo: function (zincObject, addInfo) {
       const label = zincObject.groupName;
       const info = this.addAndCuratedAcupointsLabel(label, addInfo);
       if (label) {
-        if ((!this.importing && !this.loadingPredefined) && this.intMode === "view") {
+        if (!this.importing && !this.loadingPredefined && this.intMode === 'view') {
           this.$nextTick(() => {
             if (label && this.$refs.sideBar) {
               this.$refs.sideBar.openAcupointsSearch(label);
@@ -363,26 +323,26 @@ export default {
       }
       return info;
     },
-    suggestAcupoints: function(term) {
+    suggestAcupoints: function (term) {
       const suggestedTerms = [];
       if (this.acupoints) {
         const keys = Object.keys(this.acupoints);
         keys.sort((a, b) => {
-          return a.localeCompare(b, undefined, { numeric: true })
+          return a.localeCompare(b, undefined, { numeric: true });
         });
         const lowerCaseTerm = term.toLowerCase();
-        keys.forEach(key => {
+        keys.forEach((key) => {
           if (!this.acupoints[key].Curated && key.toLowerCase().startsWith(lowerCaseTerm)) {
-            suggestedTerms.push({value: key, value: key});
+            suggestedTerms.push({ value: key, value: key });
           }
         });
       }
       return suggestedTerms;
     },
-    readAcupoints: function() {
+    readAcupoints: function () {
       if (this.acupointsEndpoint) {
         fetch(this.acupointsEndpoint)
-          .then(response => {
+          .then((response) => {
             if (!response.ok) {
               throw new Error(`Cannot download acupoints from server: ${response.status}`);
             }
@@ -392,7 +352,7 @@ export default {
             this.populateAcupoints(data);
           })
           .catch((error) => {
-            console.log(error)
+            console.log(error);
             if (acupointEntries) {
               this.populateAcupoints(acupointEntries);
             }
@@ -402,9 +362,9 @@ export default {
       }
     },
     screenCapture: function () {
-      this.$refs.scaffold.captureScreenshot("capture.png");
+      this.$refs.scaffold.captureScreenshot('capture.png');
     },
-    exportLocalAnnotations: function() {
+    exportLocalAnnotations: function () {
       const annotations = this.$refs.scaffold.getOfflineAnnotations();
       const prefix = this.acupointsViewer ? 'acupointsAnnotations' : 'scaffoldAnnotations';
       let data = annotations;
@@ -413,12 +373,12 @@ export default {
           annotations: annotations,
           //Disable acupoints import for now.
           //acupoints: this.acupoints
-        }
+        };
       }
       const date = JSON.stringify(new Date());
       writeTextFile(`${prefix}${date}.json`, data);
     },
-    readAnnotations: function(data) {
+    readAnnotations: function (data) {
       let annotations = undefined;
       if (Array.isArray(data)) {
         annotations = data;
@@ -446,12 +406,12 @@ export default {
       this.importing = false;
     },
 
-    onReaderLoad: function(event) {
+    onReaderLoad: function (event) {
       const data = JSON.parse(event.target.result);
       this.readAnnotations(data);
     },
-    populateAcupoints: function(rawData) {
-      if ("gender" in Object.keys(onMRIData)) {
+    populateAcupoints: function (rawData) {
+      if ('gender' in Object.keys(onMRIData)) {
         this.gender = onMRIData.gender;
       }
       const parsedData = parseAcupointsData(rawData, this.gender);
@@ -472,28 +432,28 @@ export default {
         });
       }
     },
-    importLocalAnnotations: function() {
-      const selectedFile = document.getElementById("annotations-upload").files[0];
+    importLocalAnnotations: function () {
+      const selectedFile = document.getElementById('annotations-upload').files[0];
       const reader = new FileReader();
       reader.onload = this.onReaderLoad;
       reader.readAsText(selectedFile);
     },
-    onSidebarMount: function() {
+    onSidebarMount: function () {
       const sideBar = this.$refs.sideBar;
       if (sideBar) {
         watchEffect(() => {
-          this.isDrawerOpen = sideBar.drawerOpen
-        })
+          this.isDrawerOpen = sideBar.drawerOpen;
+        });
       }
-      this.$emit("sidebar-mounted");
+      this.$emit('sidebar-mounted');
     },
     addPoint: function (data, coord) {
       const myViewer = this.$refs.scaffold;
-      myViewer.createData.shape = "Point";
-      myViewer.createData.regionPrefix = "acupoints";
+      myViewer.createData.shape = 'Point';
+      myViewer.createData.regionPrefix = 'acupoints';
       if (this.consoleOn) {
         console.log(myViewer.createData);
-        console.log("addPoints", data, coord);
+        console.log('addPoints', data, coord);
       }
       if (coord) {
         this.$nextTick(() => {
@@ -501,7 +461,7 @@ export default {
         });
       }
     },
-    setViewWithPointAndNormalV3: function(point, normal) {
+    setViewWithPointAndNormalV3: function (point, normal) {
       const scaffoldvuer = this.$refs.scaffold;
       scaffoldvuer.fitWindow();
       const control = scaffoldvuer.$module.scene.getZincCameraControls();
@@ -527,20 +487,20 @@ export default {
       viewport.upVector = [v2.x, v2.y, v2.z];
       control.setCurrentCameraSettings(viewport);
     },
-    updateCuratedStatus: function(name) {
+    updateCuratedStatus: function (name) {
       if (name in this.acupoints) {
         const scene = this.$refs.scaffold.$module.scene;
         if (scene) {
           const objects = scene.findObjectsWithGroupName(name);
           if (objects.length > 0) {
             this.acupoints[name].Curated = true;
-          } else{
+          } else {
             this.acupoints[name].Curated = false;
           }
         }
       }
     },
-    graphicsDeleted: function(zincObject, name) {
+    graphicsDeleted: function (zincObject, name) {
       this.updateCuratedStatus(name);
       if (name in this.pointsMapping) {
         const list = this.pointsMapping[name];
@@ -559,22 +519,25 @@ export default {
         }
       }
     },
-    graphicsRenamed: function(zincObject, oldName, newName) {
+    graphicsRenamed: function (zincObject, oldName, newName) {
       //Adjust  listing based on the information on renaming
       this.updateCuratedStatus(newName);
       this.graphicsDeleted(zincObject, oldName);
       this.addGraphicsToPointsList(zincObject);
     },
     userPrimitivesUpdated: function (payload) {
-      if (this.consoleOn) console.log("userPrimitivesUpdated", payload);
+      if (this.consoleOn) console.log('userPrimitivesUpdated', payload);
       const zincObject = payload.zincObject;
       if (payload.renamedFrom) {
         this.graphicsRenamed(zincObject, payload.renamedFrom, zincObject.groupName);
       } else if (payload.deleted) {
         this.graphicsDeleted(payload.zincObject, payload.group);
       }
-      if ((zincObject.isEditable || this.importing) && zincObject.isLines2
-        && !zincObject.renamedFrom) {
+      if (
+        (zincObject.isEditable || this.importing) &&
+        zincObject.isLines2 &&
+        !zincObject.renamedFrom
+      ) {
         //Call the following to set the camera
         const scene = this.$refs.scaffold.$module.scene;
         const camera = scene.getZincCameraControls();
@@ -590,8 +553,7 @@ export default {
               v2.setComponent(l, d[l]);
             }
             this._rayCaster.setPickableObjects(this._pickableObjects);
-            const objects = this._rayCaster.getIntersectsObjectWithOrigin(
-              camera, v1, v2);
+            const objects = this._rayCaster.getIntersectsObjectWithOrigin(camera, v1, v2);
             const intersects = objects.filter((object) => object.distance < mag);
             const primitivesInfo = getIntersectedObjects(intersects);
             let needlesName = `Needle ${i + 1}`;
@@ -606,5 +568,3 @@ export default {
   },
 };
 </script>
-
-

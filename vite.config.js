@@ -1,9 +1,9 @@
-import { resolve } from 'node:path'
+import { resolve } from 'node:path';
 
-import { defineConfig } from 'vite'
-import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite';
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import vue from '@vitejs/plugin-vue';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -29,7 +29,7 @@ export default defineConfig(({ command, mode }) => {
     resolve: {
       alias: {
         '@': resolve(import.meta.dirname, './src'),
-      }
+      },
     },
     build: {
       lib: {
@@ -38,11 +38,11 @@ export default defineConfig(({ command, mode }) => {
         fileName: 'TaraScaffoldVuer',
       },
       rollupOptions: {
-        external: ["vue", "pinia"],
+        external: ['vue', 'pinia'],
         output: {
           globals: {
-            vue: "Vue",
-            pinia: "pinia"
+            vue: 'Vue',
+            pinia: 'pinia',
           },
         },
       },

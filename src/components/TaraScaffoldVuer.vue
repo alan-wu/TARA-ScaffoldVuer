@@ -10,48 +10,37 @@
                   class="left-buttons"
                   size="small"
                   :icon="ElIconQuestionFilled"
-                  @click="openHelp()">
+                  @click="openHelp()"
+                >
                   Help
                 </el-button>
               </el-col>
             </el-row>
             <el-row :gutter="20" justify="center" align="middle">
               <el-col :span="auto">
-                <el-button
-                  class="left-buttons"
-                  size="small"
-                  @click="displayLabels()">
+                <el-button class="left-buttons" size="small" @click="displayLabels()">
                   Display labels
                 </el-button>
               </el-col>
             </el-row>
             <el-row :gutter="20" justify="center" align="middle">
               <el-col :span="auto">
-                <el-button
-                  class="left-buttons"
-                  size="small"
-                  @click="frontView()">
+                <el-button class="left-buttons" size="small" @click="frontView()">
                   Front view
                 </el-button>
               </el-col>
             </el-row>
             <el-row :gutter="20" justify="center" align="middle">
               <el-col :span="auto">
-                <el-button
-                  class="left-buttons"
-                  size="small"
-                  @click="backView()">
+                <el-button class="left-buttons" size="small" @click="backView()">
                   Back view
                 </el-button>
               </el-col>
             </el-row>
             <el-row :gutter="20" justify="center" align="middle">
               <el-col :span="auto">
-              <el-switch
-                v-model="alignPoint"
-                active-text="Align Point"
-              />
-            </el-col>
+                <el-switch v-model="alignPoint" active-text="Align Point" />
+              </el-col>
             </el-row>
           </el-col>
           <el-col :span="12">
@@ -60,7 +49,8 @@
                 <el-button
                   size="small"
                   :icon="ElIconFolderOpened"
-                  @click="exportLocalAnnotations()">
+                  @click="exportLocalAnnotations()"
+                >
                   Export Annotations
                 </el-button>
               </el-col>
@@ -90,10 +80,7 @@
       <template v-else>
         <el-row :gutter="20" justify="center" align="middle">
           <el-col :span="auto">
-            <el-button
-              size="small"
-              :icon="ElIconFolderOpened"
-              @click="exportLocalAnnotations()">
+            <el-button size="small" :icon="ElIconFolderOpened" @click="exportLocalAnnotations()">
               Export Annotations
             </el-button>
           </el-col>
@@ -110,9 +97,7 @@
           </el-col>
         </el-row>
         <el-row :gutter="20" justify="center" align="middle">
-          <el-col :span="12">
-            Quick Edit
-          </el-col>
+          <el-col :span="12">Quick Edit</el-col>
           <el-col :span="6">
             <el-switch
               v-model="quickEditOn"
@@ -122,7 +107,14 @@
           </el-col>
         </el-row>
         <el-row :gutter="20" justify="center" align="middle">
-          <el-popover placement="bottom" trigger="manual" :visible="infoVisible" width="550" popper-class="table-popover" :teleported="false">
+          <el-popover
+            placement="bottom"
+            trigger="manual"
+            :visible="infoVisible"
+            width="550"
+            popper-class="table-popover"
+            :teleported="false"
+          >
             <template #default>
               <NeedlesTable :needlesInfo="needlesInfo" />
             </template>
@@ -133,7 +125,7 @@
                 @click="infoVisible = !infoVisible"
                 :icon="ElIconDataAnalysis"
               >
-                {{ infoVisible ? "Hide Needles Info" : "Display Needles Info"}}
+                {{ infoVisible ? 'Hide Needles Info' : 'Display Needles Info' }}
               </el-button>
             </template>
           </el-popover>
@@ -179,14 +171,14 @@
 <script>
 /* eslint-disable no-alert, no-console */
 import { markRaw, shallowRef } from 'vue';
-import { ElMessage } from 'element-plus'
-import NeedlesTable from "./NeedlesTable.vue";
-import { readNIFTIFromSource } from "./niftiReader.js"
-import { SideBar } from "@abi-software/map-side-bar";
-import "@abi-software/map-side-bar/dist/style.css";
-import { ScaffoldVuer } from "@abi-software/scaffoldvuer";
-import scaffoldMixin from "../mixins/scaffold.vue";
-import "@abi-software/scaffoldvuer/dist/style.css";
+import { ElMessage } from 'element-plus';
+import NeedlesTable from './NeedlesTable.vue';
+import { readNIFTIFromSource } from './niftiReader.js';
+import { SideBar } from '@abi-software/map-side-bar';
+import '@abi-software/map-side-bar/dist/style.css';
+import { ScaffoldVuer } from '@abi-software/scaffoldvuer';
+import scaffoldMixin from '../mixins/scaffold.vue';
+import '@abi-software/scaffoldvuer/dist/style.css';
 import {
   DataAnalysis as ElIconDataAnalysis,
   EditPen as ElIconEditPen,
@@ -202,7 +194,7 @@ import {
   ElPopover as Popover,
   ElRow as Row,
   ElSwitch as Switch,
-} from "element-plus";
+} from 'element-plus';
 import 'element-plus/es/components/message/style/css'; // this is only needed if the page also used ElMessage
 
 const findNearbyPoints = (data, tolerance) => {
@@ -213,48 +205,36 @@ const findNearbyPoints = (data, tolerance) => {
     const intersects = data[0].extraData.intersects;
     for (let i = 0; i < intersects.length; i++) {
       if (distance > intersects[i].distance) {
-       if (intersects[i].object.userData?.isPointset) {
-        return intersects[i].object.userData;
-       }
+        if (intersects[i].object.userData?.isPointset) {
+          return intersects[i].object.userData;
+        }
       } else {
         return;
       }
     }
   }
-}
+};
 
-const convertFromPrimitivesName = original => {
-  let name = original.substring(0, original.indexOf(" "));
+const convertFromPrimitivesName = (original) => {
+  let name = original.substring(0, original.indexOf(' '));
   if (name) {
-    name = `${name.substring(0, 2)} ${name.substring(2, 4)}`
+    name = `${name.substring(0, 2)} ${name.substring(2, 4)}`;
   } else {
     name = original;
   }
   return name;
-}
+};
 
 const backViewport = {
-    "nearPlane": 1.5013817389693542,
-    "farPlane": 15013.81125645484,
-    "eyePosition": [
-        -79.66697327672085,
-        4502.629849904295,
-        753.9406181930069
-    ],
-    "targetPosition": [
-        -1.0555419921875,
-        -102.07274055480957,
-        782.4486846923828
-    ],
-    "upVector": [
-        0.00913897460936149,
-        0.006346713837116281,
-        0.9999380972673397
-    ]
+  nearPlane: 1.5013817389693542,
+  farPlane: 15013.81125645484,
+  eyePosition: [-79.66697327672085, 4502.629849904295, 753.9406181930069],
+  targetPosition: [-1.0555419921875, -102.07274055480957, 782.4486846923828],
+  upVector: [0.00913897460936149, 0.006346713837116281, 0.9999380972673397],
 };
 
 export default {
-  name: "TaraScaffoldVuer",
+  name: 'TaraScaffoldVuer',
   components: {
     Button,
     Col,
@@ -288,14 +268,11 @@ export default {
       needlesInfo: {},
       infoVisible: false,
       importing: false,
-      sidebarTabs: [
-        {title: 'Acupoints', id: 1, type: 'acupoints' },
-      ],
+      sidebarTabs: [{ title: 'Acupoints', id: 1, type: 'acupoints' }],
       messageSettings: {
         duration: 0,
-        message: "Downloading Texture"
-      }
-
+        message: 'Downloading Texture',
+      },
     };
   },
   props: {
@@ -314,10 +291,10 @@ export default {
         this.helpModeActiveItem = 0;
       }
     },
-    quickEditOn: function(value) {
+    quickEditOn: function (value) {
       if (value) {
         this.$refs.scaffold.$module.ignorePreviousSelected = true;
-        this.$refs.scaffold.viewingMode = "Exploration";
+        this.$refs.scaffold.viewingMode = 'Exploration';
       } else {
         this.$refs.scaffold.$module.ignorePreviousSelected = false;
       }
@@ -327,45 +304,43 @@ export default {
     this._createLinesLength = 100;
     const Zinc = this.$refs.scaffold.$module.Zinc;
     this._pickableObjects = [];
-    const scene  = this.$refs.scaffold.$module.scene;
-    this._rayCaster = new Zinc.RayCaster(
-      scene,
-      scene,
-      undefined,
-      undefined,
-    );
+    const scene = this.$refs.scaffold.$module.scene;
+    this._rayCaster = new Zinc.RayCaster(scene, scene, undefined, undefined);
     this.acupointsInfo = this.acupointsViewer;
   },
   methods: {
-    openHelp: function() {
-      window.open("https://github.com/ABI-Software/TARA-ScaffoldVuer/blob/acupoint/README.md#overview", "_blank")
+    openHelp: function () {
+      window.open(
+        'https://github.com/ABI-Software/TARA-ScaffoldVuer/blob/acupoint/README.md#overview',
+        '_blank',
+      );
     },
-    displayLabels: function() {
+    displayLabels: function () {
       if (this.acupointsLabelOn) {
-        this.glyphs.forEach(glyph => glyph.hideLabel());
+        this.glyphs.forEach((glyph) => glyph.hideLabel());
         this.acupointsLabelOn = false;
       } else {
-        this.glyphs.forEach(glyph => glyph.showLabel());
+        this.glyphs.forEach((glyph) => glyph.showLabel());
         this.acupointsLabelOn = true;
       }
     },
-    frontView: function() {
-      const control  = this.$refs.scaffold.$module.scene.getZincCameraControls();
+    frontView: function () {
+      const control = this.$refs.scaffold.$module.scene.getZincCameraControls();
       control.resetView();
     },
-    backView: function() {
-      const control  = this.$refs.scaffold.$module.scene.getZincCameraControls();
+    backView: function () {
+      const control = this.$refs.scaffold.$module.scene.getZincCameraControls();
       control.setCurrentCameraSettings(backViewport);
     },
-    setBodyScaffoldPickable: function(flag) {
+    setBodyScaffoldPickable: function (flag) {
       if (this.bodyScaffold) {
         this.bodyScaffold.setIsPickable(flag);
       }
     },
     objectAdded: function (zincObject) {
       if (!zincObject.isLines2) {
-        const regionName = zincObject.region?.getName()
-        if (regionName && regionName === "skin") {
+        const regionName = zincObject.region?.getName();
+        if (regionName && regionName === 'skin') {
           zincObject.setIsPickable(false);
           this.bodyScaffold = markRaw(zincObject);
         }
@@ -378,25 +353,24 @@ export default {
           zincObject.setColourHex(0xff5724);
           this.addAcupointsInfo(zincObject, false);
         } else {
-          if (zincObject.groupName === "undefined" &&
-            zincObject._lod?._material?.side) {
-            zincObject._lod._material.side =  THREE.FrontSide;
+          if (zincObject.groupName === 'undefined' && zincObject._lod?._material?.side) {
+            zincObject._lod._material.side = THREE.FrontSide;
           }
         }
       } else {
-        this.userPrimitivesUpdated({zincObject});
+        this.userPrimitivesUpdated({ zincObject });
       }
     },
     screenCapture: function () {
-      this.$refs.scaffold.captureScreenshot("capture.png");
+      this.$refs.scaffold.captureScreenshot('capture.png');
     },
     onReady: async function () {
       const viewer = this.$refs.scaffold;
       viewer.offlineAnnotationEnabled = true;
       const bounds = viewer.$module.scene.getBoundingBox();
-      const d = bounds.max.distanceTo( bounds.min );
+      const d = bounds.max.distanceTo(bounds.min);
       this._createLinesLength = d / 6.0;
-      if (this.consoleOn) console.log("Lines length", this._createLinesLength);
+      if (this.consoleOn) console.log('Lines length', this._createLinesLength);
       this.readAcupoints();
       const Zinc = this.$refs.scaffold.$module.Zinc;
       if (this.textureUrl) {
@@ -413,7 +387,7 @@ export default {
             message: 'Texture loaded Successfully',
             showClose: true,
             duration: 6000,
-            type: "success",
+            type: 'success',
             appendTo: ele,
           });
           original.close();
@@ -423,7 +397,7 @@ export default {
             message: 'Unable to load texture',
             showClose: true,
             duration: 6000,
-            type: "error",
+            type: 'error',
             appendTo: ele,
           });
           original.close();
@@ -435,7 +409,7 @@ export default {
       if (this.consoleOn) console.log(myViewer.createData);
       //changing shape like this will create a reactive issue.
       if (coord && normal) {
-        myViewer.createData.shape = "LineString";
+        myViewer.createData.shape = 'LineString';
         this.$nextTick(() => {
           const newCoords = [
             coord[0] + normal.x * this._createLinesLength,
@@ -481,7 +455,7 @@ export default {
         control.setCurrentCameraSettings(viewport);
       }
     },
-    findNearestPointAndNormalFromObject: function(zincObject) {
+    findNearestPointAndNormalFromObject: function (zincObject) {
       if (this.bodyScaffold) {
         const worldPoint = new THREE.Vector3();
         zincObject.getBoundingBox().getCenter(worldPoint);
@@ -513,7 +487,7 @@ export default {
             }
           }
         }
-        return({ point: closestPoint, normal: closestNormal });
+        return { point: closestPoint, normal: closestNormal };
       }
       return undefined;
     },
@@ -535,19 +509,21 @@ export default {
                 this.$refs.sideBar.openAcupointsSearch(label);
               }
               if (this.alignPoint && data.length === 1 && zincObject.isGlyphset) {
-                const {point, normal} = this.findNearestPointAndNormalFromObject(
-                  zincObject);
+                const { point, normal } = this.findNearestPointAndNormalFromObject(zincObject);
                 this.setViewWithPointAndNormalV3(point, normal);
               }
-            } else if (this.quickEditOn && data[0].extraData.worldCoords &&
-                data[0].extraData.intersected?.face) {
+            } else if (
+              this.quickEditOn &&
+              data[0].extraData.worldCoords &&
+              data[0].extraData.intersected?.face
+            ) {
               this.addPoint(data, data[0].extraData.worldCoords);
             }
           }
         } else if (this.quickEditOn && data[0].extraData.worldCoords) {
           //Try to look for point within tolerance
           const points = findNearbyPoints(data, this.pointTolerance);
-            //Look for the surface underneath a point
+          //Look for the surface underneath a point
           if (points && points?.isPointset) {
             const intersects = data[0].extraData.intersects;
             if (intersects) {
@@ -555,7 +531,11 @@ export default {
               for (let i = 0; i < intersects.length && !found; i++) {
                 if (intersects[i].face) {
                   found = true;
-                  const coord = [intersects[i].point.x, intersects[i].point.y ,intersects[i].point.z];
+                  const coord = [
+                    intersects[i].point.x,
+                    intersects[i].point.y,
+                    intersects[i].point.z,
+                  ];
                   this.addLinesWithNormal(data, coord, intersects[i].face.normal);
                 }
               }
@@ -570,9 +550,6 @@ export default {
 };
 </script>
 
-
 <style scoped lang="scss">
-
-@import "../assets/styles.scss";
-
+@import '../assets/styles.scss';
 </style>

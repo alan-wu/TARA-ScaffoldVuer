@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+test-html
 *.local
 
 # Editor directories and files
@@ -33,3 +34,4 @@ cypress/screenshots
 cypress/reports
 cypress/videos
 cypress.env.json
+

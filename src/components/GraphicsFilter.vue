@@ -31,7 +31,7 @@
         value="Others"
         @change="changedEvent('Others', $event)"
       >
-         Others
+        Others
       </el-checkbox-button>
     </el-checkbox-group>
   </div>
@@ -46,13 +46,13 @@ import {
   ElCol as Col,
   ElContainer as Container,
   ElRow as Row,
-} from "element-plus";
+} from 'element-plus';
 
 /**
  * A component to control the opacity of the target object.
  */
 export default {
-  name: "GraphicsFilter",
+  name: 'GraphicsFilter',
   components: {
     Checkbox,
     CheckboxButton,
@@ -62,26 +62,26 @@ export default {
     Row,
   },
   props: {
-    filtersList : {
+    filtersList: {
       type: Array,
       default: [],
     },
-    includeOthers : {
+    includeOthers: {
       type: Boolean,
       default: false,
     },
   },
-  data: function() {
+  data: function () {
     return {
       checkAll: true,
       filters: [],
       isIndeterminate: false,
       oldValue: undefined,
-    }
+    };
   },
   methods: {
-    changedEvent: function(meridian, flag) {
-      this.$emit("toggleMeridian", {meridian, flag});
+    changedEvent: function (meridian, flag) {
+      this.$emit('toggleMeridian', { meridian, flag });
       this.isIndeterminate = true;
       let count = this.filtersList.length;
       if (this.includeOthers) count = count + 1;
@@ -93,20 +93,20 @@ export default {
         this.isIndeterminate = false;
       }
     },
-    handleCheckAllChange: function(flag) {
+    handleCheckAllChange: function (flag) {
       if (flag === true) {
         this.checkAll = true;
         this.isIndeterminate = false;
-        this.filters = [...this.filtersList]
-        if (this.includeOthers) this.filters.push("Others");
+        this.filters = [...this.filtersList];
+        if (this.includeOthers) this.filters.push('Others');
         this.filters.forEach((meridian) => {
-          this.$emit("toggleMeridian", {meridian, flag});
+          this.$emit('toggleMeridian', { meridian, flag });
         });
       } else {
         this.checkAll = false;
         this.isIndeterminate = false;
         this.filters.forEach((meridian) => {
-          this.$emit("toggleMeridian", {meridian, flag});
+          this.$emit('toggleMeridian', { meridian, flag });
         });
         this.filters.length = 0;
       }
@@ -116,27 +116,26 @@ export default {
     filtersList: {
       handler: function (newValue) {
         if (this.oldValue) {
-          newValue.forEach(newKey => {
+          newValue.forEach((newKey) => {
             if (!this.oldValue.includes(newKey)) {
               this.filters.push(newKey);
             }
           });
         } else {
           this.filters.length = 0;
-          newValue.forEach(newKey => {
+          newValue.forEach((newKey) => {
             this.filters.push(newKey);
           });
         }
         this.oldValue = [...newValue];
         //Check if there is any filter that has been removed
         for (let i = this.filters.length - 1; i >= 0; i--) {
-          if (this.filters[i] !== "Others") {
-            if (!(this.filtersList.includes(this.filters[i]))) {
+          if (this.filters[i] !== 'Others') {
+            if (!this.filtersList.includes(this.filters[i])) {
               this.filters.splice(i, 1);
             }
           }
         }
-
       },
       deep: true,
       immediate: true,
@@ -144,7 +143,7 @@ export default {
     includeOthers: {
       handler: function (newValue) {
         if (newValue) {
-          this.filters.push("Others")
+          this.filters.push('Others');
         } else {
           const index = this.filters.indexOf('Others');
           if (index > -1) {
@@ -153,14 +152,13 @@ export default {
         }
       },
       immediate: true,
-    }
+    },
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
 :deep(.checkbox-group) {
   margin-top: 8px;
   margin-bottom: 8px;
@@ -168,18 +166,18 @@ export default {
 
 :deep(.standard) {
   .el-checkbox-button__inner {
-    width:35px;
+    width: 35px;
   }
 }
 
 :deep(.el-checkbox-button) {
-  border-left:1px solid rgb(220,223,230);
+  border-left: 1px solid rgb(220, 223, 230);
 }
 
 .display {
   font-size: 14px;
   width: 44px;
-  padding-bottom:4px;
+  padding-bottom: 4px;
 }
 
 .main {
@@ -197,5 +195,4 @@ export default {
 .checkbox-all {
   height: 20px;
 }
-
 </style>

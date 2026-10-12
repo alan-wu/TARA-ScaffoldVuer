@@ -1,5 +1,5 @@
-import pluginVue from 'eslint-plugin-vue'
-import stylisticJs from '@stylistic/eslint-plugin-js'
+import pluginVue from 'eslint-plugin-vue';
+import stylisticJs from '@stylistic/eslint-plugin-js';
 
 export default [
   // add more generic rulesets here,
@@ -14,6 +14,6 @@ export default [
       'no-unused-vars': 'error',
       'no-undef': 'error',
       '@stylistic/js/semi': 'warn',
-    }
-  }
-]
+    },
+  },
+];

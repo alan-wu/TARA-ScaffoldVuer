@@ -30,7 +30,7 @@ import TaraScaffoldVuer from './components/TaraScaffoldVuer.vue';
 
 <script>
 export default {
-  name: "app",
+  name: 'app',
   data: function () {
     return {
       /* Settings for standard viewer */
@@ -40,7 +40,7 @@ export default {
       /*
        * modes: simple, acupoints and needles
        */
-      mode: "simple",
+      mode: 'simple',
       acupointsViewer: true,
       confirmRequired: false,
       //url: "https://mapcore-bucket1.s3.us-west-2.amazonaws.com/tara/whole_body-30-1-25/human_body_acupoints_metadata.json",
@@ -51,15 +51,15 @@ export default {
       maskURL: undefined,
       acupoints: import.meta.env.VITE_ACUPOINTS_API,
       demo: false,
-    }
+    };
   },
-  created: function() {
-    if (document) document.title = "Tara Acupoints Viewer"
+  created: function () {
+    if (document) document.title = 'Tara Acupoints Viewer';
   },
   methods: {
-    sidebarMounted: function() {
+    sidebarMounted: function () {
       this.$router.isReady().then(async () => {
-        if (Object.keys(this.$route.query).includes("demo")) {
+        if (Object.keys(this.$route.query).includes('demo')) {
           this.$refs.viewer?.setupDemo();
         }
       });
@@ -83,22 +83,21 @@ export default {
         } else {
           this.maskURL = import.meta.env.VITE_MASK_LOCATION;
         }
-        if (Object.keys(query).includes("tbc")) {
+        if (Object.keys(query).includes('tbc')) {
           this.confirmRequired = true;
         }
       });
     },
   },
-  mounted: function() {
+  mounted: function () {
     this.waitForRouter();
   },
-}
-
+};
 </script>
 
 <style>
 #app {
-  font-family: "Asap", sans-serif;
+  font-family: 'Asap', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

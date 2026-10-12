@@ -3,7 +3,7 @@ name: Deploy Docs to Pages
 on:
   # Runs on pushes targeting the `docs` branch and `main` branch.
   push:
-    branches: ["docs", "main"]
+    branches: ['docs', 'main']
     paths-ignore:
       - '.vscode/**'
       - 'cypress/**'
