@@ -41,8 +41,8 @@
   },
   "dependencies": {
     "@abi-software/map-side-bar": "^2.14.1-beta.0",
-    "@abi-software/map-utilities": "1.11.0",
-    "@abi-software/scaffoldvuer": "^1.21.1-beta.4",
+    "@abi-software/map-utilities": "1.12.0",
+    "@abi-software/scaffoldvuer": "^2.0.1",
     "element-plus": "^2.14.5",
     "nifti-reader-js": "^0.8.0",
     "pinia": "^4.0.3",
@@ -56,6 +56,7 @@
     "concurrently": "^8.2.2",
     "eslint": "^10.9.1",
     "eslint-plugin-vue": "^10.10.0",
+    "prettier": "3.9.6",
     "sass": "^1.103.1",
     "unplugin-vue-components": "32.1.0",
     "vite": "^8.2.1",
