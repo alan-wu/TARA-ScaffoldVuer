@@ -58,26 +58,16 @@ const getMeridian = (original) => {
 };
 
 const parseAcupointsData = (data, genderIn) => {
+  const keyMap = {};
+  const fields = data['head']['vars'];
+  fields.forEach(item => {
+    const name = item.replace('_', ' ');
+    keyMap[name] = item;
+  });
+  console.log(keyMap)
+
   const list = data['results']['bindings'];
   const parsed = {};
-  const keyMap = {
-    Acupoint: 'Acupoint',
-    'Acupuncture Method': 'Acupuncture_Method',
-    Synonym: 'Synonym',
-    Meridian: 'Meridian',
-    'Pinyin Name': 'Pinyin_Name',
-    'Chinese Name': 'Chinese_Name',
-    Location: 'Location',
-    'Locational Anatomy': 'Locational_Anatomy',
-    Reference: 'Reference',
-    Innervation: 'Innervation',
-    'Nearby Nerve': 'Nearby_Nerve',
-    Vasculature: 'Vasculature',
-    'Nearby Artery': 'Nearby_Artery',
-    'Nearby Vein': 'Nearby_Vein',
-    'Special Point Role': 'Special_Point_Role',
-    Link: 'Acupoint_IRI',
-  };
 
   list.forEach((item) => {
     const name = item['Acupoint']['value'];
