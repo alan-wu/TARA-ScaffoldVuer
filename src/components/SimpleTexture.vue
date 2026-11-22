@@ -250,6 +250,8 @@ export default {
         duration: 0,
         message: 'Downloading Texture',
       },
+      showTextureOnClick: false,
+      texture: undefined,
       mURL: undefined,
       sURL: undefined,
       tURL: undefined,
@@ -562,6 +564,7 @@ export default {
           newTexture.setVisibility(false);
           newTexture.setBrightness(0.38);
           newTexture.setContrast(3.5);
+          this.texture = markRaw(newTexture);
         } else {
           ElMessage({
             message: 'Unable to load texture',
@@ -589,8 +592,15 @@ export default {
                 label = convertFromPrimitivesName(data[0].data.group);
               }
               if (this.intMode === 'View') {
-                if (label && label.trim() && this.$refs.sideBar) {
-                  //this.$refs.sideBar.openAcupointsSearch(label);
+                if (label && label.trim()) {
+                  if (this.texture && this.showTextureOnClick) {
+                    if (data[0]?.extraData.worldCoords) {
+                      const normalised = this.texture.getPositionInBox(data[0]?.extraData.worldCoords);
+                      const z = normalised[2];
+                      const newSettings = { direction: 'z', value: z };
+                      this.texture.createSlide(newSettings);
+                    }
+                  }
                 }
               }
               if (zincObject.isPointset && zincObject.isEditable) {
